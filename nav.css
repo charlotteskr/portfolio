@@ -1,0 +1,87 @@
+/* ── NAV ──
+   Delt navigasjonsstyling for alle sider. Lenkes inn i <head> på hver side.
+   Forutsetter at siden selv definerer --side, --ink og --white.
+*/
+
+/* Full bredde: bakgrunn og blur går helt ut til kantene. */
+#navContainer {
+  color: black !important;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+}
+
+/* Samme boks som sideinnholdet (main / .project-hero / .project-section),
+   slik at nav-teksten står på nøyaktig samme linje som innholdet under. */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem var(--side);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links a:hover { text-decoration: underline; }
+
+/* hamburger — mobile only */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--ink);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--white);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  nav { justify-content: flex-end; }
+}

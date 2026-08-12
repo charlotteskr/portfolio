@@ -1,0 +1,67 @@
+
+/* ── PROJECT HERO ── */
+.project-hero {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem var(--side) 3rem;
+}
+.project-hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+.project-hero-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 45ch;
+}
+
+/* ── PROJECT SECTIONS ── */
+.project-section {
+  padding: clamp(3rem, 6vw, 6rem) var(--side);
+  border-top: 1px solid var(--light);
+}
+.project-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.project-section-body {
+  color: var(--muted);
+  max-width: 65ch;
+  line-height: 1.8;
+}
+
+/* ── FOOTER ── */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem var(--side);
+  border-top: 1px solid var(--light);
+}
+.footer-back {
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-back:hover { text-decoration: underline; }
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── RESPONSIVE ── */
+@media (min-width: 1280px) {
+  .project-hero, .project-section, .project-footer {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
