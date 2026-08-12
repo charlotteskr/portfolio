@@ -12,10 +12,23 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-back">← tilbake</a>
-    <span class="nav-title">Mjøspromenaden</span>
+  <nav id="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html#hjem">hjem</a></li>
+      <li><a href="index.html#prosjekter">prosjekter</a></li>
+      <li><a href="index.html#kontakt">kontakt</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Meny">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#hjem" class="mobile-link">hjem</a>
+    <a href="index.html#prosjekter" class="mobile-link">prosjekter</a>
+    <a href="index.html#kontakt" class="mobile-link">kontakt</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -452,30 +465,19 @@
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
-  <section class="deliverables-section">
+  <!-- REFLECTION -->
+  <section class="reflection-section">
     <div class="section-eyebrow reveal">
       <div class="eyebrow-dot" style="background:var(--yellow);"></div>
-      <span class="eyebrow-text">Leveranser</span>
+      <span class="eyebrow-text">Oppsummering</span>
     </div>
-    <h2 class="section-title reveal">Hva ble levert</h2>
-    <div class="deliverables-row">
-      <div class="deliverable reveal">
-        <div class="deliverable-num" style="color:var(--coral);">01</div>
-        <div class="deliverable-title">Logo &amp; visuell identitet</div>
-        <p class="deliverable-desc">Utarbeidet en tydelig logo for Mjøspromenaden, med en profil som matcher Gjøvik kommunes grafiske profil og kan brukes konsekvent på tvers av medier.</p>
-      </div>
-      <div class="deliverable reveal reveal-delay-1">
-        <div class="deliverable-num" style="color:var(--sky);">02</div>
-        <div class="deliverable-title">Områdekart</div>
-        <p class="deliverable-desc">Et tilgjengelig kart over Mjøspromenaden med tydelige stedsnavn og landemerker, designet for bruk i skiltstolper og brosjyrer.</p>
-      </div>
-      <div class="deliverable reveal reveal-delay-2">
-        <div class="deliverable-num" style="color:var(--orange);">03</div>
-        <div class="deliverable-title">Skiltstolpe</div>
-        <p class="deliverable-desc">Fysisk infoskilting designet for utendørs bruk langs Mjøspromenaden — informasjon tilgjengelig uten avhengighet av internett og strøm.</p>
-      </div>
-    </div>
+    <h2 class="section-title reveal">Refleksjon over prosessen</h2>
+    <p class="section-body reveal">
+      Prosjektet utfordret oss til å se helheten av brukeropplevelsen, og bryte det ned til
+      konkrete deler og hente ut hva som var viktigst. Oppgaven utfordret meg som
+      interaksjonsdesigner ved å se på hvordan flere deler av løsningen jobber sammen for å
+      skape en helhetlig løsning.
+    </p>
   </section>
 
   <!-- FOOTER -->
@@ -485,6 +487,22 @@
   </footer>
 
   <script>
+    // Mobile nav menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
     // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {

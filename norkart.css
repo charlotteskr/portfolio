@@ -16,6 +16,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 1rem;
+  line-height: 1.7;
   min-height: 100vh;
 }
 
@@ -35,11 +36,9 @@ nav {
 
 .nav-links {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  gap: 2.5rem;
   list-style: none;
 }
-
 .nav-links a {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -49,7 +48,6 @@ nav {
 }
 .nav-links a:hover { text-decoration: underline; }
 
-/* hamburger — mobile only */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -87,110 +85,73 @@ nav {
   text-decoration: none;
 }
 
-/* ── MAIN CONTENT ── */
-main {
-  padding: 6rem var(--side) 0;
-}
-
-/* ── NAME ── */
-.hero-name {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
-  letter-spacing: 0.01em;
-  margin: 0 0 3rem;
-}
-
-/* ── PROJECT LIST ── */
-.projects-list {
+/* ── PROJECT HERO ── */
+.project-hero {
+  min-height: 55vh;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin-bottom: 3rem;
+  justify-content: center;
+  padding: 6rem var(--side) 3rem;
 }
-
-.project-item {
-  display: block;
-  font-family: 'Roboto', sans-serif;
+.project-hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
   font-weight: 300;
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: var(--ink);
-  text-decoration: none;
-  padding: 0.55rem 0;
-  transition: opacity 0.2s;
+  letter-spacing: -0.01em;
 }
-.project-item:hover { opacity: 0.5; }
-
-/* ── IMAGE BLOCK ── */
-.image-block {
-  width: 100%;
-  aspect-ratio: 16 / 5;
-  background: var(--light);
-  margin-bottom: 4rem;
+.project-hero-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 45ch;
 }
 
-/* ── CONTACT / FOOTER ── */
-.contact {
-  padding: 0 var(--side);
-  padding-bottom: 1rem;
+/* ── PROJECT SECTIONS ── */
+.project-section {
+  padding: clamp(3rem, 6vw, 6rem) var(--side);
+  border-top: 1px solid var(--light);
 }
-
-.contact-link {
-  display: block;
-  font-family: 'Roboto', sans-serif;
+.project-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 300;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: var(--ink);
-  text-decoration: none;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
 }
-.contact-link:hover { text-decoration: underline; }
+.project-section-body {
+  color: var(--muted);
+  max-width: 65ch;
+  line-height: 1.8;
+}
 
-footer {
-  padding: 1.5rem var(--side) 1.5rem;
-  margin-top: 0.5rem;
+/* ── FOOTER ── */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem var(--side);
+  border-top: 1px solid var(--light);
 }
+.footer-back {
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.footer-back:hover { text-decoration: underline; }
 .footer-copy {
   font-size: 0.72rem;
   color: var(--muted);
   font-weight: 300;
 }
 
-/* ── RESPONSIVE ──
-   Breakpoints: mobil ≤640px · tablet 641–1023px · laptop 1024–1279px · widescreen ≥1280px
-   Det meste av oppsettet er allerede flytende (clamp), så breakpoints under
-   dekker kun de stedene layouten faktisk trenger å endre seg.
-*/
-
-/* Mobil */
+/* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
-
-  nav {
-    justify-content: flex-end;
-  }
-
-  .hero-name { margin: 0 0 2rem; }
-  .image-block { aspect-ratio: 4/3; }
+  nav { justify-content: flex-end; }
 }
 
-/* Tablet: 641px – 1023px */
-@media (min-width: 641px) and (max-width: 1023px) {
-  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
-}
-
-/* Laptop: 1024px – 1279px */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
-}
-
-/* Widescreen: ≥1280px — hindre at innholdet strekker seg for bredt */
 @media (min-width: 1280px) {
-  main,
-  .contact,
-  nav {
+  nav, .project-hero, .project-section, .project-footer {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
