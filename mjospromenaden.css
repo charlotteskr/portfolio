@@ -38,11 +38,11 @@ nav {
   padding: 1.2rem var(--side);
   background: rgba(247,245,241,0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--sand);
 }
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  justify-content: space-between;
+  width: 100%;
   list-style: none;
 }
 .nav-links a {
