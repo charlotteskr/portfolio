@@ -360,7 +360,7 @@
       </div>
 
       <div class="proto-display reveal">
-        <div class="proto-visual" id="protoVisual" style="background: color-mix(in srgb, var(--coral) 20%, transparent);">
+        <div class="proto-visual" id="protoVisual">
           <img id="protoVisualImg" class="proto-visual-img" src="bilder/Logo.svg" alt="Logo">
         </div>
 
@@ -518,7 +518,6 @@
     // Interactive prototype tabs
     const protoTabs = document.querySelectorAll('.proto-tab');
     const protoContents = document.querySelectorAll('.proto-content');
-    const protoVisual = document.getElementById('protoVisual');
     const protoVisualImg = document.getElementById('protoVisualImg');
 
     const protoImages = [
@@ -531,7 +530,6 @@
       'bilder/brosjyre.webp'
     ];
     const protoAlts = ['Logo', 'Stedsnavn og landemerke', 'Områdekart', 'Skiltstolpe', 'Gjøvikkommune.no', 'Google Maps', 'Brosjyre'];
-    const protoColorVars = ['--coral', '--pink', '--sky', '--orange', '--yellow', '--pink', '--coral'];
 
     protoTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -543,8 +541,6 @@
 
         protoVisualImg.src = protoImages[idx];
         protoVisualImg.alt = protoAlts[idx];
-        const colorVar = protoColorVars[idx];
-        protoVisual.style.background = `color-mix(in srgb, var(${colorVar}) 20%, transparent)`;
       });
     });
   </script>
