@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charlotte Skråmestø</title>
+  <title>Kontakt — Charlotte Skråmestø</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
@@ -13,24 +13,18 @@
 </head>
 <body>
 
-  {% include nav.html home=true %}
+  {% include nav.html %}
 
   <!-- MAIN -->
-  <main id="hjem">
-
-    <!-- Name -->
-    <h1 class="hero-name">charlotte skråmestø</h1>
-
-    <!-- Projects -->
-    <div class="projects-list" id="prosjekter">
-      <a class="project-item" href="storebrand.html">storebrand</a>
-      <a class="project-item" href="ks-kunnskap.html">ks kunnskap</a>
-      <a class="project-item" href="mjospromenaden.html">mjøspromenaden</a>
-      <a class="project-item" href="smart.html">smArt</a>
-      <a class="project-item" href="norkart.html">norkart</a>
-    </div>
-
+  <main>
+    <h1 class="hero-name">kontakt</h1>
   </main>
+
+  <!-- Contact -->
+  <section class="contact">
+    <a href="mailto:charlotteskramesto@gmail.com" class="contact-link">charlotteskramesto@gmail.com</a>
+    <a href="https://www.linkedin.com/in/charlotte-skr%C3%A5mest%C3%B8-290445144/" target="_blank" rel="noopener" class="contact-link">linkedin</a>
+  </section>
 
   {% include footer.html %}
 

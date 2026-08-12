@@ -1,0 +1,16 @@
+<!-- NAV -->
+<nav id="navbar">
+  <ul class="nav-links">
+    <li><a href="{% if include.home %}#{% else %}index.html#{% endif %}hjem">hjem</a></li>
+    <li><a href="kontakt.html">kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% if include.home %}#{% else %}index.html#{% endif %}hjem" class="mobile-link">hjem</a>
+  <a href="kontakt.html" class="mobile-link">kontakt</a>
+</div>
