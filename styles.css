@@ -151,7 +151,13 @@ footer {
   font-weight: 300;
 }
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE ──
+   Breakpoints: mobil ≤640px · tablet 641–1023px · laptop 1024–1279px · widescreen ≥1280px
+   Det meste av oppsettet er allerede flytende (clamp), så breakpoints under
+   dekker kun de stedene layouten faktisk trenger å endre seg.
+*/
+
+/* Mobil */
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
@@ -162,4 +168,25 @@ footer {
 
   .hero-name { margin: 2rem 0 2rem; }
   .image-block { aspect-ratio: 4/3; }
+}
+
+/* Tablet: 641px – 1023px */
+@media (min-width: 641px) and (max-width: 1023px) {
+  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
+}
+
+/* Laptop: 1024px – 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
+}
+
+/* Widescreen: ≥1280px — hindre at innholdet strekker seg for bredt */
+@media (min-width: 1280px) {
+  main,
+  .contact,
+  nav {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
