@@ -1,5 +1,20 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── BREAKPOINTS ──
+   Mobile first: alt utenfor en @media gjelder telefon, og hver
+   @media (min-width) bygger på oppover. Samme skala i alle CSS-filene:
+
+     base       telefon (til 480px)
+     ≥ 481px    stor telefon
+     ≥ 641px    nettbrett — nav-en bytter fra hamburger til lenker
+     ≥ 769px    stort nettbrett — flerkolonne-oppsett slår inn
+     ≥ 901px    laptop
+     ≥ 1280px   widescreen — innholdet får en maksbredde
+
+   Legg aldri en «mindre enn»-regel her; skal noe bare gjelde smått,
+   er det basisregelen, og den større varianten legges i en min-width.
+*/
+
 :root {
   --white: #ffffff;
   --ink: #000000;
@@ -23,7 +38,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 1rem;
+  /* svh = viewporten slik den er når nettleserens adressefelt er synlig.
+     Med vh blir siden høyere enn skjermen på mobil, og innholdet hopper
+     når adressefeltet trekker seg bort under scroll. */
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 /* ── NAME ── */
@@ -33,7 +52,7 @@ body {
   font-weight: 300;
   font-size: clamp(2.6rem, 6vw, 5.2rem);
   letter-spacing: 0.01em;
-  margin: 0 0 3rem;
+  margin: 0 0 2rem;
   padding-top: 6rem;
 }
 
@@ -47,7 +66,11 @@ body {
 }
 
 .project-item {
-  display: block;
+  /* flex + min-height gir en treffflate på 44px uansett fontstørrelse.
+     Under det blir lenkene vanskelige å treffe med tommelen. */
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: clamp(1rem, 2vw, 1.15rem);
@@ -61,7 +84,7 @@ body {
 /* ── IMAGE BLOCK ── */
 .image-block {
   width: 100%;
-  aspect-ratio: 16 / 5;
+  aspect-ratio: 4 / 3;
   background: var(--light);
   margin-bottom: 4rem;
 }
@@ -73,7 +96,9 @@ body {
 }
 
 .contact-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: clamp(0.9rem, 1.5vw, 1rem);
@@ -93,29 +118,19 @@ footer {
   font-weight: 300;
 }
 
-/* ── RESPONSIVE ──
-   Breakpoints: mobil ≤640px · tablet 641–1023px · laptop 1024–1279px · widescreen ≥1280px
-   Det meste av oppsettet er allerede flytende (clamp), så breakpoints under
-   dekker kun de stedene layouten faktisk trenger å endre seg.
-*/
+/* ── ≥ 641px — nettbrett ── */
+@media (min-width: 641px) {
+  .hero-name { margin: 0 0 3rem; }
 
-/* Mobil */
-@media (max-width: 640px) {
-  .hero-name { margin: 0 0 2rem; }
-  .image-block { aspect-ratio: 4/3; }
+  .image-block { aspect-ratio: 16 / 5; }
+
+  /* Med mus er 44px unødvendig; tilbake til den tettere linjeavstanden. */
+  .project-item,
+  .contact-link { min-height: 0; display: block; }
 }
 
-/* Tablet: 641px – 1023px */
-@media (min-width: 641px) and (max-width: 1023px) {
-  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
-}
-
-/* Laptop: 1024px – 1279px */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  /* Ingen overstyringer nødvendig ennå – legg til her ved behov */
-}
-
-/* Widescreen: ≥1280px — hindre at innholdet strekker seg for bredt */
+/* ── ≥ 1280px — widescreen ──
+   Hindre at innholdet strekker seg for bredt. */
 @media (min-width: 1280px) {
   body,
   .contact {

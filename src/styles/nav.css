@@ -1,5 +1,6 @@
 /* ── NAV ──
-   Delt navigasjonsstyling for alle sider. Lenkes inn i <head> på hver side.
+   Delt navigasjonsstyling for alle sider. Mobile first: basis er
+   hamburgermenyen, og lenkene i rad slås på fra 641px.
    Forutsetter at siden selv definerer --side, --ink og --white.
 */
 
@@ -18,7 +19,7 @@
    slik at nav-teksten står på nøyaktig samme linje som innholdet under. */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
@@ -26,7 +27,7 @@ nav {
 }
 
 .nav-links {
-  display: flex;
+  display: none;
   justify-content: space-between;
   width: 100%;
   list-style: none;
@@ -41,20 +42,31 @@ nav {
 }
 .nav-links a:hover { text-decoration: underline; }
 
-/* hamburger — mobile only */
+/* ── HAMBURGER ── */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   background: none;
   border: none;
+  position: relative;
 }
 .hamburger span {
   display: block;
   width: 22px; height: 1px;
   background: var(--ink);
   transition: transform 0.3s, opacity 0.3s;
+}
+/* Selve stripene er bare 22×13px. ::after legger en usynlig 44×44-treffflate
+   oppå uten å flytte stripene, så knappen holder seg optisk på linje med
+   --side samtidig som den er stor nok å treffe med tommelen. */
+.hamburger::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -79,9 +91,9 @@ nav {
   text-decoration: none;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  nav { justify-content: flex-end; }
+/* ── ≥ 641px — nettbrett: lenker i rad, ingen hamburger ── */
+@media (min-width: 641px) {
+  nav { justify-content: space-between; }
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
 }

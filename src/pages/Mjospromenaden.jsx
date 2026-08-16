@@ -268,8 +268,20 @@ export default function Mjospromenaden() {
           </div>
 
           <div className="proto-display reveal">
-            <div className="proto-visual" id="protoVisual">
-              <img className="proto-visual-img" src={proto.image} alt={proto.alt} />
+            {/* --ratio gir rammen bildets eget format, så bildet fyller den
+                helt. width/height reserverer plassen før bildet er lastet. */}
+            <div
+              className="proto-visual"
+              id="protoVisual"
+              style={{ '--ratio': proto.width / proto.height }}
+            >
+              <img
+                className="proto-visual-img"
+                src={proto.image}
+                alt={proto.alt}
+                width={proto.width}
+                height={proto.height}
+              />
             </div>
 
             <div>

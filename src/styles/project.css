@@ -1,7 +1,11 @@
+/* Mal for prosjektsidene som ennå ikke har eget innhold.
+   Mobile first — se breakpoint-skalaen øverst i styles.css. */
 
 /* ── PROJECT HERO ── */
 .project-hero {
+  /* svh, ikke vh: se kommentaren på body i styles.css */
   min-height: 55vh;
+  min-height: 55svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +15,8 @@
   font-size: clamp(2.4rem, 6vw, 4.5rem);
   font-weight: 300;
   letter-spacing: -0.01em;
+  /* Lange prosjektnavn skal brytes, ikke stikke ut av skjermen. */
+  overflow-wrap: break-word;
 }
 .project-hero-note {
   margin-top: 1rem;
@@ -46,6 +52,9 @@
   border-top: 1px solid var(--light);
 }
 .footer-back {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--ink);
   font-size: 0.85rem;
   text-decoration: none;
@@ -57,7 +66,12 @@
   font-weight: 300;
 }
 
-/* ── RESPONSIVE ── */
+/* ── ≥ 641px — nettbrett ── */
+@media (min-width: 641px) {
+  .footer-back { min-height: 0; display: inline-block; }
+}
+
+/* ── ≥ 1280px — widescreen ── */
 @media (min-width: 1280px) {
   .project-hero, .project-section, .project-footer {
     max-width: 1400px;
