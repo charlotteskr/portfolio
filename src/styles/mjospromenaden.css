@@ -1,6 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Alt her gjelder kun Mjøspromenaden-siden. Med ett samlet CSS-bundle ville
+   :root-tokenene og footer-reglene under lekket ut til de andre sidene, så de
+   er scopet til body.case-mjos — klassen settes av selve siden. */
 
-:root {
+body.case-mjos {
   --navy: #102A56;
   --coral: #FF867D;
   --sky: #57C4E0;
@@ -214,6 +216,14 @@ section {
   z-index: 0;
 }
 
+/* .process-step og .proto-tab er <button> for at de skal kunne nås med
+   tastatur. Nullstiller nettleserens knappestiler så de ser ut som før. */
+.process-step,
+.proto-tab {
+  font: inherit;
+  color: inherit;
+  appearance: none;
+}
 .process-step {
   flex: 1;
   min-width: 0;
@@ -221,6 +231,9 @@ section {
   cursor: pointer;
   padding-top: 0;
   z-index: 1;
+  background: none;
+  border: none;
+  text-align: inherit;
 }
 
 .process-node {
@@ -538,20 +551,19 @@ section {
 }
 
 .proto-visual {
-  aspect-ratio: 1;
+  /* 2:1 gir halve høyden av et kvadrat med samme bredde */
+  aspect-ratio: 2;
   border-radius: 16px;
   background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: auto;
-  height: 300;
 }
 
 .proto-visual-img {
   width: auto;
-  height: 50%;
+  height: 100%;
   object-fit: cover;
   display: block;
 
@@ -621,8 +633,10 @@ section {
   font-weight: 400;
 }
 
-/* ── FOOTER NAV ── */
-.project-footer {
+/* ── FOOTER NAV ──
+   Footeren ligger utenfor sidens eget tre (den bor i Layout), så disse må
+   scopes på body for å slå project.css sine lysere varianter. */
+body.case-mjos .project-footer {
   background: var(--navy);
   padding: 3rem var(--side);
   display: flex;
@@ -631,7 +645,7 @@ section {
   flex-wrap: wrap;
   gap: 1rem;
 }
-.footer-back {
+body.case-mjos .footer-back {
   color: rgba(255,255,255,0.5);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
@@ -639,10 +653,11 @@ section {
   transition: color 0.2s;
   font-weight: 300;
 }
-.footer-back:hover { color: var(--white); }
-.footer-copy {
+body.case-mjos .footer-back:hover { color: var(--white); }
+body.case-mjos .footer-copy {
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
+  /* 0.5 gir 4.6:1 mot navy — WCAG AA. Lavere blir uleselig på mørk flate. */
+  color: rgba(255,255,255,0.5);
   font-weight: 300;
 }
 
