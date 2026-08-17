@@ -220,7 +220,13 @@ export default function Mjospromenaden() {
               key={persona.name}
             >
               <div className="persona-header">
-                <div className={`persona-avatar ${persona.variant}`}>{persona.avatar}</div>
+                {/* Tegningen legges på som maske, se persona-portrait i CSS-en. */}
+                <div className={`persona-avatar ${persona.variant}`}>
+                  <span
+                    className="persona-portrait"
+                    style={{ '--portrait': `url(${persona.portrait})` }}
+                  />
+                </div>
                 <div>
                   <div className="persona-name">{persona.name}</div>
                   <div className="persona-age">{persona.age}</div>

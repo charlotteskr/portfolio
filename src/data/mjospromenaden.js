@@ -121,7 +121,7 @@ export const findings = [
 export const personas = [
   {
     variant: 'p1',
-    avatar: '👩',
+    portrait: '/bilder/emilie.svg',
     name: 'Emilie Møller',
     age: '25 år — Student i Gjøvik',
     needs: [
@@ -139,7 +139,7 @@ export const personas = [
   },
   {
     variant: 'p2',
-    avatar: '👨',
+    portrait: '/bilder/wiliam.svg',
     name: 'William Pham',
     age: '23 år — Student i Gjøvik',
     needs: [

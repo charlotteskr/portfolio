@@ -468,11 +468,23 @@ section {
 }
 
 .persona-avatar {
-  width: 52px; height: 52px;
+  width: 72px; height: 72px;
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
+  /* Portrettet er høyere enn sirkelen og forankres i bunnen, så hodet får
+     stikke opp over kanten. Uten det ville hår og lue blitt klippet av. */
+  display: flex; align-items: flex-end; justify-content: center;
   flex-shrink: 0;
+}
+
+/* Tegningene er strektegninger i hvitt og ville forsvunnet mot det lyse
+   kortet. De brukes derfor som maske i stedet for som bilde: streken males
+   i marineblått, og fargen kan endres herfra uten å røre SVG-filene. */
+.persona-portrait {
+  width: 70px;
+  height: 87.5px;
+  background: var(--navy);
+  -webkit-mask: var(--portrait) center bottom / contain no-repeat;
+  mask: var(--portrait) center bottom / contain no-repeat;
 }
 .persona-avatar.p1 { background: color-mix(in srgb, var(--sky) 22%, transparent); }
 .persona-avatar.p2 { background: color-mix(in srgb, var(--orange) 18%, transparent); }
