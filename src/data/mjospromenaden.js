@@ -165,6 +165,9 @@ export const protoComponents = [
     width: 460,
     height: 142,
     alt: 'Logo',
+    // Logoen og stedsnavnene er SVG-er uten egen luft rundt seg, så rammen
+    // legger på litt padding for at de ikke skal gå kant i kant.
+    padded: true,
     title: 'Logo',
     desc: 'En tydelig logo for Mjøspromenaden, med en visuell profil som matcher Gjøvik kommunes grafiske profil — bygger gjenkjennelse og styrker identiteten til området på tvers av alle flater.',
     tags: ['Visuell identitet', 'Merkevare', 'Gjenkjennelse'],
@@ -176,6 +179,7 @@ export const protoComponents = [
     width: 480,
     height: 280,
     alt: 'Stedsnavn og landemerke',
+    padded: true,
     title: 'Stedsnavn & landemerke',
     desc: 'Enhetlig bruk av stedsnavn for landemerkene langs Mjøspromenaden — Skibladnerbrygga, Gjøvikstranda, Fredvika, Pulsodden og Rambekkvika — gir området en tydelig identitet og gjør det lettere å referere til og finne frem mellom de ulike stedene.',
     tags: ['Stedsidentitet', 'Navnebruk', 'Landemerker'],

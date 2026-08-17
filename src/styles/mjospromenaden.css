@@ -578,17 +578,81 @@ section {
 .proto-visual {
   --proto-max-h: 260px;
   aspect-ratio: var(--ratio, 1);
+  width: 100%;
   max-width: min(100%, calc(var(--proto-max-h) * var(--ratio, 1)));
   margin: 0;
+  border: 0;
   border-radius: 16px;
   background: var(--white);
   overflow: hidden;
+  display: block;
+  /* Knapp, ikke ramme: hele bildet er klikkflaten som åpner forstørret visning. */
+  cursor: zoom-in;
 }
+
+.proto-visual:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* Logo og stedsnavn er stramt beskårne SVG-er — padding gir dem luft, og
+   contain holder proporsjonene når bildet krymper inne i rammen. */
+.proto-visual.padded { padding: clamp(0.5rem, 2vw, 1rem); }
+.proto-visual.padded .proto-visual-img { object-fit: contain; }
 
 .proto-visual-img {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/* Forstørret visning av komponentbildet. Ligger over nav-en (z-index 100) og
+   fyller viewporten, så bildet får all plassen skjermen har å gi. */
+.proto-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  background: rgba(0, 0, 0, 0.92);
+  cursor: zoom-out;
+  animation: fadeIn 0.25s ease;
+}
+
+.proto-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.proto-lightbox-img.padded { padding: clamp(1rem, 3vw, 2rem); }
+
+.proto-lightbox-close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.proto-lightbox-close:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .proto-content { display: none; animation: fadeIn 0.4s ease; }

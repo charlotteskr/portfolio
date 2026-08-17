@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   findings,
   heroMeta,
@@ -25,9 +25,29 @@ export default function Mjospromenaden() {
 
   const [activePhase, setActivePhase] = useState(0);
   const [activeProto, setActiveProto] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
 
   const phase = processPhases[activePhase];
   const proto = protoComponents[activeProto];
+
+  // Escape lukker forstørret bilde, og siden bak fryses så man ikke scroller
+  // bort fra bildet mens overlegget er åpent.
+  useEffect(() => {
+    if (!zoomed) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setZoomed(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [zoomed]);
 
   return (
     <>
@@ -270,10 +290,13 @@ export default function Mjospromenaden() {
           <div className="proto-display reveal">
             {/* --ratio gir rammen bildets eget format, så bildet fyller den
                 helt. width/height reserverer plassen før bildet er lastet. */}
-            <div
-              className="proto-visual"
+            <button
+              type="button"
+              className={`proto-visual${proto.padded ? ' padded' : ''}`}
               id="protoVisual"
               style={{ '--ratio': proto.width / proto.height }}
+              onClick={() => setZoomed(true)}
+              aria-label={`Vis ${proto.title} i større format`}
             >
               <img
                 className="proto-visual-img"
@@ -282,7 +305,7 @@ export default function Mjospromenaden() {
                 width={proto.width}
                 height={proto.height}
               />
-            </div>
+            </button>
 
             <div>
               <div className="proto-content active">
@@ -297,6 +320,32 @@ export default function Mjospromenaden() {
             </div>
           </div>
         </div>
+
+        {/* Klikk på komponentbildet åpner det i full bredde. Klikk hvor som
+            helst i overlegget — eller Escape — lukker det igjen. */}
+        {zoomed && (
+          <div
+            className="proto-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={proto.title}
+            onClick={() => setZoomed(false)}
+          >
+            <button
+              type="button"
+              className="proto-lightbox-close"
+              aria-label="Lukk"
+              onClick={() => setZoomed(false)}
+            >
+              ×
+            </button>
+            <img
+              className={`proto-lightbox-img${proto.padded ? ' padded' : ''}`}
+              src={proto.image}
+              alt={proto.alt}
+            />
+          </div>
+        )}
       </section>
 
       {/* REFLEKSJON */}
