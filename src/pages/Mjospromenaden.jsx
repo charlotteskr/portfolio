@@ -7,6 +7,7 @@ import {
   processPhases,
   protoComponents,
 } from '../data/mjospromenaden';
+import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { usePageClass } from '../hooks/usePageClass';
 import { useReveal } from '../hooks/useReveal';
@@ -164,11 +165,15 @@ export default function Mjospromenaden() {
         <div className="insights-grid" style={{ marginTop: '3rem' }}>
           {insights.map((item, index) => (
             <div className={`insight-card ${revealClass(index, 4)}`} key={item.title}>
+              {/* color styrer selve streken i ikonet, som tegnes i currentColor. */}
               <div
                 className="insight-icon"
-                style={{ background: `color-mix(in srgb, ${item.color} 22%, transparent)` }}
+                style={{
+                  background: `color-mix(in srgb, ${item.color} 22%, transparent)`,
+                  color: item.color,
+                }}
               >
-                {item.icon}
+                <Icon name={item.icon} />
               </div>
               <div className="insight-title">{item.title}</div>
               <p className="insight-desc">{item.desc}</p>

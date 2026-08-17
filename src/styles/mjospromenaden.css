@@ -365,7 +365,13 @@ section {
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+}
+
+/* Ikonet tegnes i currentColor, som settes inline til kortets egen farge. */
+.insight-icon svg {
+  width: 21px;
+  height: 21px;
+  display: block;
 }
 .insight-title {
   font-weight: 500;
@@ -870,4 +876,14 @@ body.case-mjos .footer-copy {
   }
   /* Bildet står ved siden av teksten her, så det tåler å være høyere. */
   .proto-visual { --proto-max-h: 340px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ≥ 1200px — stor skjerm: innsiktsmetodene låses til tre og tre
+   ══════════════════════════════════════════════════════════════════ */
+@media (min-width: 1200px) {
+  /* auto-fit ville presset inn fire eller fem kolonner her og etterlatt de
+     seks metodene i en skjev siste rad. Tre faste kolonner gir to jevne
+     rader uansett hvor bred skjermen blir. */
+  .insights-grid { grid-template-columns: repeat(3, 1fr); }
 }

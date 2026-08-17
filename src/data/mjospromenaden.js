@@ -48,37 +48,37 @@ export const processPhases = [
 
 export const insights = [
   {
-    icon: '👤',
+    icon: 'interview',
     color: 'var(--coral)',
     title: 'Brukerintervju',
     desc: 'Vi gjennomførte fire intervjuer for å forstå bruk og behov for informasjon og navigering relatert til Mjøspromenaden.',
   },
   {
-    icon: '🧠',
+    icon: 'puzzle',
     color: 'var(--sky)',
     title: 'Kognitiv kartlegging',
     desc: 'Intervjudeltakerne ble bedt om å tegne Mjøspromenaden som de definerte den — tegningene avdekket store variasjoner i oppfatning.',
   },
   {
-    icon: '📊',
+    icon: 'chart',
     color: 'var(--orange)',
     title: 'Konkurranseanalyse',
     desc: 'Vi undersøkte nærliggende reisemål for å avdekke fordeler og ulemper med informasjonen som presenteres for besøkende.',
   },
   {
-    icon: '🚶',
+    icon: 'compass',
     color: 'var(--pink)',
     title: 'Tjenestesafari',
     desc: 'Vi undersøkte hvordan Mjøspromenaden opplevdes som besøkende, med utgangspunkt i navigering fra Gjøvik skysstasjon.',
   },
   {
-    icon: '📱',
+    icon: 'phone',
     color: 'var(--yellow)',
     title: 'Digital befaring',
     desc: 'Kartlegging av informasjon tilgjengelig via Google Maps, samt gjennomgang av informasjon på Gjøvik kommunes nettsider.',
   },
   {
-    icon: '📚',
+    icon: 'book',
     color: 'var(--sky)',
     title: 'Litteratursøk',
     desc: 'Gjennomgang av relevante forelesninger og litteratur for å få et dypere og mer nyansert bilde av temaet.',
