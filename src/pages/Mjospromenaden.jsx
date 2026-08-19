@@ -279,7 +279,7 @@ export default function Mjospromenaden() {
           Løsningen består av syv komponenter som tilsammen kommuniserer informasjon om
           Mjøspromenaden til studenter — med en klar logisk sammenheng som gir brukeren mulighet
           til å navigere i området og finne informasjon på en tydelig og tilgjengelig måte. Velg
-          en komponent for å se mer.
+          en komponent for å se mer. Klikk inn på bildene for å se mer detaljer
         </p>
 
         <div className="proto-intro">
