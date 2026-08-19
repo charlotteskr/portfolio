@@ -8,6 +8,7 @@ import App from './App';
 import './styles/project.css';
 import './styles/styles.css';
 import './styles/mjospromenaden.css';
+import './styles/smart.css';
 import './styles/nav.css';
 
 createRoot(document.getElementById('root')).render(

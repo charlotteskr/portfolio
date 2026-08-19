@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Kontakt from './pages/Kontakt';
 import Mjospromenaden from './pages/Mjospromenaden';
 import ProjectStub from './pages/ProjectStub';
+import Smart from './pages/Smart';
 import { stubProjects } from './data/projects';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/mjospromenaden" element={<Mjospromenaden />} />
+        <Route path="/smart" element={<Smart />} />
 
         {stubProjects.map((project) => (
           <Route
@@ -26,6 +28,7 @@ export default function App() {
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="/kontakt.html" element={<Navigate to="/kontakt" replace />} />
         <Route path="/mjospromenaden.html" element={<Navigate to="/mjospromenaden" replace />} />
+        <Route path="/smart.html" element={<Navigate to="/smart" replace />} />
         {stubProjects.map((project) => (
           <Route
             key={`${project.slug}-legacy`}

@@ -4,7 +4,7 @@ export const projects = [
   { slug: 'storebrand', label: 'storebrand', title: 'Storebrand' },
   { slug: 'ks-kunnskap', label: 'ks kunnskap', title: 'KS Kunnskap' },
   { slug: 'mjospromenaden', label: 'mjøspromenaden', title: 'Mjøspromenaden', custom: true },
-  { slug: 'smart', label: 'smArt', title: 'smArt' },
+  { slug: 'smart', label: 'smArt', title: 'smArt', custom: true },
   { slug: 'norkart', label: 'norkart', title: 'Norkart' },
 ];
 
