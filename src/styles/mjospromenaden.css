@@ -12,6 +12,9 @@ body.case-mjos {
   --pink: #FFB0E3;
   --yellow: #FFE366;
   --orange: #F99B36;
+  /* Mørk variant til strek og tekst: --orange er for lys til å gi nok kontrast
+     mot lyse flater. Denne gir ca. 4,7:1 mot den lyse oransje avatarsirkelen. */
+  --orange-deep: #A85200;
 
   --bg: #f7f5f1;
   --muted: #6b7794;
@@ -468,11 +471,11 @@ section {
 }
 
 .persona-avatar {
-  width: 72px; height: 72px;
+  width: 96px; height: 96px;
   border-radius: 50%;
-  /* Portrettet er høyere enn sirkelen og forankres i bunnen, så hodet får
-     stikke opp over kanten. Uten det ville hår og lue blitt klippet av. */
-  display: flex; align-items: flex-end; justify-content: center;
+  /* Hele tegningen skal ligge innenfor sirkelen, så portrettet sentreres og
+     størrelsen settes etter sirkelbuen — se .persona-portrait. */
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 
@@ -480,14 +483,19 @@ section {
    kortet. De brukes derfor som maske i stedet for som bilde: streken males
    i marineblått, og fargen kan endres herfra uten å røre SVG-filene. */
 .persona-portrait {
-  width: 70px;
-  height: 87.5px;
+  /* 4:5, samme format som SVG-ene. Størrelsen er satt slik at strektegningens
+     ytterste punkt — luetippen på William — havner ca. 47 av 48 px fra
+     sirkelens sentrum, altså så vidt innenfor kanten. */
+  width: 78px;
+  height: 97.5px;
   background: var(--navy);
-  -webkit-mask: var(--portrait) center bottom / contain no-repeat;
-  mask: var(--portrait) center bottom / contain no-repeat;
+  -webkit-mask: var(--portrait) center / contain no-repeat;
+  mask: var(--portrait) center / contain no-repeat;
 }
 .persona-avatar.p1 { background: color-mix(in srgb, var(--sky) 22%, transparent); }
 .persona-avatar.p2 { background: color-mix(in srgb, var(--orange) 18%, transparent); }
+/* William tegnes med oransje strek, i tråd med aksentfargen på kortet hans. */
+.persona-avatar.p2 .persona-portrait { background: var(--orange-deep); }
 
 .persona-name {
   font-weight: 500;
