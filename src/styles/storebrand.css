@@ -1,0 +1,765 @@
+/* Alt her gjelder kun Storebrand-siden. Klassene er prefikset sb- og reglene
+   er scopet til body.case-storebrand, slik at de ikke kolliderer med de andre
+   case-sidene — alle ligger i samme CSS-bundle.
+
+   Paletten er hentet fra presentasjonen prosjektet ble levert med: Storebrands
+   røde merkevarefarge, den mørke vinrøde flaten som ble brukt på tittelsidene,
+   og den varme papirfargen bak innholdet.
+
+   Mobile first, samme breakpoint-skala som styles.css. */
+
+body.case-storebrand {
+  --sb-paper: #F4EEE8;
+  --sb-ink: #241413;
+  --sb-red: #C0342B;
+  --sb-maroon: #3E1010;
+  --sb-deep: #240808;
+  --sb-sand: #E4D9CE;
+  --sb-green: #3F7350;
+
+  --line: #ddd0c4;
+  --dim: #6d5d56;
+
+  background: var(--sb-paper);
+  color: var(--sb-ink);
+}
+
+.sb-page section { padding: clamp(4rem, 8vw, 8rem) var(--side); }
+
+/* ── HERO ── */
+.sb-hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  /* Første rad er «under arbeid»-merknaden, andre er selve heroteksten som
+     tar resten av høyden. Meta og CTA får implisitte auto-rader under. */
+  grid-template-rows: auto 1fr;
+  padding: 5rem var(--side) 0;
+  background: var(--sb-maroon);
+  color: var(--sb-paper);
+  position: relative;
+  overflow: hidden;
+}
+.sb-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 18%, rgba(192,52,43,0.38) 0%, transparent 58%),
+    radial-gradient(ellipse at 8% 85%, rgba(228,217,206,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(20,4,4,0.55) 0%, transparent 62%);
+}
+/* ── UNDER ARBEID-MERKNAD ── */
+.sb-wip {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid rgba(244,238,232,0.28);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(244,238,232,0.88);
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.sb-wip-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #E8A49E;
+  flex-shrink: 0;
+}
+
+.sb-hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+}
+.sb-hero-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #E8A49E;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+.sb-hero-title {
+  font-size: clamp(2.6rem, 9vw, 7rem);
+  line-height: 1.02;
+  font-weight: 100;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+  overflow-wrap: break-word;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.25s;
+}
+.sb-hero-title em {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.36em;
+  line-height: 1.3;
+  color: var(--sb-sand);
+  display: block;
+  margin-top: 0.6rem;
+}
+.sb-hero-desc {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(244,238,232,0.75);
+  max-width: 58ch;
+  line-height: 1.75;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+.sb-hero-meta {
+  display: flex;
+  gap: 1.5rem 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(244,238,232,0.15);
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.55s;
+}
+.sb-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+.sb-meta-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244,238,232,0.45);
+}
+.sb-meta-value { font-size: 0.9rem; color: rgba(244,238,232,0.92); font-weight: 400; }
+
+.sb-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.7rem;
+  margin-bottom: 2.5rem;
+  z-index: 1;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sb-paper);
+  background: var(--sb-red);
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.7s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.sb-hero-cta:hover {
+  transform: translateY(-2px);
+  background: var(--sb-sand);
+  color: var(--sb-maroon);
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,0.5);
+}
+.sb-hero-cta span { transition: transform 0.25s ease; }
+.sb-hero-cta:hover span { transform: translateY(3px); }
+
+/* ── FELLES SEKSJONSELEMENTER ── */
+.sb-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.sb-eyebrow-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--sb-red);
+  flex-shrink: 0;
+}
+.sb-eyebrow-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-weight: 400;
+}
+.sb-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 100;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
+}
+.sb-body {
+  font-size: 1rem;
+  color: var(--dim);
+  max-width: 65ch;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ── PROBLEMSTILLING ── */
+.sb-problem { background: var(--sb-sand); }
+.sb-problem-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.sb-statement {
+  margin-top: 2.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--sb-red);
+  color: #fff;
+  border-radius: 14px;
+  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+/* ── SKIFTET: FØR OG NÅ ── */
+.sb-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.sb-compare-card {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.4);
+}
+/* «Nå»-kortet er poenget i sammenligningen og får merkevarefargen. */
+.sb-compare-card.now {
+  background: var(--sb-maroon);
+  border-color: var(--sb-maroon);
+  color: var(--sb-paper);
+}
+.sb-compare-kind {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.9rem;
+}
+.sb-compare-card.now .sb-compare-kind { color: #E8A49E; }
+.sb-compare-query {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+.sb-compare-steps {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+.sb-compare-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.sb-compare-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: -0.1em;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 0.7rem;
+  background: var(--sb-red);
+  color: #fff;
+}
+.sb-compare-note {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--dim);
+  font-weight: 300;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.sb-compare-card.now .sb-compare-note {
+  color: rgba(244,238,232,0.7);
+  border-top-color: rgba(244,238,232,0.18);
+}
+
+/* ── FAN-OUT-DIAGRAM ── */
+.sb-fanout {
+  margin-top: 3rem;
+  display: grid;
+  gap: 0;
+  justify-items: stretch;
+}
+.sb-fanout-step {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.6rem;
+}
+.sb-fanout-node {
+  padding: 1.4rem 1.6rem;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.45;
+}
+.sb-fanout-node.prompt {
+  background: var(--sb-maroon);
+  color: var(--sb-paper);
+}
+.sb-fanout-node.prompt .sb-fanout-step { color: #E8A49E; }
+.sb-fanout-node.answer {
+  background: var(--sb-red);
+  color: #fff;
+}
+.sb-fanout-node.answer .sb-fanout-step { color: rgba(255,255,255,0.7); }
+/* Den loddrette streken som binder de tre trinnene sammen. */
+.sb-fanout-arrow {
+  width: 2px;
+  height: 2rem;
+  justify-self: center;
+  background: linear-gradient(var(--line), var(--sb-red));
+}
+.sb-fanout-queries {
+  padding: 1.6rem;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+}
+.sb-fanout-queries ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.sb-fanout-queries li {
+  font-size: 0.82rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--line);
+  color: var(--sb-ink);
+  font-weight: 300;
+}
+
+/* ── MIN ROLLE ── */
+.sb-contrib-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.sb-contrib {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.sb-contrib-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  margin-bottom: 1.1rem;
+  background: color-mix(in srgb, var(--sb-red) 14%, transparent);
+  color: var(--sb-red);
+}
+.sb-contrib-title { font-size: 1.05rem; font-weight: 400; margin-bottom: 0.5rem; }
+.sb-contrib-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
+
+/* ── DE SJU TILTAKENE ── */
+.sb-measures { background: var(--sb-sand); }
+.sb-measure-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.sb-measure {
+  position: relative;
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.45);
+}
+/* Tiltakene jeg jobbet med selv skiller seg ut med rød kant. */
+.sb-measure.mine {
+  background: #fff;
+  border-color: var(--sb-red);
+}
+.sb-measure-num {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--sb-red);
+  margin-bottom: 0.75rem;
+}
+.sb-measure-title { font-size: 1.3rem; font-weight: 200; margin-bottom: 0.4rem; }
+.sb-measure-lead {
+  font-size: 0.88rem;
+  color: var(--sb-ink);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+}
+.sb-measure-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
+.sb-measure-flag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: var(--sb-red);
+  color: #fff;
+}
+
+/* ── FIGURER OG SKJERMBILDER ── */
+.sb-figure { margin-top: 3rem; }
+.sb-figure img,
+.sb-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.sb-figure figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 65ch;
+}
+
+/* Klikkbart skjermbilde. .tall klipper svært høye skjermdumper til et vindu
+   med uttoning nederst, så de ikke fyller hele siden. */
+.sb-shot {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.sb-shot.tall { max-height: 60vh; }
+.sb-shot.tall img { border-radius: 14px 14px 0 0; }
+.sb-shot.tall::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 45%;
+  pointer-events: none;
+  background: linear-gradient(transparent, var(--sb-paper));
+}
+.sb-shot-hint {
+  position: absolute;
+  left: 50%; bottom: 1.2rem;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--sb-maroon);
+  color: var(--sb-paper);
+}
+
+/* ── FØR / ETTER ── */
+.sb-before-after {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.sb-before-after img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.sb-before-after figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 42ch;
+}
+.sb-ba-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sb-red);
+  margin-bottom: 0.35rem;
+}
+
+/* ── PROTOTYPER ── */
+.sb-proto { margin-top: 2rem; }
+.sb-proto-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.sb-proto-tab {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.sb-proto-tab:hover { border-color: var(--sb-red); color: var(--sb-red); }
+.sb-proto-tab.active {
+  background: var(--sb-red);
+  border-color: var(--sb-red);
+  color: #fff;
+}
+.sb-proto-display {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+/* --ratio gir rammen bildets eget format, så bildet fyller den helt.
+   width/height på <img> reserverer plassen før bildet er lastet. */
+.sb-proto-visual {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--ratio);
+  max-height: 70vh;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  cursor: zoom-in;
+}
+.sb-proto-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.sb-proto-title { font-size: 1.4rem; font-weight: 200; margin-bottom: 0.7rem; }
+.sb-proto-desc {
+  font-size: 0.95rem;
+  color: var(--dim);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+.sb-proto-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.sb-proto-tags span {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--dim);
+}
+
+/* ── TREDJEPARTSOMTALER ── */
+.sb-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.sb-action {
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.sb-action-num {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--sb-red);
+  color: #fff;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.sb-action-title { font-size: 1.05rem; font-weight: 400; margin-bottom: 0.5rem; }
+.sb-action-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
+
+.sb-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.sb-stat {
+  padding: 1.5rem 1.75rem;
+  border-radius: 14px;
+  background: var(--sb-maroon);
+  color: var(--sb-paper);
+}
+.sb-stat-value { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 100; line-height: 1.1; }
+.sb-stat-label { font-size: 0.95rem; margin-top: 0.5rem; font-weight: 400; }
+.sb-stat-note { font-size: 0.82rem; color: rgba(244,238,232,0.6); margin-top: 0.2rem; }
+
+/* ── WIKIPEDIA / SITERTE DOMENER ── */
+.sb-wikipedia { background: var(--sb-sand); }
+.sb-domains { margin-top: 3rem; display: grid; gap: 0.9rem; }
+.sb-domain {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr 3rem;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.88rem;
+}
+.sb-domain-name { font-weight: 300; }
+.sb-domain-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.sb-domain-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--dim);
+}
+.sb-domain.highlight .sb-domain-name { font-weight: 500; color: var(--sb-red); }
+.sb-domain.highlight .sb-domain-bar span { background: var(--sb-red); }
+.sb-domain-share { text-align: right; color: var(--dim); font-variant-numeric: tabular-nums; }
+.sb-domains-source {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--dim);
+  font-weight: 300;
+}
+
+/* ── ANALYSEVERKTØY ── */
+.sb-tool { background: var(--sb-deep); color: var(--sb-paper); }
+.sb-tool .sb-title { color: var(--sb-paper); }
+.sb-tool .sb-body { color: rgba(244,238,232,0.72); }
+.sb-tool .sb-eyebrow-text { color: rgba(244,238,232,0.55); }
+.sb-tool .sb-figure figcaption { color: rgba(244,238,232,0.6); }
+.sb-tool .sb-video { border-color: rgba(244,238,232,0.2); background: #000; }
+
+/* ── AVSLUTNING ── */
+.sb-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 3rem 0;
+}
+.sb-timeline-step {
+  padding: 1.4rem 1.6rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+.sb-timeline-step span {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 0.4rem;
+}
+.sb-timeline-step.now {
+  background: var(--sb-red);
+  border-color: var(--sb-red);
+  color: #fff;
+}
+.sb-timeline-step.now span { color: rgba(255,255,255,0.7); }
+.sb-timeline-step.next {
+  background: var(--sb-maroon);
+  border-color: var(--sb-maroon);
+  color: var(--sb-paper);
+}
+.sb-timeline-step.next span { color: #E8A49E; }
+
+/* ── LIGHTBOX ── */
+.sb-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20,4,4,0.94);
+  padding: clamp(1rem, 4vw, 3rem);
+  overflow: auto;
+  cursor: zoom-out;
+  animation: fadeIn 0.2s ease;
+}
+.sb-lightbox-img {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+}
+.sb-lightbox-close {
+  position: fixed;
+  top: 1rem; right: 1.25rem;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(244,238,232,0.3);
+  background: rgba(0,0,0,0.4);
+  color: var(--sb-paper);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.sb-lightbox-close:hover { background: var(--sb-red); border-color: var(--sb-red); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── ≥ 641px — NETTBRETT ── */
+@media (min-width: 641px) {
+  .sb-compare { grid-template-columns: 1fr 1fr; }
+  .sb-contrib-grid { grid-template-columns: 1fr 1fr; }
+  .sb-measure-grid { grid-template-columns: 1fr 1fr; }
+  .sb-actions { grid-template-columns: 1fr 1fr 1fr; }
+  .sb-stats { grid-template-columns: 1fr 1fr; }
+  .sb-timeline { grid-template-columns: 1fr 1fr 1fr; }
+  .sb-before-after.two { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── ≥ 769px — STORT NETTBRETT ── */
+@media (min-width: 769px) {
+  .sb-problem-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .sb-contrib-grid { grid-template-columns: repeat(3, 1fr); }
+  .sb-measure-grid { grid-template-columns: repeat(3, 1fr); }
+  /* Bildet til venstre, teksten til høyre — samme oppsett som på
+     Mjøspromenaden, så prototypene leses likt på tvers av casene. */
+  .sb-proto-display { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+  .sb-fanout { justify-items: center; }
+  .sb-fanout-node,
+  .sb-fanout-queries { width: 100%; max-width: 760px; }
+  .sb-fanout-queries ul { justify-content: center; }
+  .sb-fanout-node { text-align: center; }
+}
+
+/* ── ≥ 1280px — WIDESCREEN ── */
+@media (min-width: 1280px) {
+  .sb-page section { padding-left: max(var(--side), calc((100% - 1400px) / 2)); }
+  .sb-page section { padding-right: max(var(--side), calc((100% - 1400px) / 2)); }
+}
