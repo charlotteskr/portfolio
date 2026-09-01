@@ -7,12 +7,13 @@
 /* Full bredde: bakgrunn og blur går helt ut til kantene. */
 #navContainer {
   color: black !important;
-  backdrop-filter: blur(10px);
   z-index: 100;
   position: fixed;
   top: 0; left: 0; right: 0;
   width: 100%;
-  background: rgba(255,255,255,0.9);
+  /* Helt hvit, ikke gjennomsiktig — innholdet skal ikke skinne gjennom når
+     man scroller. */
+  background: var(--white);
 }
 
 /* Samme boks som sideinnholdet (main / .project-hero / .project-section),
