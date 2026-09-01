@@ -10,8 +10,6 @@ import {
   iaPrinciples,
   measures,
   reflection,
-  reviewActions,
-  reviewStats,
   searchShift,
 } from '../data/storebrand';
 import { Icon } from '../components/Icon';
@@ -108,7 +106,6 @@ export default function Storebrand() {
             </p>
           </div>
         </div>
-        <p className="sb-statement reveal">Hvordan kan Storebrand bli en del av svaret?</p>
       </section>
 
       {/* SKIFTET: FØR OG NÅ */}
@@ -168,7 +165,7 @@ export default function Storebrand() {
       </section>
 
       {/* MIN ROLLE */}
-      <section>
+      <section className="sb-role">
         <div className="sb-eyebrow reveal">
           <div className="sb-eyebrow-dot" />
           <span className="sb-eyebrow-text">Min rolle</span>
@@ -221,10 +218,13 @@ export default function Storebrand() {
       </section>
 
       {/* INFORMASJONSARKITEKTUR */}
-      <section>
-        <div className="sb-eyebrow reveal">
-          <div className="sb-eyebrow-dot" />
-          <span className="sb-eyebrow-text">Tiltak 02 — Informasjonsarkitektur</span>
+      <section className="sb-ia">
+        <div className="sb-chapter reveal">
+          <span className="sb-chapter-num">02</span>
+          <span>
+            <span className="sb-chapter-kicker">Tiltak</span>
+            <span className="sb-chapter-name">Informasjonsarkitektur</span>
+          </span>
         </div>
         <h2 className="sb-title reveal">Hvordan ser det ut i dag?</h2>
         <p className="sb-body reveal">
@@ -362,40 +362,30 @@ export default function Storebrand() {
 
       {/* EKSPERTPROFILER */}
       <section className="sb-experts">
-        <div className="sb-eyebrow reveal">
-          <div className="sb-eyebrow-dot" />
-          <span className="sb-eyebrow-text">Tiltak 05 — Ekspertprofiler</span>
+        <div className="sb-chapter reveal">
+          <span className="sb-chapter-num">05</span>
+          <span>
+            <span className="sb-chapter-kicker">Tiltak</span>
+            <span className="sb-chapter-name">Ekspertprofiler</span>
+          </span>
         </div>
         <h2 className="sb-title reveal">Fra spredte kontaktkort til et ekspertunivers</h2>
         <p className="sb-body reveal">
-          Storebrand har ekspertene, men profilene finnes bare som statiske kort med et navn,
-          en tittel og en e-postadresse. Gjensidige og DNB har kommet lenger med fullverdige
-          forfatterprofiler — men ingen har bygget et helhetlig, AI-lesbart ekspertunivers.
-          Det var åpningen.
+          Storebrand har ekspertene, men profilene finnes bare som spredte, statiske kort med
+          lite innhold. Jeg fant dem tre steder: som et enkelt kontaktkort, som en
+          «Kontakter»-bolk nederst i artiklene, og på en egen side under presserommet.
+          Gjensidige og DNB har kommet lenger med fullverdige forfatterprofiler — men ingen har
+          bygget et helhetlig, AI-lesbart ekspertunivers. Det var åpningen.
         </p>
-
-        <div className="sb-before-after reveal">
-          <figure>
-            <img
-              src="/bilder/storebrand/ekspertkort-idag.webp"
-              alt="Dagens ekspertkort på storebrand.no: portrett, navn, tittel og kontaktinfo"
-              width={900}
-              height={985}
-              loading="lazy"
-            />
-            <figcaption>
-              <span className="sb-ba-label">I dag</span>
-              Et statisk kort nederst på en presseside — uten bio, uten artikler, uten kobling
-              videre.
-            </figcaption>
-          </figure>
-        </div>
 
         <p className="sb-body reveal" style={{ marginTop: '3rem' }}>
-          Jeg skisset hvordan det kunne se ut i stedet. Velg en skisse for å se den — klikk på
-          bildet for å åpne det i full størrelse.
+          Jeg skisset hvordan det kunne se ut i stedet. Hver skisse står ved siden av det den
+          erstatter — velg et av de tre stedene, og klikk på et bilde for å se hele det.
         </p>
 
+        {/* Hvert forslag står ved siden av det det erstatter. Rammene er like
+            høye og viser hele skjermdumpen skalert ned, så de to står på linje
+            og ingenting er skjult. Klikk forstørrer. */}
         <div className="sb-proto">
           <div className="sb-proto-tabs reveal">
             {expertPrototypes.map((item, index) => (
@@ -411,113 +401,70 @@ export default function Storebrand() {
             ))}
           </div>
 
-          <div className="sb-proto-display reveal">
-            <button
-              type="button"
-              className="sb-proto-visual"
-              style={{ '--ratio': proto.width / proto.height }}
-              onClick={() => setZoomed({ image: proto.image, alt: proto.alt })}
-              aria-label={`Vis ${proto.title} i større format`}
-            >
-              <img
-                src={proto.image}
-                alt={proto.alt}
-                width={proto.width}
-                height={proto.height}
-                loading="lazy"
-              />
-            </button>
+          <div className="sb-pair reveal">
+            <figure>
+              <span className="sb-ba-label">I dag</span>
+              <button
+                type="button"
+                className="sb-pair-visual"
+                onClick={() =>
+                  setZoomed({ image: proto.before.image, alt: proto.before.alt })
+                }
+                aria-label={`Vis ${proto.before.title} i større format`}
+              >
+                <img
+                  src={proto.before.image}
+                  alt={proto.before.alt}
+                  width={proto.before.width}
+                  height={proto.before.height}
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <span className="sb-pair-title">{proto.before.title}</span>
+                {proto.before.note}
+              </figcaption>
+            </figure>
 
-            <div className="sb-proto-content">
-              <div className="sb-proto-title">{proto.title}</div>
-              <p className="sb-proto-desc">{proto.desc}</p>
-              <div className="sb-proto-tags">
-                {proto.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </div>
+            <figure>
+              <span className="sb-ba-label">Forslag</span>
+              <button
+                type="button"
+                className="sb-pair-visual"
+                onClick={() => setZoomed({ image: proto.image, alt: proto.alt })}
+                aria-label={`Vis ${proto.title} i større format`}
+              >
+                <img
+                  src={proto.image}
+                  alt={proto.alt}
+                  width={proto.width}
+                  height={proto.height}
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <span className="sb-pair-title">{proto.title}</span>
+                {proto.desc}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="sb-proto-tags reveal">
+            {proto.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* TREDJEPARTSOMTALER */}
-      <section>
-        <div className="sb-eyebrow reveal">
-          <div className="sb-eyebrow-dot" />
-          <span className="sb-eyebrow-text">Tiltak 06 — Tredjepartsomtaler</span>
-        </div>
-        <h2 className="sb-title reveal">Det andre sier om deg, teller mest</h2>
-        <p className="sb-body reveal">
-          AI-tjenestene henter like gjerne fra Trustpilot og Bytt.no som fra storebrand.no.
-          Tre grep gjør at omtalene faktisk blir lest.
-        </p>
-
-        <div className="sb-actions">
-          {reviewActions.map((item, index) => (
-            <div className={`sb-action ${revealClass(index, 3)}`} key={item.num}>
-              <div className="sb-action-num">{item.num}</div>
-              <div className="sb-action-title">{item.title}</div>
-              <p className="sb-action-desc">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="sb-stats reveal">
-          {reviewStats.map((stat) => (
-            <div className="sb-stat" key={stat.label}>
-              <div className="sb-stat-value">{stat.value}</div>
-              <div className="sb-stat-label">{stat.label}</div>
-              <div className="sb-stat-note">{stat.note}</div>
-            </div>
-          ))}
-        </div>
-
-        <figure className="sb-figure reveal">
-          <img
-            src="/bilder/storebrand/trustpilot-graf.webp"
-            alt="Graf over Trustpilot-omtaler per måned. Omtaler «på oppfordring» skyter i været fra november 2025."
-            width={1400}
-            height={634}
-            loading="lazy"
-          />
-          <figcaption>
-            Omtaler «på oppfordring» skjøt i været da de systematiske invitasjonene startet i
-            november 2025.
-          </figcaption>
-        </figure>
-
-        <figure className="sb-figure reveal">
-          <button
-            type="button"
-            className="sb-shot"
-            onClick={() =>
-              setZoomed({
-                image: '/bilder/storebrand/trustpilot-widget.webp',
-                alt: 'Skisse av Trustpilot-widget på produktsiden for bilforsikring',
-              })
-            }
-            aria-label="Vis skissen av Trustpilot-widgeten i større format"
-          >
-            <img
-              src="/bilder/storebrand/trustpilot-widget.webp"
-              alt="Skisse: Trustpilot-vurdering plassert rett under kjøpsknappen på produktsiden for bilforsikring"
-              width={1339}
-              height={1211}
-              loading="lazy"
-            />
-          </button>
-          <figcaption>
-            Skisse: vurderingen løftet opp på produktsiden, rett under kjøpsknappen.
-          </figcaption>
-        </figure>
-      </section>
-
       {/* WIKIPEDIA */}
       <section className="sb-wikipedia">
-        <div className="sb-eyebrow reveal">
-          <div className="sb-eyebrow-dot" />
-          <span className="sb-eyebrow-text">Tiltak 07 — Wikipedia</span>
+        <div className="sb-chapter reveal">
+          <span className="sb-chapter-num">07</span>
+          <span>
+            <span className="sb-chapter-kicker">Tiltak</span>
+            <span className="sb-chapter-name">Wikipedia</span>
+          </span>
         </div>
         <h2 className="sb-title reveal">Den nest mest siterte kilden</h2>
         <p className="sb-body reveal">

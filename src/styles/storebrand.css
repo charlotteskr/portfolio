@@ -2,23 +2,34 @@
    er scopet til body.case-storebrand, slik at de ikke kolliderer med de andre
    case-sidene — alle ligger i samme CSS-bundle.
 
-   Paletten er hentet fra presentasjonen prosjektet ble levert med: Storebrands
-   røde merkevarefarge, den mørke vinrøde flaten som ble brukt på tittelsidene,
-   og den varme papirfargen bak innholdet.
+   Paletten er Storebrands egen, hentet ut av fargetemaet i sluttpresentasjonen
+   (ppt/theme/theme1.xml). Merkevarerødt er temaets hlink #DA291C — samme farge
+   som knappene i skjermdumpene fra storebrand.no (#DB291D). Den mørke flaten er
+   bunntekstfargen fra de samme skjermdumpene.
+
+   Grunnflaten er hvit. Fargene ligger i innholdet: annenhver seksjon har en
+   svak rosa vask (--sb-tint), kortene oppå er --sb-sand, og de mørke flatene
+   rammer inn siden i topp og bunn.
+
+   --sb-red brukes til flater og prikker; til liten rød tekst brukes
+   --sb-red-ink, som er mørk nok til å bestå kontrastkravet.
 
    Mobile first, samme breakpoint-skala som styles.css. */
 
 body.case-storebrand {
-  --sb-paper: #F4EEE8;
-  --sb-ink: #241413;
-  --sb-red: #C0342B;
-  --sb-maroon: #3E1010;
-  --sb-deep: #240808;
-  --sb-sand: #E4D9CE;
+  --sb-paper: #FFFFFF;      /* tema lt1 — sidens grunnflate */
+  --sb-tint: #FFF0F0;       /* tema lt2 — svak rosa vask på annenhver seksjon */
+  --sb-sand: #FFDFDF;       /* tema accent2 — kort og bokser oppå vasken */
+  --sb-ink: #2A0A08;
+  --sb-red: #DA291C;        /* tema hlink — merkevarerødt */
+  --sb-red-ink: #B20000;    /* tema accent1 — for liten rød tekst */
+  --sb-maroon: #560000;     /* tema dk2 */
+  --sb-deep: #310502;       /* bunntekst i skjermdumpene */
+  --sb-plum: #610080;       /* tema accent5 */
   --sb-green: #3F7350;
 
-  --line: #ddd0c4;
-  --dim: #6d5d56;
+  --line: #F0C9C9;
+  --dim: #6B3B37;
 
   background: var(--sb-paper);
   color: var(--sb-ink);
@@ -207,18 +218,8 @@ body.case-storebrand {
 }
 
 /* ── PROBLEMSTILLING ── */
-.sb-problem { background: var(--sb-sand); }
+.sb-problem { background: var(--sb-tint); }
 .sb-problem-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-.sb-statement {
-  margin-top: 2.5rem;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  background: var(--sb-red);
-  color: #fff;
-  border-radius: 14px;
-  font-size: clamp(1.2rem, 2.6vw, 1.8rem);
-  font-weight: 300;
-  line-height: 1.45;
-}
 
 /* ── SKIFTET: FØR OG NÅ ── */
 .sb-compare {
@@ -352,6 +353,7 @@ body.case-storebrand {
 }
 
 /* ── MIN ROLLE ── */
+.sb-role { background: var(--sb-tint); }
 .sb-contrib-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -375,7 +377,7 @@ body.case-storebrand {
 .sb-contrib-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
 
 /* ── DE SJU TILTAKENE ── */
-.sb-measures { background: var(--sb-sand); }
+.sb-measures { background: var(--sb-paper); }
 .sb-measure-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -387,17 +389,17 @@ body.case-storebrand {
   padding: 1.75rem;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255,255,255,0.45);
+  background: var(--sb-tint);
 }
 /* Tiltakene jeg jobbet med selv skiller seg ut med rød kant. */
 .sb-measure.mine {
-  background: #fff;
+  background: var(--sb-paper);
   border-color: var(--sb-red);
 }
 .sb-measure-num {
   font-size: 0.8rem;
   letter-spacing: 0.18em;
-  color: var(--sb-red);
+  color: var(--sb-red-ink);
   margin-bottom: 0.75rem;
 }
 .sb-measure-title { font-size: 1.3rem; font-weight: 200; margin-bottom: 0.4rem; }
@@ -462,7 +464,7 @@ body.case-storebrand {
   left: 0; right: 0; bottom: 0;
   height: 45%;
   pointer-events: none;
-  background: linear-gradient(transparent, var(--sb-paper));
+  background: linear-gradient(transparent, var(--sb-tint));
 }
 .sb-shot-hint {
   position: absolute;
@@ -507,9 +509,47 @@ body.case-storebrand {
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--sb-red);
+  color: var(--sb-red-ink);
   margin-bottom: 0.35rem;
 }
+
+/* ── KAPITTELMARKØR FOR TILTAKENE ── */
+/* Hvert tiltak åpner med en strek, et stort nummer og navnet, slik at de tre
+   gjennomgangene leses som tydelig atskilte kapitler — samme grep som
+   seksjonsinndelingen på Mjøspromenaden. */
+.sb-chapter {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  padding-top: 1.75rem;
+  border-top: 2px solid var(--sb-red);
+  margin-bottom: 2.5rem;
+}
+.sb-chapter-num {
+  font-size: clamp(2.6rem, 8vw, 4.2rem);
+  font-weight: 200;
+  line-height: 0.9;
+  color: var(--sb-red);
+  flex-shrink: 0;
+}
+.sb-chapter-kicker {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sb-red-ink);
+  margin-bottom: 0.35rem;
+}
+.sb-chapter-name {
+  display: block;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* Tiltakene veksler mellom tre flater, så overgangene er umulige å overse. */
+.sb-ia { background: var(--sb-tint); }
+.sb-experts { background: var(--sb-paper); }
 
 /* ── TILTAK 02: INFORMASJONSARKITEKTUR ── */
 /* Underoverskrift inne i en seksjon — mindre enn .sb-title, men med samme
@@ -535,7 +575,7 @@ body.case-storebrand {
 .sb-ia-num {
   font-size: 0.8rem;
   letter-spacing: 0.18em;
-  color: var(--sb-red);
+  color: var(--sb-red-ink);
   margin-bottom: 0.7rem;
 }
 .sb-ia-title { font-size: 1.15rem; font-weight: 300; margin-bottom: 0.35rem; }
@@ -584,6 +624,53 @@ body.case-storebrand {
 }
 .sb-ia-example-visual img { display: block; width: 100%; height: auto; }
 
+/* ── I DAG / FORSLAG SIDE OM SIDE ── */
+/* Hvert forslag står ved siden av det det erstatter. Rammene er like høye og
+   skalerer hele skjermdumpen ned til å passe, så de to bildene står på linje
+   og alt innholdet er synlig uten å klikke. Merkelappen over er alltid én
+   linje, og forklaringen står under bildet — da starter begge bildene på
+   samme høyde uansett hvor lang teksten er. */
+.sb-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+.sb-pair .sb-ba-label { margin-bottom: 0.6rem; }
+.sb-pair-visual {
+  display: block;
+  width: 100%;
+  height: clamp(20rem, 46vw, 32rem);
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  cursor: zoom-in;
+}
+/* Bildet fyller rammen, og object-fit: contain skalerer hele skjermdumpen ned
+   til å passe inni. Da kan det verken renne utenfor eller bli beskåret. */
+.sb-pair-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sb-pair figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--dim);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.sb-pair-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--sb-ink);
+  margin-bottom: 0.4rem;
+}
+
 /* ── PROTOTYPER ── */
 .sb-proto { margin-top: 2rem; }
 .sb-proto-tabs {
@@ -609,33 +696,6 @@ body.case-storebrand {
   border-color: var(--sb-red);
   color: #fff;
 }
-.sb-proto-display {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-/* --ratio gir rammen bildets eget format, så bildet fyller den helt.
-   width/height på <img> reserverer plassen før bildet er lastet. */
-.sb-proto-visual {
-  display: block;
-  width: 100%;
-  aspect-ratio: var(--ratio);
-  max-height: 70vh;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-  background: #fff;
-  cursor: zoom-in;
-}
-.sb-proto-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
 .sb-proto-title { font-size: 1.4rem; font-weight: 200; margin-bottom: 0.7rem; }
 .sb-proto-desc {
   font-size: 0.95rem;
@@ -644,7 +704,7 @@ body.case-storebrand {
   font-weight: 300;
   margin-bottom: 1.25rem;
 }
-.sb-proto-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.sb-proto-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
 .sb-proto-tags span {
   font-size: 0.78rem;
   padding: 0.4rem 0.85rem;
@@ -653,48 +713,8 @@ body.case-storebrand {
   color: var(--dim);
 }
 
-/* ── TREDJEPARTSOMTALER ── */
-.sb-actions {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-top: 3rem;
-}
-.sb-action {
-  padding: 1.75rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-}
-.sb-action-num {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  display: grid; place-items: center;
-  background: var(--sb-red);
-  color: #fff;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-.sb-action-title { font-size: 1.05rem; font-weight: 400; margin-bottom: 0.5rem; }
-.sb-action-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
-
-.sb-stats {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.sb-stat {
-  padding: 1.5rem 1.75rem;
-  border-radius: 14px;
-  background: var(--sb-maroon);
-  color: var(--sb-paper);
-}
-.sb-stat-value { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 100; line-height: 1.1; }
-.sb-stat-label { font-size: 0.95rem; margin-top: 0.5rem; font-weight: 400; }
-.sb-stat-note { font-size: 0.82rem; color: rgba(244,238,232,0.6); margin-top: 0.2rem; }
-
 /* ── WIKIPEDIA / SITERTE DOMENER ── */
-.sb-wikipedia { background: var(--sb-sand); }
+.sb-wikipedia { background: var(--sb-tint); }
 .sb-domains { margin-top: 3rem; display: grid; gap: 0.9rem; }
 .sb-domain {
   display: grid;
@@ -810,8 +830,6 @@ body.case-storebrand {
   .sb-compare { grid-template-columns: 1fr 1fr; }
   .sb-contrib-grid { grid-template-columns: 1fr 1fr; }
   .sb-measure-grid { grid-template-columns: 1fr 1fr; }
-  .sb-actions { grid-template-columns: 1fr 1fr 1fr; }
-  .sb-stats { grid-template-columns: 1fr 1fr; }
   .sb-timeline { grid-template-columns: 1fr 1fr 1fr; }
   .sb-before-after.two { grid-template-columns: 1fr 1fr; }
   .sb-ia-grid { grid-template-columns: 1fr 1fr; }
@@ -823,9 +841,8 @@ body.case-storebrand {
   .sb-contrib-grid { grid-template-columns: repeat(3, 1fr); }
   .sb-measure-grid { grid-template-columns: repeat(3, 1fr); }
   .sb-ia-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Bildet til venstre, teksten til høyre — samme oppsett som på
-     Mjøspromenaden, så prototypene leses likt på tvers av casene. */
-  .sb-proto-display { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+  /* Dagens løsning til venstre, forslaget til høyre. */
+  .sb-pair { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .sb-fanout { justify-items: center; }
   .sb-fanout-node,
   .sb-fanout-queries { width: 100%; max-width: 760px; }

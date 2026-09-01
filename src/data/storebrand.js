@@ -54,7 +54,7 @@ export const contributions = [
   {
     icon: 'phone',
     title: 'Skisser og prototyper',
-    desc: 'Jeg skisset løsningsforslagene teamet presenterte: ekspertoversikt, ekspertprofil, artikkelside med forfatterkobling og synliggjøring av tredjepartsomtaler.',
+    desc: 'Jeg skisset løsningsforslagene teamet presenterte: ekspertoversikt, ekspertprofil og artikkelside med forfatterkobling.',
   },
   {
     icon: 'book',
@@ -113,7 +113,6 @@ export const measures = [
     title: 'Tredjepartsomtaler',
     lead: 'AI foretrekker eksterne omtaler og kundeerfaringer.',
     desc: 'Oppfordre til flere omtaler, svare på dem, og løfte vurderingene fram der AI faktisk kan lese dem.',
-    mine: true,
   },
   {
     num: '07',
@@ -130,7 +129,15 @@ export const expertPrototypes = [
   {
     tab: 'Oversikt',
     title: 'Oversiktsside for eksperter',
-    desc: 'Én inngang til alle ekspertene, filtrerbar på forretningsområde og rolle. I dag finnes profilene bare som løsrevne kontaktkort under pressesider.',
+    desc: 'Én inngang til alle ekspertene, filtrerbar på forretningsområde og rolle. I dag ligger den samlede oversikten under presserommet, et sted kunder aldri går.',
+    before: {
+      title: 'Presse › Kontakter',
+      note: '18 kort i et rutenett, ni merket «Pressekontakt» — og ingen som lenker videre.',
+      image: '/bilder/storebrand/ekspertkort-presse.webp',
+      alt: 'Siden Presse › Kontakter på storebrand.no med et rutenett av pressekontaktkort',
+      width: 2392,
+      height: 1340,
+    },
     image: '/bilder/storebrand/eksperter-oversikt.webp',
     alt: 'Skisse av oversiktsside med filtrerbare ekspertkort på storebrand.no',
     width: 1400,
@@ -140,7 +147,15 @@ export const expertPrototypes = [
   {
     tab: 'Profil',
     title: 'Ekspertprofil',
-    desc: 'Full profil med bio, fagområder, kontaktinfo og alt eksperten har skrevet eller kommentert. Det er denne siden AI kan koble en uttalelse til en faktisk person.',
+    desc: 'Full profil med bio, fagområder, kontaktinfo og alt eksperten har skrevet eller kommentert. Det er på denne siden AI kan koble en uttalelse til en faktisk person.',
+    before: {
+      title: 'Et kort med kontaktinfo',
+      note: 'Portrett, navn, avkortet tittel, e-post og telefon. Ingen bio, ingen fagområder.',
+      image: '/bilder/storebrand/ekspertkort-idag.webp',
+      alt: 'Statisk ekspertkort på storebrand.no med portrett, navn, avkortet tittel, e-post og telefonnummer',
+      width: 946,
+      height: 1035,
+    },
     image: '/bilder/storebrand/ekspertprofil.webp',
     alt: 'Skisse av fullverdig ekspertprofil med bio, fagområder og artikkelliste',
     width: 1000,
@@ -151,37 +166,20 @@ export const expertPrototypes = [
     tab: 'Artikkel',
     title: 'Artikkel med forfatterkobling',
     desc: 'Artikkelen viser hvem som står bak, og lenker til profilen. Tre koblinger gjør den lesbar for AI: synlig lenke, schema-markup og sameAs mot LinkedIn og eksterne omtaler.',
+    before: {
+      title: 'En «Kontakter»-bolk etter brødteksten',
+      note: 'De samme kortene står som avsendere av artikkelen, uten vei videre.',
+      image: '/bilder/storebrand/ekspertkort-artikkel.webp',
+      alt: 'Bunnen av en pressemelding på storebrand.no med bolken «Kontakter» og to kontaktkort',
+      width: 1577,
+      height: 1454,
+    },
     image: '/bilder/storebrand/ekspert-artikkel.webp',
     alt: 'Skisse av artikkelside med tydelig forfatterkort som lenker til ekspertprofilen',
     width: 1200,
     height: 1452,
     tags: ['Schema.org', 'sameAs', 'Forfatterkort'],
   },
-];
-
-// De tre grepene for tredjepartsomtaler.
-export const reviewActions = [
-  {
-    num: '1',
-    title: 'Oppfordre',
-    desc: 'Systematiske invitasjoner høsten 2025 ga rask effekt: Storebrand gikk fra 1,7 til 4,1 på Trustpilot og klatret 13 plasser på Bytt.no.',
-  },
-  {
-    num: '2',
-    title: 'Svare',
-    desc: 'Storebrand svarer allerede på omtaler, men svarene signeres med fornavn alene. Tydeligere avsender gjør dem mer troverdige — for kunden og for modellen.',
-  },
-  {
-    num: '3',
-    title: 'Synliggjøre',
-    desc: 'Løfte vurderingene inn på produktsidene, slik at AI leser dem der den allerede henter informasjon om produktet.',
-  },
-];
-
-// Nøkkeltall fra Trustpilot og Bytt.no etter at invitasjonene startet.
-export const reviewStats = [
-  { value: '1,7 → 4,1', label: 'Trustpilot', note: '1 108 omtaler' },
-  { value: '2,6 → 3,3', label: 'Bytt.no', note: '+13 plasser' },
 ];
 
 // Domenene AI-tjenester siterer oftest (Semrush, jan. 2026). Grunnlaget for
