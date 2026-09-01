@@ -5,6 +5,9 @@ import {
   expertPrototypes,
   fanOutQueries,
   heroMeta,
+  iaAfter,
+  iaExamples,
+  iaPrinciples,
   measures,
   reflection,
   reviewActions,
@@ -29,9 +32,11 @@ export default function Storebrand() {
   useReveal();
 
   const [activeProto, setActiveProto] = useState(0);
+  const [activeIa, setActiveIa] = useState(0);
   const [zoomed, setZoomed] = useState(null);
 
   const proto = expertPrototypes[activeProto];
+  const iaExample = iaExamples[activeIa];
 
   // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
   useEffect(() => {
@@ -236,10 +241,10 @@ export default function Storebrand() {
             onClick={() =>
               setZoomed({
                 image: '/bilder/storebrand/storebrand-idag.webp',
-                alt: 'Full skjermdump av en artikkelside på storebrand.no',
+                alt: 'Full skjermdump av en artikkelside på storebrand.no slik den ser ut i dag',
               })
             }
-            aria-label="Vis hele artikkelsiden i større format"
+            aria-label="Vis hele dagens artikkelside i større format"
           >
             <img
               src="/bilder/storebrand/storebrand-idag.webp"
@@ -251,8 +256,106 @@ export default function Storebrand() {
             <span className="sb-shot-hint">Klikk for hele siden</span>
           </button>
           <figcaption>
+            <span className="sb-ba-label">Slik er artikkelen i dag</span>
             En typisk artikkelside i full lengde. Alt innholdet finnes — men det er lite som
-            skiller ett svar fra resten.
+            skiller ett svar fra resten, og ingenting som forteller modellen hvilken bit som
+            svarer på hva.
+          </figcaption>
+        </figure>
+
+        <h3 className="sb-sub reveal">Ni grep som gjør innholdet lesbart for AI</h3>
+        <p className="sb-body reveal">
+          Ut fra gjennomgangen samlet vi ni grep. Hvert enkelt er lite, og ingen av dem endrer
+          hva som står på siden — bare hvordan det er satt opp. Det er først når de brukes
+          sammen at innholdet blir tydelig strukturert, oppdelt og kildemerket, og dermed noe
+          en modell kan plukke opp, gjengi og vise til i et AI-søk.
+        </p>
+
+        <div className="sb-ia-grid">
+          {iaPrinciples.map((item, index) => (
+            <div className={`sb-ia-card ${revealClass(index, 3)}`} key={item.num}>
+              <div className="sb-ia-num">{item.num}</div>
+              <div className="sb-ia-title">{item.title}</div>
+              <div className="sb-ia-lead">{item.lead}</div>
+              <p className="sb-ia-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="sb-sub reveal">Grepene i praksis</h3>
+        <p className="sb-body reveal">
+          De samme ni grepene, brukt på én konkret artikkel — «Hva gjør jeg ved skade på
+          bil?». Fanene i rammen under bruker samme nummerering som rutenettet over — velg et
+          grep for å se utsnittet, og klikk på bildet for å åpne det i full størrelse.
+        </p>
+
+        {/* Hele fanevisningen ligger i én ramme, så det er tydelig at fanene,
+            teksten og bildet hører sammen. Overskrift og forklaring står over
+            bildet, og fanene bærer nummereringen fra rutenettet over. */}
+        <div className="sb-ia-example reveal">
+          <div className="sb-proto-tabs">
+            {iaExamples.map((item, index) => (
+              <button
+                key={item.tab}
+                type="button"
+                className={`sb-proto-tab${index === activeIa ? ' active' : ''}`}
+                onClick={() => setActiveIa(index)}
+                aria-pressed={index === activeIa}
+              >
+                {item.tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="sb-ia-example-body">
+            <div className="sb-ia-example-title">{iaExample.title}</div>
+            <p className="sb-ia-example-desc">{iaExample.desc}</p>
+          </div>
+
+          <button
+            type="button"
+            className="sb-ia-example-visual"
+            onClick={() => setZoomed({ image: iaExample.image, alt: iaExample.alt })}
+            aria-label={`Vis ${iaExample.title} i større format`}
+          >
+            <img
+              src={iaExample.image}
+              alt={iaExample.alt}
+              width={iaExample.width}
+              height={iaExample.height}
+              loading="lazy"
+            />
+          </button>
+        </div>
+
+        <h3 className="sb-sub reveal">De ni grepene satt sammen</h3>
+        <p className="sb-body reveal">
+          Her er den samme artikkelen med grepene lagt inn. Innholdet er det samme som i
+          skjermdumpen øverst i seksjonen — men det er delt opp i nummererte spørsmål, med
+          faktaboks, punktlister, interne lenker, dekningstabell, navngitte eksperter og en FAQ
+          til slutt. Skjermdumpene er tatt i samme bredde: forslaget er under en tredjedel så
+          langt som dagens side.
+        </p>
+
+        <figure className="sb-figure reveal">
+          <button
+            type="button"
+            className="sb-shot tall"
+            onClick={() => setZoomed({ image: iaAfter.image, alt: iaAfter.alt })}
+            aria-label="Vis det omstrukturerte forslaget i større format"
+          >
+            <img
+              src={iaAfter.image}
+              alt={iaAfter.alt}
+              width={iaAfter.width}
+              height={iaAfter.height}
+              loading="lazy"
+            />
+            <span className="sb-shot-hint">Klikk for hele siden</span>
+          </button>
+          <figcaption>
+            <span className="sb-ba-label">Forslag</span>
+            Kortere side, seks nummererte spørsmål og en FAQ — hvert svar står for seg selv.
           </figcaption>
         </figure>
       </section>

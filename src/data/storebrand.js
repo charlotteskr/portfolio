@@ -86,7 +86,7 @@ export const measures = [
     num: '02',
     title: 'Informasjonsarkitektur',
     lead: 'AI foretrekker struktur og enkelhet.',
-    desc: 'Dagens sider er lange og tettpakkede, med informasjonen spredt utover. En ryddigere struktur gjør innholdet lettere å lese — både for kunden og for modellen.',
+    desc: 'Dagens sider er lange og tettpakkede, med informasjonen spredt utover. Vi samlet ni grep — fra spørsmål som overskrifter til tabeller og FAQ — som til sammen gjør innholdet lettere å lese, både for kunden og for modellen.',
     mine: true,
   },
   {
@@ -198,3 +198,150 @@ export const reflection = [
   'Prosjektet handlet like mye om innhold som om grensesnitt. Det meste av det som avgjør om Storebrand havner i et AI-svar, er strukturen bak sidene — ikke hvordan de ser ut.',
   'Det jeg tar med meg videre er hvor kort veien er fra research til noe konkret: fire intervjuer og en gjennomgang av informasjonsarkitekturen ga nok til å skissere en løsning teamet kunne bygge videre på.',
 ];
+
+// ── TILTAK 02: INFORMASJONSARKITEKTUR ────────────────────────────────────
+// De ni grepene teamet landet på for en AI-vennlig informasjonsarkitektur
+// (slide 20 i sluttpresentasjonen). Satt sammen utgjør de oppskriften på en
+// side en modell kan lese, forstå og sitere fra.
+export const iaPrinciples = [
+  {
+    num: '01',
+    title: 'Spørsmål som overskrifter',
+    lead: 'H1, H2 og H3 formulert som reelle kundespørsmål.',
+    desc: 'AI-en matcher spørsmålet den får mot overskriftene på siden. «Hva gjør jeg ved skade på bil?» treffer der «Bilskade» ikke gjør det.',
+  },
+  {
+    num: '02',
+    title: 'Brutt opp og visuelt',
+    lead: 'Mindre løpende tekst, mer som engasjerer.',
+    desc: 'Faktabokser, ikoner og korte avsnitt gjør at hvert svar står for seg selv i stedet for å drukne i en vegg av tekst.',
+  },
+  {
+    num: '03',
+    title: 'Svar-klare datablokker',
+    lead: 'Fem til åtte blokker med tall og kildehenvisning.',
+    desc: 'Hver blokk svarer på ett spørsmål og oppgir hvor tallet kommer fra. Det er slike biter en modell kan løfte ut og gjengi.',
+  },
+  {
+    num: '04',
+    title: 'Punktlister',
+    lead: 'Gjør dataene tilgjengelige.',
+    desc: 'Strukturert innhold foretrekkes av AI. En punktliste gir én påstand per linje, uten at modellen må dele opp et avsnitt selv.',
+  },
+  {
+    num: '05',
+    title: 'Brukeren i sentrum',
+    lead: 'Sider bygget rundt behov, ikke produktnivå.',
+    desc: 'Formuleringene tar utgangspunkt i kunden — «jeg» og «du» framfor produktnavn. Da ligner teksten på måten spørsmålet faktisk stilles.',
+  },
+  {
+    num: '06',
+    title: 'Intern lenkestruktur',
+    lead: 'Lenker til relatert og relevant innhold.',
+    desc: 'Å peke videre til den URL-en som er aktuell for kunden akkurat der, viser modellen hvordan innholdet henger sammen.',
+  },
+  {
+    num: '07',
+    title: 'Tabeller',
+    lead: 'Enkelt for AI å sitere.',
+    desc: 'En tabell gjør sammenligninger — dekning, egenandel, pris — direkte siterbare uten at modellen må tolke løpende tekst.',
+  },
+  {
+    num: '08',
+    title: 'Ekspertprofiler',
+    lead: 'Kvalitetssikret innhold med navngitte bidragsytere.',
+    desc: 'Ekspertise og tydelig avsender er særlig viktig. Et navn med rolle og kobling videre gjør innholdet til noe AI kan vise til.',
+  },
+  {
+    num: '09',
+    title: 'Utfyllende FAQ',
+    lead: 'Bygget på hva, hvem, hvordan og når.',
+    desc: 'En FAQ som dekker oppfølgingsspørsmålene blir særlig premiert, fordi den svarer på delspørsmålene AI-en genererer i bakgrunnen.',
+  },
+];
+
+// Grepene vist i praksis. Bildene er utsnitt fra det omstrukturerte forslaget,
+// med grepet markert. Vises i en fanevisning der bildet kan klikkes opp.
+export const iaExamples = [
+  {
+    tab: '01 Spørsmål',
+    title: 'Overskriften er spørsmålet kunden stiller',
+    desc: 'Tittelen er skrevet om fra «Bilskade» til «Hva gjør jeg ved skade på bil?». Ingressen svarer i én setning, og merkingen «Kvalitetssikret innhold» står synlig sammen med forfatter og oppdateringsdato.',
+    image: '/bilder/storebrand/ia/ia-01-sporsmal.webp',
+    alt: 'Artikkeltopp der overskriften er formulert som spørsmålet «Hva gjør jeg ved skade på bil?»',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '02 Visuelt',
+    title: 'Faktaboksen løfter det viktigste ut av teksten',
+    desc: 'Huskeregelen «sikre – varsle – hjelpe» ligger i en egen boks med ikon, med Norsk Luftambulanse oppgitt som kilde. Den står for seg selv og kan gjengis uten resten av avsnittet.',
+    image: '/bilder/storebrand/ia/ia-02-visuelt.webp',
+    alt: 'Faktaboks med ikon som gjengir huskeregelen «sikre – varsle – hjelpe» fra Norsk Luftambulanse',
+    width: 1200,
+    height: 261,
+  },
+  {
+    tab: '04–05 Punktliste',
+    title: 'Punktliste — og kunden som subjekt',
+    desc: 'Dokumentasjonskravene er delt opp i punkter framfor et avsnitt. Under står neste overskrift skrevet fra kundens side: «Hvordan får jeg veihjelp hvis bilen stopper?» — «jeg», ikke «veihjelpsdekning».',
+    image: '/bilder/storebrand/ia/ia-04-punktliste.webp',
+    alt: 'Avsnitt med punktliste over dokumentasjonskrav, og en overskrift formulert i jeg-form',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '06 Lenker i teksten',
+    title: 'Lenker rett til handlingen kunden er ute etter',
+    desc: 'Der teksten nevner å melde skade, ligger knappen som faktisk gjør det. Lenkene peker til den URL-en som er relevant akkurat i det avsnittet, ikke til en generell forside.',
+    image: '/bilder/storebrand/ia/ia-06-internlenker.webp',
+    alt: 'Avsnitt om å melde bilskade med knappen «Få veiledning og meld skade» rett under',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '06 Relatert innhold',
+    title: 'En «Se også» som binder temaene sammen',
+    desc: 'Nederst ligger inngangene til nærliggende forsikringer. Det gir kunden en vei videre — og viser modellen hvilke sider som hører til samme tema.',
+    image: '/bilder/storebrand/ia/ia-06-se-ogsa.webp',
+    alt: '«Se også»-seksjon med lenkeknapper til hus-, person-, ulykkes-, reise- og helseforsikring',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '07 Tabell',
+    title: 'Dekningen satt opp som tabell',
+    desc: 'Delkasko, kasko og super sammenlignet rad for rad. En modell kan lese ut «dekker kasko kollisjon?» direkte fra tabellen i stedet for å tolke et avsnitt med forbehold.',
+    image: '/bilder/storebrand/ia/ia-07-tabell.webp',
+    alt: 'Tabell som sammenligner hva delkasko, kasko og super dekker',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '08 Eksperter',
+    title: 'Navngitte eksperter under artikkelen',
+    desc: 'Innholdet er signert av skadesjef og fagspesialist med bilde, rolle og tilhørighet. Det er koblingen mellom en påstand og en faktisk person AI-en ser etter.',
+    image: '/bilder/storebrand/ia/ia-08-eksperter.webp',
+    alt: 'Seksjonen «Storebrand ekspertise» med to ekspertkort: skadesjef og fagspesialist',
+    width: 1600,
+    height: 667,
+  },
+  {
+    tab: '09 FAQ',
+    title: 'FAQ som fanger opp oppfølgingsspørsmålene',
+    desc: 'Hvem takserer skaden, når får jeg leiebil, hvor lang tid tar saken, hva skjer med bonusen. Det er nettopp slike delspørsmål AI-en genererer i bakgrunnen når noen spør om bilskade.',
+    image: '/bilder/storebrand/ia/ia-09-faq.webp',
+    alt: 'FAQ-seksjon med fire sammenslåtte spørsmål om taksering, leiebil, saksbehandlingstid og bonus',
+    width: 1600,
+    height: 667,
+  },
+];
+
+// Det omstrukturerte forslaget i full lengde — de ni grepene satt sammen på
+// én side. Sammenlignes med `storebrand-idag.webp`, som er dagens artikkel.
+export const iaAfter = {
+  image: '/bilder/storebrand/ia/storebrand-etter.webp',
+  alt: 'Omstrukturert artikkelside på storebrand.no i full lengde, med spørsmålsoverskrifter, faktaboks, punktlister, tabell, ekspertkort og FAQ',
+  width: 1100,
+  height: 2196,
+};

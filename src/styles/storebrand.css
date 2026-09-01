@@ -511,6 +511,79 @@ body.case-storebrand {
   margin-bottom: 0.35rem;
 }
 
+/* ── TILTAK 02: INFORMASJONSARKITEKTUR ── */
+/* Underoverskrift inne i en seksjon — mindre enn .sb-title, men med samme
+   lette vekt, så de ni grepene og eksemplene leses som deler av samme tiltak. */
+.sb-sub {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 200;
+  line-height: 1.25;
+  margin: 4.5rem 0 1.25rem;
+}
+.sb-ia-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.sb-ia-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--sb-sand);
+}
+.sb-ia-num {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: var(--sb-red);
+  margin-bottom: 0.7rem;
+}
+.sb-ia-title { font-size: 1.15rem; font-weight: 300; margin-bottom: 0.35rem; }
+.sb-ia-lead {
+  font-size: 0.85rem;
+  color: var(--sb-ink);
+  line-height: 1.5;
+  margin-bottom: 0.7rem;
+  font-weight: 400;
+}
+.sb-ia-desc { font-size: 0.88rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
+
+/* Eksempelvisningen er rammet inn som ett element: faner øverst, så grep-nummer,
+   overskrift og forklaring, og til slutt utsnittet. Teksten står over bildet,
+   slik at det er tydelig hvilket grep bildet viser. */
+.sb-ia-example {
+  margin-top: 2.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--sb-sand);
+}
+.sb-ia-example .sb-proto-tabs {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.sb-ia-example .sb-proto-tab { background: rgba(255,255,255,0.5); }
+.sb-ia-example-body { max-width: 68ch; margin-bottom: 1.75rem; }
+.sb-ia-example-title { font-size: 1.3rem; font-weight: 200; margin-bottom: 0.6rem; }
+.sb-ia-example-desc {
+  font-size: 0.95rem;
+  color: var(--dim);
+  line-height: 1.75;
+  font-weight: 300;
+}
+.sb-ia-example-visual {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  cursor: zoom-in;
+}
+.sb-ia-example-visual img { display: block; width: 100%; height: auto; }
+
 /* ── PROTOTYPER ── */
 .sb-proto { margin-top: 2rem; }
 .sb-proto-tabs {
@@ -741,6 +814,7 @@ body.case-storebrand {
   .sb-stats { grid-template-columns: 1fr 1fr; }
   .sb-timeline { grid-template-columns: 1fr 1fr 1fr; }
   .sb-before-after.two { grid-template-columns: 1fr 1fr; }
+  .sb-ia-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ── ≥ 769px — STORT NETTBRETT ── */
@@ -748,6 +822,7 @@ body.case-storebrand {
   .sb-problem-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .sb-contrib-grid { grid-template-columns: repeat(3, 1fr); }
   .sb-measure-grid { grid-template-columns: repeat(3, 1fr); }
+  .sb-ia-grid { grid-template-columns: repeat(3, 1fr); }
   /* Bildet til venstre, teksten til høyre — samme oppsett som på
      Mjøspromenaden, så prototypene leses likt på tvers av casene. */
   .sb-proto-display { grid-template-columns: 1.1fr 1fr; gap: 3rem; }
