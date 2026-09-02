@@ -5,28 +5,99 @@
    Paletten er ikke funnet på: den er hentet rett fra prosjektets egen
    designmanual, og fasefargene er de fire feltene i Double Diamond-modellen.
 
+   Grunnflaten er hvit, og fargen er strukturbærende: hver seksjon setter sin
+   egen --accent, og vask, kortflate, kantlinje og småtekst utledes av den.
+   Det er derfor reglene under nesten aldri nevner en farge direkte — bytter
+   du --accent på en seksjon, følger hele seksjonen etter.
+
+     --accent       seksjonens farge, én av de seks
+     --accent-ink   samme farge mørknet mot teksten, for liten tekst.
+                    40 % er den blandingen som holder 4,5:1 mot hvitt for
+                    alle seks — den gule er den kritiske og lander på 4,95:1
+     --card         kortflaten: en svak tone av --accent på hvite seksjoner,
+                    og ren hvit på seksjoner som selv har vask
+     --line         kantlinjen, samme farge tynnet mot hvitt
+
+   Fasefargene er de fire feltene i Double Diamond. --tone-orange og
+   --tone-lilac er de to som ikke er knyttet til en fase, og brukes til
+   MoSCoW-nivåene og teamseksjonen.
+
+   --wine og --forest er smArts egne knappefarger fra designmanualen. De
+   brukes bare i heroen og i fargerutene som dokumenterer manualen — alt
+   annet henter fra de seks.
+
    Mobile first, samme breakpoint-skala som styles.css. */
 
 body.case-smart {
-  --paper: #F0E8D9;
+  --white: #FFFFFF;         /* sidens grunnflate */
+  --paper: #F0E8D9;         /* sand — vask på prosesseksjonen */
   --ink-smart: #2D2C29;
   --modal: #D4BD91;
-  --wine: #7A0B0B;
-  --forest: #3B6246;
+  --wine: #7A0B0B;          /* manualfarge — kun hero og fargeruter */
+  --forest: #3B6246;        /* manualfarge — kun hero og fargeruter */
 
-  --phase-discover: #D9686E;
-  --phase-define: #E08A4C;
-  --phase-develop: #F0D24B;
-  --phase-deliver: #7CBF6A;
+  --phase-discover: #E28585;
+  --phase-define: #9D9FC5;
+  --phase-develop: #F2D759;
+  --phase-deliver: #7DBF68;
+  --tone-orange: #DF8E53;
+  --tone-lilac: #D8A7E4;
 
-  --line: #d8cdb8;
   --dim: #6f6a60;
 
-  background: var(--paper);
+  background: var(--white);
   color: var(--ink-smart);
 }
 
-.sm-page section { padding: clamp(4rem, 8vw, 8rem) var(--side); }
+.sm-page section {
+  padding: clamp(4rem, 8vw, 8rem) var(--side);
+  --accent: var(--phase-discover);
+  --accent-ink: color-mix(in srgb, var(--accent) 40%, var(--ink-smart));
+  --card: color-mix(in srgb, var(--accent) 11%, var(--white));
+  --line: color-mix(in srgb, var(--accent) 35%, var(--white));
+}
+
+/* Hver seksjon arver fargen fra fasen den tilhører i Double Diamond-sporet
+   øverst, slik metodelistene der plasserer dem:
+
+     Discover  Brukerintervju, affinitetsdiagram, ekspertintervju
+     Define    Problemstilling, hovedfunn, brukerflyt, konkurrentanalyse
+     Develop   MoSCoW, kontrollervurdering, wireframes, visuell identitet
+     Deliver   Ferdig grensesnitt, fysiske elementer, WoT, plakater
+
+   Tre seksjoner hører til Define og to til Develop. De deler farge med vilje
+   — det er vasken som skiller dem, ikke fargen. Prosesseksjonen viser alle
+   fire fasene og står derfor på nøytral sand, og teamseksjonen er ikke en
+   fase og får lilla, som ikke er brukt i diamanten. */
+.sm-problem      { --accent: var(--phase-define); }
+.sm-research     { --accent: var(--phase-discover); }
+.sm-findings     { --accent: var(--phase-define); }
+.sm-market       { --accent: var(--phase-define); }
+.sm-requirements { --accent: var(--phase-develop); }
+.sm-identity     { --accent: var(--phase-develop); }
+.sm-solution     { --accent: var(--phase-deliver); }
+.sm-team         { --accent: var(--tone-lilac); }
+
+/* Vask på annenhver seksjon. Kortene blir hvite, så de løfter seg fra flaten. */
+.sm-page section.tinted {
+  background: color-mix(in srgb, var(--accent) 14%, var(--white));
+  --card: var(--white);
+  --line: color-mix(in srgb, var(--accent) 42%, var(--white));
+}
+/* Prosesseksjonen beholder sanden: der er det de fire fasefargene som skal
+   bære, og en nøytral flate lar dem stå fram hver for seg. */
+.sm-page section.sand {
+  background: var(--paper);
+  --card: var(--white);
+  --line: color-mix(in srgb, var(--accent) 45%, var(--paper));
+}
+/* Seksjonen dekker alle fire fasene, så prikken og stikktittelen kan ikke
+   låne fargen til én av dem. Begge står nøytralt i tekstfargen.
+   Selektoren må matche vekten til .sand-regelen over for å overstyre --line. */
+.sm-page section.sm-process {
+  --accent: var(--ink-smart);
+  --line: color-mix(in srgb, var(--ink-smart) 16%, var(--paper));
+}
 
 /* ── HERO ── */
 .sm-hero {
@@ -84,9 +155,9 @@ body.case-smart {
   font-weight: 300;
   font-size: 0.42em;
   line-height: 1.3;
-  /* Laksefargen fra før ga bare 1,9:1 mot den grønne bakgrunnen. Sandfargen
-     ligger på ca. 4:1, som holder for så stor tekst. */
-  color: var(--modal);
+  /* Gult mot grønnflaten ligger på 5,0:1 — godt over kravet for så stor
+     tekst, og holder heroen innenfor de seks fargene. */
+  color: var(--phase-develop);
   display: block;
   margin-top: 0.6rem;
 }
@@ -139,11 +210,11 @@ body.case-smart {
   animation: fadeUp 0.8s ease forwards 0.7s;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
-/* Hover gikk tidligere til --forest, som nå er selve bakgrunnen — knappen
-   ville blitt usynlig. Den lysner til sandfargen i stedet. */
+/* Hover kan ikke gå til --forest, som er selve heroflaten — knappen ville
+   blitt usynlig. Den lysner til den gule i stedet. */
 .sm-hero-cta:hover {
   transform: translateY(-2px);
-  background: var(--modal);
+  background: var(--phase-develop);
   color: var(--ink-smart);
   box-shadow: 0 10px 24px -8px rgba(0,0,0,0.45);
 }
@@ -157,13 +228,18 @@ body.case-smart {
   gap: 1rem;
   margin-bottom: 2rem;
 }
-.sm-eyebrow-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.sm-eyebrow-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent);
+}
 .sm-eyebrow-text {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--dim);
-  font-weight: 400;
+  color: var(--accent-ink);
+  font-weight: 500;
 }
 .sm-title {
   font-size: clamp(2rem, 4vw, 3.2rem);
@@ -181,7 +257,7 @@ body.case-smart {
 }
 
 /* ── PROBLEMSTILLING ── */
-.sm-problem { background: var(--paper); }
+/* Seksjonen er hvit; problemstillingen bærer fargen i sin egen oransje boks. */
 .sm-problem-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 .sm-statement {
   margin-top: 2.5rem;
@@ -195,7 +271,7 @@ body.case-smart {
 }
 
 /* ── PROSESS ── */
-.sm-process { background: var(--modal); }
+/* Fasefargene er hele fargeholdet her — trinnene og panelet står på hvitt. */
 .sm-process-track {
   display: grid;
   grid-template-columns: 1fr;
@@ -216,9 +292,9 @@ body.case-smart {
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
-.sm-step:hover { background: rgba(255,255,255,0.35); }
+.sm-step:hover { background: color-mix(in srgb, var(--card) 55%, var(--paper)); }
 .sm-step.active {
-  background: var(--paper);
+  background: var(--card);
   border-color: var(--accent-color);
 }
 .sm-step-node {
@@ -236,7 +312,7 @@ body.case-smart {
 .sm-process-panel {
   margin-top: 1.5rem;
   padding: clamp(1.5rem, 4vw, 2.5rem);
-  background: var(--paper);
+  background: var(--card);
   border-left: 4px solid var(--accent-color);
   border-radius: 12px;
 }
@@ -268,6 +344,7 @@ body.case-smart {
   padding: 1.75rem;
   border: 1px solid var(--line);
   border-radius: 14px;
+  background: var(--card);
 }
 .sm-insight-icon {
   width: 44px; height: 44px;
@@ -298,11 +375,10 @@ body.case-smart {
   left: 0; top: 0.55em;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--phase-discover);
+  background: var(--accent);
 }
 
 /* ── HOVEDFUNN ── */
-.sm-findings { background: var(--modal); }
 .sm-findings-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -310,7 +386,7 @@ body.case-smart {
   margin-top: 2.5rem;
 }
 .sm-finding {
-  background: var(--paper);
+  background: var(--card);
   border-radius: 14px;
   padding: 1.75rem;
 }
@@ -321,7 +397,7 @@ body.case-smart {
   text-transform: uppercase;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: var(--phase-define);
+  background: var(--accent);
   margin-bottom: 1rem;
 }
 .sm-finding-title { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; }
@@ -333,6 +409,7 @@ body.case-smart {
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1.75rem;
+  background: var(--card);
 }
 .sm-competitor-kind {
   font-size: 0.68rem;
@@ -358,8 +435,8 @@ body.case-smart {
   margin-bottom: 0.6rem;
   font-weight: 500;
 }
-.sm-proscons-title.pro { color: var(--forest); }
-.sm-proscons-title.con { color: var(--wine); }
+.sm-proscons-title.pro { color: color-mix(in srgb, var(--phase-deliver) 40%, var(--ink-smart)); }
+.sm-proscons-title.con { color: color-mix(in srgb, var(--phase-discover) 40%, var(--ink-smart)); }
 .sm-proscons ul { list-style: none; display: grid; gap: 0.4rem; }
 .sm-proscons li {
   position: relative;
@@ -369,16 +446,16 @@ body.case-smart {
   line-height: 1.6;
 }
 .sm-proscons li::before { position: absolute; left: 0; }
-.sm-proscons .pro-list li::before { content: '+'; color: var(--forest); }
-.sm-proscons .con-list li::before { content: '−'; color: var(--wine); }
+.sm-proscons .pro-list li::before { content: '+'; color: color-mix(in srgb, var(--phase-deliver) 40%, var(--ink-smart)); }
+.sm-proscons .con-list li::before { content: '−'; color: color-mix(in srgb, var(--phase-discover) 40%, var(--ink-smart)); }
 
 /* ── MOSCOW + KONTROLLERE ── */
 .sm-moscow { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2.5rem; }
 .sm-moscow-col { border-radius: 14px; padding: 1.5rem; }
-.sm-moscow-col.must   { background: color-mix(in srgb, var(--phase-develop) 30%, var(--paper)); }
-.sm-moscow-col.should { background: color-mix(in srgb, #8AA8DC 30%, var(--paper)); }
-.sm-moscow-col.could  { background: color-mix(in srgb, #C99BD8 30%, var(--paper)); }
-.sm-moscow-col.wont   { background: color-mix(in srgb, var(--phase-deliver) 30%, var(--paper)); }
+.sm-moscow-col.must   { background: color-mix(in srgb, var(--phase-develop) 26%, var(--white)); }
+.sm-moscow-col.should { background: color-mix(in srgb, var(--tone-orange) 26%, var(--white)); }
+.sm-moscow-col.could  { background: color-mix(in srgb, var(--tone-lilac) 26%, var(--white)); }
+.sm-moscow-col.wont   { background: color-mix(in srgb, var(--phase-deliver) 26%, var(--white)); }
 .sm-moscow-level {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
@@ -395,11 +472,12 @@ body.case-smart {
   border-radius: 14px;
   padding: 1.5rem;
   position: relative;
+  background: var(--card);
 }
 .sm-controller.chosen {
-  border-color: var(--forest);
+  border-color: color-mix(in srgb, var(--phase-deliver) 55%, var(--white));
   border-width: 2px;
-  background: color-mix(in srgb, var(--forest) 7%, transparent);
+  background: color-mix(in srgb, var(--phase-deliver) 12%, var(--white));
 }
 .sm-controller-name { font-size: 1.05rem; font-weight: 400; margin-bottom: 1rem; }
 .sm-chosen-flag {
@@ -407,8 +485,8 @@ body.case-smart {
   font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: var(--forest);
-  color: var(--paper);
+  background: color-mix(in srgb, var(--phase-deliver) 40%, var(--ink-smart));
+  color: var(--white);
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
   margin-left: 0.6rem;
@@ -416,7 +494,6 @@ body.case-smart {
 }
 
 /* ── VISUELL IDENTITET ── */
-.sm-identity { background: var(--modal); }
 .sm-swatches { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
 .sm-swatch { width: 130px; }
 .sm-swatch-chip {
@@ -455,13 +532,14 @@ body.case-smart {
 .sm-solution { background: var(--ink-smart); color: var(--paper); }
 .sm-solution .sm-title { color: var(--paper); }
 .sm-solution .sm-body { color: rgba(240,232,217,0.72); }
-.sm-solution .sm-eyebrow-text { color: rgba(240,232,217,0.6); }
+.sm-solution .sm-eyebrow-text { color: var(--accent); }
 
 .sm-flow { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2.5rem; }
 .sm-flow-step {
   padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(240,232,217,0.16);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
   border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
 }
 .sm-flow-num {
   font-size: 0.7rem;
@@ -494,8 +572,8 @@ body.case-smart {
   font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: var(--wine);
-  color: var(--paper);
+  background: color-mix(in srgb, var(--phase-discover) 40%, var(--ink-smart));
+  color: var(--white);
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
 }

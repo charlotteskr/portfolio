@@ -67,7 +67,7 @@ export default function Smart() {
       {/* PROBLEMSTILLING */}
       <section className="sm-problem">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-define)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Problemstilling</span>
         </div>
         <div className="sm-problem-grid">
@@ -93,9 +93,9 @@ export default function Smart() {
       </section>
 
       {/* PROSESS */}
-      <section className="sm-process">
+      <section className="sm-process sand">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--wine)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Double Diamond</span>
         </div>
         <h2 className="sm-title reveal">Prosessen</h2>
@@ -132,9 +132,9 @@ export default function Smart() {
       </section>
 
       {/* INNSIKT */}
-      <section>
+      <section className="sm-research tinted">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-discover)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Discover</span>
         </div>
         <h2 className="sm-title reveal">Slik samlet vi innsikt</h2>
@@ -172,7 +172,7 @@ export default function Smart() {
       {/* HOVEDFUNN */}
       <section className="sm-findings">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--wine)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Hovedfunn</span>
         </div>
         <h2 className="sm-title reveal">Hva vi oppdaget</h2>
@@ -188,9 +188,9 @@ export default function Smart() {
       </section>
 
       {/* KONKURRENTANALYSE */}
-      <section>
+      <section className="sm-market tinted">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-define)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Define</span>
         </div>
         <h2 className="sm-title reveal">Hva finnes fra før?</h2>
@@ -230,9 +230,9 @@ export default function Smart() {
       </section>
 
       {/* PRIORITERING */}
-      <section>
+      <section className="sm-requirements">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-develop)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Develop</span>
         </div>
         <h2 className="sm-title reveal">Prioritering og valg</h2>
@@ -301,9 +301,9 @@ export default function Smart() {
       </section>
 
       {/* VISUELL IDENTITET */}
-      <section className="sm-identity">
+      <section className="sm-identity tinted">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--wine)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Visuell identitet</span>
         </div>
         <h2 className="sm-title reveal">Nøytralt uttrykk, organiske former</h2>
@@ -337,7 +337,7 @@ export default function Smart() {
       {/* LØSNING */}
       <section className="sm-solution" id="losning">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-deliver)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Deliver</span>
         </div>
         <h2 className="sm-title reveal">Den ferdige utstillingen</h2>
@@ -365,9 +365,9 @@ export default function Smart() {
       </section>
 
       {/* TEAM */}
-      <section>
+      <section className="sm-team">
         <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" style={{ background: 'var(--phase-discover)' }} />
+          <div className="sm-eyebrow-dot" />
           <span className="sm-eyebrow-text">Team</span>
         </div>
         <h2 className="sm-title reveal">Hvem gjorde hva</h2>
