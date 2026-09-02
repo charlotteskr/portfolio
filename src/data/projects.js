@@ -5,7 +5,6 @@ export const projects = [
   { slug: 'ks-kunnskap', label: 'ks kunnskap', title: 'KS Kunnskap', custom: true },
   { slug: 'mjospromenaden', label: 'mjøspromenaden', title: 'Mjøspromenaden', custom: true },
   { slug: 'smart', label: 'smArt', title: 'smArt', custom: true },
-  { slug: 'norkart', label: 'norkart', title: 'Norkart' },
 ];
 
 // Prosjektene som fortsatt bruker den generiske «under arbeid»-malen.
