@@ -54,6 +54,47 @@ const paths = {
       <path d="M12 6.75c1.5-1.35 3.4-2 5.5-2H21v12.5h-3.5c-2.1 0-4 .65-5.5 2" />
     </>
   ),
+
+  // Struktur: én node på toppen som greiner ut i tre under.
+  sitemap: (
+    <>
+      <rect x="8.75" y="2.5" width="6.5" height="4.5" rx="1.25" />
+      <rect x="2.5" y="17" width="5.5" height="4.5" rx="1.25" />
+      <rect x="9.25" y="17" width="5.5" height="4.5" rx="1.25" />
+      <rect x="16" y="17" width="5.5" height="4.5" rx="1.25" />
+      <path d="M12 7v4.5" />
+      <path d="M5.25 17v-3a1.5 1.5 0 0 1 1.5-1.5h10.5a1.5 1.5 0 0 1 1.5 1.5v3" />
+      <path d="M12 12.5V17" />
+    </>
+  ),
+
+  // Koding: to vinkelparenteser og en skråstrek.
+  code: (
+    <>
+      <path d="M8.25 7.5 3.5 12l4.75 4.5" />
+      <path d="M15.75 7.5 20.5 12l-4.75 4.5" />
+      <path d="M13.5 4.25 10.5 19.75" />
+    </>
+  ),
+
+  // Bildebibliotek: ramme med sol og fjellinje.
+  image: (
+    <>
+      <rect x="3" y="4.5" width="18" height="15" rx="2.5" />
+      <circle cx="8.75" cy="9.75" r="1.75" />
+      <path d="M3.5 16.5 8.5 12l4 3.5L16 12.5l4.5 4" />
+    </>
+  ),
+
+  // Markedsmateriell: ark med brettet hjørne og tekstlinjer.
+  flyer: (
+    <>
+      <path d="M5.5 2.75h8L19 8.25v13H5.5z" />
+      <path d="M13.5 2.75v5.5H19" />
+      <path d="M9 12.75h6" />
+      <path d="M9 16.25h6" />
+    </>
+  ),
 };
 
 export function Icon({ name }) {

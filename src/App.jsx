@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Kontakt from './pages/Kontakt';
+import KsKunnskap from './pages/KsKunnskap';
 import Mjospromenaden from './pages/Mjospromenaden';
 import ProjectStub from './pages/ProjectStub';
 import Smart from './pages/Smart';
@@ -14,6 +15,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/kontakt" element={<Kontakt />} />
+        <Route path="/ks-kunnskap" element={<KsKunnskap />} />
         <Route path="/mjospromenaden" element={<Mjospromenaden />} />
         <Route path="/smart" element={<Smart />} />
         <Route path="/storebrand" element={<Storebrand />} />
@@ -29,6 +31,7 @@ export default function App() {
         {/* Gamle .html-adresser er delt og indeksert — behold dem som redirects. */}
         <Route path="/index.html" element={<Navigate to="/" replace />} />
         <Route path="/kontakt.html" element={<Navigate to="/kontakt" replace />} />
+        <Route path="/ks-kunnskap.html" element={<Navigate to="/ks-kunnskap" replace />} />
         <Route path="/mjospromenaden.html" element={<Navigate to="/mjospromenaden" replace />} />
         <Route path="/smart.html" element={<Navigate to="/smart" replace />} />
         <Route path="/storebrand.html" element={<Navigate to="/storebrand" replace />} />
