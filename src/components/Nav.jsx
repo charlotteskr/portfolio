@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const links = [
   { to: '/#hjem', label: 'hjem' },
-  { to: '/kontakt', label: 'kontakt' },
+  { to: '/om', label: 'om' },
 ];
 
 export default function Nav() {

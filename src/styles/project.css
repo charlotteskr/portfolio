@@ -41,39 +41,9 @@
   line-height: 1.8;
 }
 
-/* ── FOOTER ── */
-.project-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 2rem var(--side);
-  border-top: 1px solid var(--light);
-}
-.footer-back {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--ink);
-  font-size: 0.85rem;
-  text-decoration: none;
-}
-.footer-back:hover { text-decoration: underline; }
-.footer-copy {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-weight: 300;
-}
-
-/* ── ≥ 641px — nettbrett ── */
-@media (min-width: 641px) {
-  .footer-back { min-height: 0; display: inline-block; }
-}
-
 /* ── ≥ 1280px — widescreen ── */
 @media (min-width: 1280px) {
-  .project-hero, .project-section, .project-footer {
+  .project-hero, .project-section {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;

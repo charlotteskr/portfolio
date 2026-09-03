@@ -748,15 +748,17 @@ section {
 /* ── FOOTER NAV ──
    Footeren ligger utenfor sidens eget tre (den bor i Layout), så disse må
    scopes på body for å slå project.css sine lysere varianter. */
-body.case-mjos .project-footer {
+body.case-mjos .site-footer {
   background: var(--navy);
-  padding: 2rem var(--side);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 2.5rem var(--side);
 }
+/* Kontaktlenkene arver den mørke tekstfargen fra styles.css og ville blitt
+   usynlige mot navy. */
+body.case-mjos .footer-link {
+  color: rgba(255,255,255,0.82);
+  font-weight: 300;
+}
+body.case-mjos .footer-link:hover { color: var(--white); }
 body.case-mjos .footer-back {
   display: flex;
   align-items: center;
@@ -851,7 +853,7 @@ body.case-mjos .footer-copy {
 
   .quote-mark { font-size: 5rem; }
 
-  body.case-mjos .project-footer { padding: 3rem var(--side); }
+  body.case-mjos .site-footer { padding: 3rem var(--side); }
   body.case-mjos .footer-back { min-height: 0; display: inline-block; }
 
   /* Tettere typografi når skjermen er stor nok til at den er lesbar. */

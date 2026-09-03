@@ -89,33 +89,88 @@ body {
   margin-bottom: 4rem;
 }
 
-/* ── CONTACT / FOOTER ── */
-.contact {
-  padding: 0 var(--side);
-  padding-bottom: 1rem;
+/* ── OM ──
+   Tekst til venstre, portrett til høyre. Mobile first: én kolonne der
+   portrettet kommer under teksten, og to kolonner fra stort nettbrett. */
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding: 0 var(--side) 5rem;
+  align-items: start;
+}
+.about-role {
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+.about-place {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+.about-line {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 46ch;
+  margin-bottom: 1.25rem;
+}
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.contact-link {
+/* ── FOOTER ──
+   Kontaktinformasjonen lå tidligere på en egen side. Den står nå her, så den
+   følger med på alle sidene. Footeren ligger utenfor case-sidenes fargede
+   seksjoner og arver derfor de nøytrale tokenene fra :root — den skal se lik
+   ut uansett hvilken palett siden over den bruker. */
+.site-footer {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2.5rem var(--side) 2rem;
+  margin-top: 0.5rem;
+}
+.footer-contact { display: grid; }
+.footer-link {
+  /* min-height gir en treffflate på 44px; se .project-item. */
   display: flex;
   align-items: center;
   min-height: 44px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
   font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 300;
   color: var(--ink);
   text-decoration: none;
-  margin-bottom: 0.4rem;
+  width: fit-content;
 }
-.contact-link:hover { text-decoration: underline; }
+.footer-link:hover { text-decoration: underline; }
 
-footer {
-  padding: 1.5rem var(--side) 1.5rem;
-  margin-top: 0.5rem;
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
 }
+.footer-back {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-back:hover { text-decoration: underline; }
 .footer-copy {
   font-size: 0.72rem;
   color: var(--muted);
   font-weight: 300;
+  /* Signaturen skal stå til høyre også når tilbake-lenka mangler. */
+  margin-left: auto;
 }
 
 /* ── ≥ 641px — nettbrett ── */
@@ -126,14 +181,20 @@ footer {
 
   /* Med mus er 44px unødvendig; tilbake til den tettere linjeavstanden. */
   .project-item,
-  .contact-link { min-height: 0; display: block; }
+  .footer-back,
+  .footer-link { min-height: 0; display: block; }
+}
+
+/* ── ≥ 769px — stort nettbrett ── */
+@media (min-width: 769px) {
+  .about { grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); }
 }
 
 /* ── ≥ 1280px — widescreen ──
    Hindre at innholdet strekker seg for bredt. */
 @media (min-width: 1280px) {
   body,
-  .contact {
+  .site-footer {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
