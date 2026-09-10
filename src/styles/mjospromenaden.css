@@ -1,6 +1,9 @@
 /* Alt her gjelder kun Mjøspromenaden-siden. Med ett samlet CSS-bundle ville
-   :root-tokenene og footer-reglene under lekket ut til de andre sidene, så de
-   er scopet til body.case-mjos — klassen settes av selve siden.
+   :root-tokenene under lekket ut til de andre sidene, så de er scopet til
+   body.case-mjos — klassen settes av selve siden.
+
+   Footeren har ingen egne regler her: den deles med de andre case-sidene og
+   hentes fra styles.css.
 
    Mobile first: basis er enkolonne på telefon, og flerkolonne-oppsettene
    bygges opp i min-width-blokkene nederst. Se breakpoint-skalaen i styles.css. */
@@ -749,39 +752,6 @@ section {
   font-weight: 400;
 }
 
-/* ── FOOTER NAV ──
-   Footeren ligger utenfor sidens eget tre (den bor i Layout), så disse må
-   scopes på body for å slå project.css sine lysere varianter. */
-body.case-mjos .site-footer {
-  background: var(--navy);
-  padding: 2.5rem var(--side);
-}
-/* Kontaktlenkene arver den mørke tekstfargen fra styles.css og ville blitt
-   usynlige mot navy. */
-body.case-mjos .footer-link {
-  color: rgba(255,255,255,0.82);
-  font-weight: 300;
-}
-body.case-mjos .footer-link:hover { color: var(--white); }
-body.case-mjos .footer-back {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 300;
-}
-body.case-mjos .footer-back:hover { color: var(--white); }
-body.case-mjos .footer-copy {
-  font-size: 0.72rem;
-  /* 0.5 gir 4.6:1 mot navy — WCAG AA. Lavere blir uleselig på mørk flate. */
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
-}
-
 /* fadeUp og .reveal ligger i styles.css — de deles med de andre case-sidene. */
 
 /* ══════════════════════════════════════════════════════════════════
@@ -843,9 +813,6 @@ body.case-mjos .footer-copy {
   .proto-content-title { font-size: 1.5rem; }
 
   .quote-mark { font-size: 5rem; }
-
-  body.case-mjos .site-footer { padding: 3rem var(--side); }
-  body.case-mjos .footer-back { min-height: 0; display: inline-block; }
 
   /* Tettere typografi når skjermen er stor nok til at den er lesbar. */
   .meta-label,
