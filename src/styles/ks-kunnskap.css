@@ -575,14 +575,10 @@ body.case-ks {
   font-weight: 300;
 }
 
-/* ── KODING OG AVSLUTNING PÅ MØRK FLATE ── */
-.ks-code,
-.ks-outro { background: var(--ks-navy); color: var(--ks-sand); }
-.ks-code .ks-title,
-.ks-outro .ks-title { color: var(--ks-sand); }
-.ks-code .ks-body,
-.ks-outro .ks-body { color: rgba(244,236,223,0.72); }
-.ks-outro .ks-eyebrow-text { color: rgba(244,236,223,0.55); }
+/* ── KODING PÅ MØRK FLATE ── */
+.ks-code { background: var(--ks-navy); color: var(--ks-sand); }
+.ks-code .ks-title { color: var(--ks-sand); }
+.ks-code .ks-body { color: rgba(244,236,223,0.72); }
 .ks-code .ks-chapter { border-top-color: var(--ks-lilac); }
 .ks-code .ks-chapter-num,
 .ks-code .ks-chapter-kicker { color: var(--ks-lilac); }

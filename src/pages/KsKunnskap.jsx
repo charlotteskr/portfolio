@@ -619,26 +619,6 @@ export default function KsKunnskap() {
         </div>
       </section>
 
-      {/* AVSLUTNING */}
-      <section className="ks-outro">
-        <div className="ks-eyebrow reveal">
-          <div className="ks-eyebrow-dot" />
-          <span className="ks-eyebrow-text">Status</span>
-        </div>
-        <h2 className="ks-title reveal">Arbeidet pågår</h2>
-        <p className="ks-body reveal">
-          KS Kunnskap er i drift, og kommuner og fylkeskommuner tar plattformen i bruk
-          fortløpende. Jeg jobber fortsatt i produktteamet, og det visuelle systemet
-          utvides etter hvert som nye kurs, roller og innholdstyper kommer til.
-        </p>
-        <p className="ks-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
-          Det som går igjen på tvers av alle de fem områdene, er den samme avveiningen: hvor
-          mye må brukeren lese før hen vet om dette er relevant? Hvert grep — fargen på et
-          kort, plasseringen av en tekst, en side som samler informasjon som ellers lå fem
-          steder — handler om å flytte litt av den jobben bort fra brukeren.
-        </p>
-      </section>
-
       {/* Felles lightbox for alle bildene som kan klikkes opp. */}
       {zoomed && (
         <div
