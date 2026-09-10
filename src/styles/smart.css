@@ -49,7 +49,7 @@ body.case-smart {
   color: var(--ink-smart);
 }
 
-.sm-page section {
+:where(.sm-page) section {
   padding: clamp(4rem, 8vw, 8rem) var(--side);
   --accent: var(--phase-discover);
   --accent-ink: color-mix(in srgb, var(--accent) 40%, var(--ink-smart));
