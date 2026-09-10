@@ -635,8 +635,17 @@ body.case-ks {
 @media (min-width: 769px) {
   .ks-context-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
   /* Det skjematiske kortet til venstre, forklaringene ved siden av. */
-  /* Kortet med markørene øverst, forklaringene i to spalter under. */
-  .ks-anatomy-list { grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
+  /* Kortet med markørene øverst, forklaringene i to spalter under.
+     grid-auto-flow: column fyller nedover før den går til neste spalte, så
+     rekkefølgen leses 1-2-3 i venstre spalte og 4-5-6 i høyre. Uten den
+     legger grid-en dem radvis, og blikket må hoppe fram og tilbake.
+     De tre radene forutsetter seks punkter — se thumbAnatomy. */
+  .ks-anatomy-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    gap: 1.5rem 2.5rem;
+  }
   .ks-pillars { grid-template-columns: repeat(3, 1fr); }
   .ks-work-grid { grid-template-columns: repeat(3, 1fr); }
   .ks-swatches { grid-template-columns: repeat(5, 1fr); }
