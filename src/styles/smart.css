@@ -534,21 +534,134 @@ body.case-smart {
 .sm-solution .sm-body { color: rgba(240,232,217,0.72); }
 .sm-solution .sm-eyebrow-text { color: var(--accent); }
 
-.sm-flow { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 2.5rem; }
-.sm-flow-step {
-  padding: 1.25rem 1.5rem;
+/* ── FLYTKART OVER PROTOTYPEN ──
+   Samme lesning som prototypevisningen i Figma: skjermene ligger etter
+   hverandre, koblet med stiplede piler, og en markør peker på knappen som
+   klikkes. På mobil faller alt ned i én bane med loddrette piler; fra 901px
+   veksler skjermene mellom venstre og høyre bane, og pilene blir albuer.
+
+   Pilene er tegnet med stiplede kanter på to bokser i stedet for SVG: da
+   følger de banebredden automatisk uten at streken strekkes ut av form.
+ */
+.sm-map { margin-top: 3rem; display: grid; }
+
+.sm-map-card { margin: 0; }
+
+.sm-map-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
   border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  overflow: hidden;
+  background: var(--paper);
+  cursor: zoom-in;
+  transition: border-color 0.2s ease;
 }
-.sm-flow-num {
+.sm-map-shot:hover { border-color: var(--accent); }
+/* height: auto er nødvendig: uten den henter bildet høyden fra height-
+   attributtet i markupen, og da står rammen igjen som et høyformat med sand
+   over og under skjermbildet. Skjermene er landskap i utgangspunktet, så
+   naturlig sideforhold gir ingen tomme felter i det hele tatt. */
+.sm-map-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sm-map-caption { display: grid; gap: 0.3rem; margin-top: 1rem; }
+.sm-map-num {
   font-size: 0.7rem;
   letter-spacing: 0.16em;
-  color: var(--phase-develop);
-  margin-bottom: 0.5rem;
+  color: var(--accent);
 }
-.sm-flow-title { font-size: 1rem; font-weight: 400; margin-bottom: 0.35rem; }
-.sm-flow-desc { font-size: 0.85rem; color: rgba(240,232,217,0.65); line-height: 1.6; font-weight: 300; }
+.sm-map-title { font-size: 1.15rem; font-weight: 400; }
+.sm-map-desc {
+  font-size: 0.87rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(240, 232, 217, 0.72);
+  max-width: 46ch;
+}
+
+/* ── PILENE MELLOM SKJERMENE ── */
+.sm-map-link { position: relative; height: 5.5rem; }
+
+/* Mobil: én loddrett strek midt i banen. */
+.sm-map-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px dashed color-mix(in srgb, var(--accent) 65%, transparent);
+}
+.sm-map-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--accent);
+}
+/* Teksten på pila står oppå streken og maskerer den med seksjonens egen bunn. */
+.sm-map-trigger {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--ink-smart);
+  color: rgba(240, 232, 217, 0.8);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  text-align: center;
+  max-width: min(100%, 24ch);
+}
+
+/* ── LIGHTBOX ── */
+.sm-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(45, 44, 41, 0.95);
+  padding: clamp(1rem, 4vw, 3rem);
+  overflow: auto;
+  cursor: zoom-out;
+  animation: smFadeIn 0.2s ease;
+}
+.sm-lightbox-img {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: var(--paper);
+}
+.sm-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 232, 217, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--paper);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.sm-lightbox-close:hover { background: var(--accent); border-color: var(--accent); }
+
+@keyframes smFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ── TEAM ── */
 .sm-team-grid {
@@ -597,7 +710,6 @@ body.case-smart {
   .sm-proscons { grid-template-columns: 1fr 1fr; }
   .sm-moscow { grid-template-columns: repeat(4, 1fr); }
   .sm-controllers { grid-template-columns: repeat(2, 1fr); }
-  .sm-flow { grid-template-columns: repeat(3, 1fr); }
   .sm-team-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
 }
 
@@ -609,4 +721,35 @@ body.case-smart {
   .sm-findings-grid { grid-template-columns: repeat(4, 1fr); }
   .sm-competitors { grid-template-columns: repeat(3, 1fr); }
   .sm-controllers { grid-template-columns: repeat(3, 1fr); }
+  /* Fra her veksler skjermene mellom to baner, og pilene blir albuer:
+     ned fra banen skjermen står i, tvers over, og ned i den neste. */
+  .sm-map { grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 5vw, 4.5rem); }
+  .sm-map-card.left { grid-column: 1; }
+  .sm-map-card.right { grid-column: 2; }
+  .sm-map-link { grid-column: 1 / -1; height: 7rem; }
+
+  .sm-map-link::before {
+    left: 25%;
+    width: 50%;
+    top: 0;
+    bottom: auto;
+    height: 50%;
+    border-bottom: 2px dashed color-mix(in srgb, var(--accent) 65%, transparent);
+  }
+  .sm-map-link.to-left::before {
+    border-left: 0;
+    border-right: 2px dashed color-mix(in srgb, var(--accent) 65%, transparent);
+  }
+  .sm-map-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    border-left: 2px dashed color-mix(in srgb, var(--accent) 65%, transparent);
+  }
+  .sm-map-link.to-right::after { left: 75%; }
+  .sm-map-link.to-left::after { left: 25%; }
+  .sm-map-link.to-right .sm-map-arrow { left: 75%; }
+  .sm-map-link.to-left .sm-map-arrow { left: 25%; }
+
 }

@@ -255,11 +255,70 @@ export const brandType = [
   { role: 'Brødtekst', font: 'Akatab', weight: 'Regular / Bold' },
 ];
 
-export const flowSteps = [
-  { title: 'Velg kunststil', desc: 'Brukeren blar gjennom seks kunststiler med kontrolleren.' },
-  { title: 'Infoside', desc: 'Stilen forklares kort, med kjennetegn og eksempler fra kjente kunstnere.' },
-  { title: 'Ta bilde', desc: 'Et webkamera fanger ansiktet når brukeren er klar.' },
-  { title: 'Genererer', desc: 'Lasteskjermen viser framdrift og en fun fact mens AI-en jobber.' },
-  { title: 'Kunsten er ferdig', desc: 'Resultatet vises med tittel og stil — et unikt digitalt kunstverk.' },
-  { title: 'Del til galleriet', desc: 'Brukeren velger selv om verket skal vises i smArt Gallery i 12 timer.' },
+// Flytkartet over den ferdige prototypen. Rekkefølgen er den samme som i
+// Figma-prototypen: startskjerm → stil → infoside → bilde → generering →
+// resultat → galleri.
+//
+// trigger er teksten på pila ut av skjermen — altså hva klikket fører til.
+export const walkthrough = [
+  {
+    title: 'Velg kunststil',
+    desc:
+      'Startskjermen viser seks kunststiler til venstre og et direktebilde fra webkameraet til høyre, så brukeren ser seg selv med en gang. Stilen som markeres, får sin egen farge — markeringen må leses på avstand.',
+    image: '/bilder/smart/01-velg-stil.webp',
+    alt: 'Startskjermen i smArt med seks kunststiler til venstre og direktebilde fra webkameraet til høyre',
+    width: 1920,
+    height: 1200,
+    trigger: 'Velger en stil',
+  },
+  {
+    title: 'Les om stilen',
+    desc:
+      'Infosiden forklarer stilen kort, viser tre kjennetegn som ikoner, og eksempler på hva andre besøkende har generert i samme stil.',
+    image: '/bilder/smart/03-infoside.webp',
+    alt: 'Infoside om ekspresjonisme med beskrivelse, tre kjennetegn og eksempelbilder fra andre besøkende',
+    width: 1920,
+    height: 1200,
+    trigger: 'Gjør seg klar',
+  },
+  {
+    title: 'Klar til å ta bildet',
+    desc:
+      'Brukeren kan gå tilbake eller ta bildet. Webkameraet står fortsatt på, så man rekker å stille seg riktig før utløseren.',
+    image: '/bilder/smart/04-ta-bilde.webp',
+    alt: 'Infosiden med knappene «go back» og «take picture» framhevet',
+    width: 1920,
+    height: 1200,
+    trigger: 'Bildet sendes til AI-en',
+  },
+  {
+    title: 'AI-en jobber',
+    desc:
+      'Lasteskjermen fyller ventetiden med en fun fact om stilen og kjente verk innenfor den. En varsling sier tydelig fra at bildet ikke lagres.',
+    image: '/bilder/smart/05-genererer.webp',
+    alt: 'Lasteskjerm med teksten «generating your art», en fun fact om ekspresjonisme og tre kjente verk',
+    width: 1920,
+    height: 1200,
+    trigger: 'Ingen klikk — skjermen går videre selv',
+  },
+  {
+    title: 'Kunsten er ferdig',
+    desc:
+      'Verket får tittel og stil. Brukeren velger selv om det skal deles, og en nedtelling sender skjermen tilbake til start når ingen svarer.',
+    image: '/bilder/smart/06-ferdig.webp',
+    alt: 'Resultatskjermen med det AI-genererte portrettet «The smiling man» i ekspresjonistisk stil',
+    width: 1920,
+    height: 1200,
+    trigger: 'Deler verket',
+  },
+  {
+    title: 'smArt Gallery',
+    desc:
+      'Delte verk vises på en egen skjerm i utstillingen i tolv timer, med tittel, stil og tidspunkt under.',
+    image: '/bilder/smart/07-galleri.webp',
+    alt: 'smArt Gallery — en skjerm som viser tre AI-genererte kunstverk fra besøkende',
+    width: 1920,
+    height: 1365,
+    trigger: null,
+  },
 ];

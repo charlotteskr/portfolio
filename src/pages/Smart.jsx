@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   affinityClusters,
   brandColors,
@@ -6,12 +6,12 @@ import {
   competitors,
   controllers,
   findings,
-  flowSteps,
   heroMeta,
   insights,
   moscow,
   processPhases,
   team,
+  walkthrough,
 } from '../data/smart';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -31,8 +31,19 @@ export default function Smart() {
   useReveal();
 
   const [activePhase, setActivePhase] = useState(0);
+  const [zoomed, setZoomed] = useState(null);
 
   const phase = processPhases[activePhase];
+
+  // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
+  useEffect(() => {
+    if (!zoomed) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape') setZoomed(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [zoomed]);
 
   return (
     <div className="sm-page">
@@ -353,13 +364,48 @@ export default function Smart() {
           bli til. Du er både kunstneren og motivet.
         </p>
 
-        <div className="sm-flow">
-          {flowSteps.map((step, index) => (
-            <div className={`sm-flow-step ${revealClass(index, 3)}`} key={step.title}>
-              <div className="sm-flow-num">{String(index + 1).padStart(2, '0')}</div>
-              <div className="sm-flow-title">{step.title}</div>
-              <p className="sm-flow-desc">{step.desc}</p>
-            </div>
+        <h3 className="sm-title reveal" style={{ fontSize: '1.6rem', marginTop: '4rem' }}>
+          Slik klikker brukeren seg gjennom
+        </h3>
+        <p className="sm-body reveal">
+          Seks skjermer fra den ferdige prototypen, koblet sammen i den rekkefølgen brukeren
+          møter dem. Klikk på en skjerm for å se den i full størrelse.
+        </p>
+
+        <div className="sm-map">
+          {walkthrough.map((item, index) => (
+            <Fragment key={item.title}>
+              <figure className={`sm-map-card ${index % 2 === 0 ? 'left' : 'right'} reveal`}>
+                <button
+                  type="button"
+                  className="sm-map-shot"
+                  onClick={() => setZoomed({ image: item.image, alt: item.alt })}
+                  aria-label={`Åpne «${item.title}» i full størrelse`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                  />
+                </button>
+                <figcaption className="sm-map-caption">
+                  <span className="sm-map-num">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="sm-map-title">{item.title}</span>
+                  <p className="sm-map-desc">{item.desc}</p>
+                </figcaption>
+              </figure>
+
+              {item.trigger && (
+                <div
+                  className={`sm-map-link ${index % 2 === 0 ? 'to-right' : 'to-left'} reveal`}
+                >
+                  <span className="sm-map-trigger">{item.trigger}</span>
+                  <i className="sm-map-arrow" />
+                </div>
+              )}
+            </Fragment>
           ))}
         </div>
       </section>
@@ -385,6 +431,27 @@ export default function Smart() {
           ))}
         </div>
       </section>
+
+      {/* Felles lightbox for prototypeskjermene og flytdiagrammet. */}
+      {zoomed && (
+        <div
+          className="sm-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={zoomed.alt}
+          onClick={() => setZoomed(null)}
+        >
+          <button
+            type="button"
+            className="sm-lightbox-close"
+            aria-label="Lukk"
+            onClick={() => setZoomed(null)}
+          >
+            ×
+          </button>
+          <img className="sm-lightbox-img" src={zoomed.image} alt={zoomed.alt} />
+        </div>
+      )}
     </div>
   );
 }
