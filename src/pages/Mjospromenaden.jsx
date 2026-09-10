@@ -57,7 +57,8 @@ export default function Mjospromenaden() {
         <div className="hero-inner">
           <p className="hero-tag">Prosjekt — Tjenestedesign / UX</p>
           <h1 className="hero-title">
-            Mjøspromenaden
+            {/* Egen span rundt ordet: det skal aldri brytes midt i. */}
+            <span className="hero-title-word">Mjøspromenaden</span>
             <em>en blågrønn byoase</em>
           </h1>
           <p className="hero-desc">

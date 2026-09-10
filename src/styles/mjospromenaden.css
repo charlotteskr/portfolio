@@ -55,7 +55,13 @@ body.case-mjos {
   justify-content: center;
   position: relative;
   z-index: 1;
-  max-width: 820px;
+  /* 1000px, ikke 820: «Mjøspromenaden» skal stå på én linje i 7rem, og det
+     krever ~890px. Brødteksten under har sin egen maks på 58ch og strekker
+     seg derfor ikke med. */
+  max-width: 1000px;
+  /* Gjør feltet til en container, så tittelen kan måles mot bredden her
+     i stedet for mot vindusbredden. Se .hero-title. */
+  container-type: inline-size;
 }
 
 .hero-tag {
@@ -71,19 +77,27 @@ body.case-mjos {
 
 .hero-title {
   font-family: 'Roboto', sans-serif;
-  /* Skalaen er den samme som på de andre case-sidene, men minimum ligger
-     lavere: «Mjøspromenaden» er ett ord som ikke kan brytes, og på
-     360px-skjermer ble det bredere enn innholdsfeltet og klippet av .hero
-     sin overflow: hidden. */
-  font-size: clamp(2.2rem, 9vw, 7rem);
+  /* «Mjøspromenaden» er ett langt ord som skal stå på én linje, og det er
+     omtrent 7,45 ganger så bredt som skriftstørrelsen. Måles størrelsen mot
+     vindusbredden må hver bredde stemme for seg — ved 7rem brakk ordet i to
+     på store skjermer, og et lavt minimum klippet det på 320px.
+
+     11,5cqi måler mot .hero-inner i stedet: ordet lander da alltid på ~91 %
+     av feltbredden, uansett skjerm. Taket på 7rem er den opprinnelige
+     maksstørrelsen, og den nås når feltet er på sine 1000px.
+
+     clamp-linja er fallback for nettlesere uten container-enheter. */
+  font-size: clamp(2rem, 7.6vw, 7rem);
+  font-size: min(11.5cqi, 7rem);
   line-height: 1.02;
   font-weight: 100;
   letter-spacing: -0.01em;
   margin-bottom: 2rem;
-  overflow-wrap: break-word;
   opacity: 0;
   animation: fadeUp 0.8s ease forwards 0.25s;
 }
+
+.hero-title-word { display: block; white-space: nowrap; }
 
 .hero-title em {
   font-style: normal;
