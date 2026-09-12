@@ -13,30 +13,44 @@ export const heroMeta = [
 // øverst — venstre kolonne er «før», høyre er «nå».
 export const searchShift = {
   before: {
-    kind: 'Tradisjonelt søk',
+    kind: 'Tradisjonelt søk (SEO)',
     query: '«Bilforsikring»',
-    steps: ['Google', 'Ti blå lenker', 'Du klikker på én'],
-    note: 'Kunden gjør jobben selv, og Storebrand konkurrerer om klikket.',
+    steps: [
+      {
+        label: 'Finn',
+        desc: 'Søkemotoren crawler nettet og oppdager sider.',
+      },
+      {
+        label: 'Forstå',
+        desc: 'Innholdet indekseres og analyseres.',
+      },
+      {
+        label: 'Rangér',
+        desc: 'Sidene rangeres i en resultatliste basert på relevans, kvalitet og autoritet.',
+      },
+    ],
+    note: 'SEO = å gjøre disse tre stegene enklest mulig for din side (teknisk, innhold, lenker).',
   },
   after: {
-    kind: 'AI-søk',
+    kind: 'AI-søk (GEO/AEO)',
     query: '«Hva er den beste bilforsikringen i Norge?»',
-    steps: ['AI tolker og deler opp', 'Mange søk i bakgrunnen', 'Ett samlet svar'],
-    note: 'AI gjør jobben, og Storebrand konkurrerer om å være i svaret.',
+    steps: [
+      {
+        label: 'Tolk spørsmålet',
+        desc: 'AI-en forstår hva brukeren egentlig lurer på (ikke bare søkeord).',
+      },
+      {
+        label: 'Hent og vurder kilder',
+        desc: 'Den henter relevant, troverdig og godt strukturert informasjon fra nettet.',
+      },
+      {
+        label: 'Generér svar',
+        desc: 'Et sammensatt svar lages, og innhold som er tydelig og pålitelig blir sitert eller gjenbrukt.',
+      },
+    ],
+    note: 'AEO/GEO = å gjøre innholdet ditt til det AI-en velger å bruke i steg 2 og 3 — uten at brukeren nødvendigvis klikker seg videre til siden din.',
   },
 };
-
-// Delspørsmålene AI-en genererer av ett enkelt spørsmål — «query fan-out».
-export const fanOutQueries = [
-  'Pris hos ulike selskaper',
-  'Kasko vs. delkasko',
-  'Egenandel og bonustap',
-  'Dekning for elbil',
-  'Kundetilfredshet',
-  'Erfaring med skadeoppgjør',
-  'Unntak i vilkårene',
-  'Nyeste tester og prisdata',
-];
 
 // Mitt bidrag i prosjektet. Teamet leverte sju tiltak samlet; dette er
 // delene jeg selv sto for.

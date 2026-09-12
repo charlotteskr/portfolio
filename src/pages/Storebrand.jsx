@@ -3,7 +3,6 @@ import {
   citedDomains,
   contributions,
   expertPrototypes,
-  fanOutQueries,
   heroMeta,
   iaAfter,
   iaExamples,
@@ -129,36 +128,15 @@ export default function Storebrand() {
               <div className="sb-compare-query">{side.query}</div>
               <ol className="sb-compare-steps">
                 {side.steps.map((step) => (
-                  <li key={step}>{step}</li>
+                  <li key={step.label}>
+                    <strong className="sb-step-label">{step.label}</strong>
+                    <span className="sb-step-desc">{step.desc}</span>
+                  </li>
                 ))}
               </ol>
               <p className="sb-compare-note">{side.note}</p>
             </div>
           ))}
-        </div>
-
-        {/* Fan-out-diagrammet: ett spørsmål ut i åtte delspørsmål og tilbake
-            til ett svar. Tegnet i CSS framfor å hentes som bilde fra dekket,
-            så det holder seg skarpt og lesbart på mobil. */}
-        <div className="sb-fanout reveal">
-          <div className="sb-fanout-node prompt">
-            <span className="sb-fanout-step">1 · Prompt</span>
-            «Hva er den beste bilforsikringen i Norge?»
-          </div>
-          <div className="sb-fanout-arrow" aria-hidden="true" />
-          <div className="sb-fanout-queries">
-            <span className="sb-fanout-step">2 · AI tolker og deler opp</span>
-            <ul>
-              {fanOutQueries.map((query) => (
-                <li key={query}>{query}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="sb-fanout-arrow" aria-hidden="true" />
-          <div className="sb-fanout-node answer">
-            <span className="sb-fanout-step">3 · Ett samlet svar</span>
-            Anbefaling, sammenligning og kilder
-          </div>
         </div>
       </section>
 
