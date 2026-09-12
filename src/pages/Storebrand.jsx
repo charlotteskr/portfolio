@@ -294,11 +294,9 @@ export default function Storebrand() {
 
         <h3 className="sb-sub reveal">De åtte grepene satt sammen</h3>
         <p className="sb-body reveal">
-          Her er den samme artikkelen med grepene lagt inn. Innholdet er det samme som i
-          skjermdumpen øverst i seksjonen — men det er delt opp i nummererte spørsmål, med
-          faktaboks, punktlister, interne lenker, dekningstabell, navngitte eksperter og en FAQ
-          til slutt. Skjermdumpene er tatt i samme bredde: forslaget er under en tredjedel så
-          langt som dagens side.
+          Innholdet er det samme som i skjermdumpen øverst i seksjonen — men det er delt opp i
+          nummererte spørsmål, med faktaboks, punktlister, interne lenker, dekningstabell, en
+          FAQ og navngitte eksperter til slutt.
         </p>
 
         <figure className="sb-figure reveal">
@@ -319,7 +317,8 @@ export default function Storebrand() {
           </button>
           <figcaption>
             <span className="sb-ba-label">Forslag</span>
-            Kortere side, seks nummererte spørsmål og en FAQ — hvert svar står for seg selv.
+            Kortere side, seks nummererte spørsmål og navngitte eksperter til slutt — hvert
+            svar står for seg selv.
           </figcaption>
         </figure>
       </section>

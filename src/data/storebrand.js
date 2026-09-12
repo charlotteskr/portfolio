@@ -376,7 +376,7 @@ export const iaPrinciples = [
 // én side. Sammenlignes med `storebrand-idag.webp`, som er dagens artikkel.
 export const iaAfter = {
   image: '/bilder/storebrand/ia/storebrand-etter.webp',
-  alt: 'Omstrukturert artikkelside på storebrand.no i full lengde, med spørsmålsoverskrifter, faktaboks, punktlister, tabell, ekspertkort og FAQ',
+  alt: 'Omstrukturert artikkelside på storebrand.no i full lengde, med spørsmålsoverskrifter, faktaboks, punktlister, tabell, FAQ og ekspertkort',
   width: 1100,
   height: 2196,
 };
