@@ -7,7 +7,6 @@ import {
   iaAfter,
   iaPrinciples,
   measures,
-  reflection,
   searchShift,
   team,
 } from '../data/storebrand';
@@ -513,10 +512,6 @@ export default function Storebrand() {
           kundene stiller, og måler hvor ofte Storebrand nevnes, hvordan selskapet omtales, og
           hvem som vinner oppmerksomheten i stedet.
         </p>
-        <p className="sb-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
-          Jeg kodet ikke verktøyet selv, men bidro sammen med resten av teamet med
-          tilbakemeldinger på hva det burde måle og hvordan tallene skulle presenteres.
-        </p>
 
         <figure className="sb-figure reveal">
           <video
@@ -529,56 +524,8 @@ export default function Storebrand() {
             width={1280}
             height={720}
           />
-          <figcaption>
-            Gjennomgang av analyseverktøyet. Siste måling ga en synlighetsindeks på 39,4 av
-            100 — en andreplass av seksten aktører.
-          </figcaption>
+          <figcaption>Demo av analyseverktøyet</figcaption>
         </figure>
-      </section>
-
-      {/* AVSLUTNING */}
-      <section className="sb-outro">
-        <div className="sb-eyebrow reveal">
-          <div className="sb-eyebrow-dot" />
-          <span className="sb-eyebrow-text">Veien videre</span>
-        </div>
-        <h2 className="sb-title reveal">I dag anbefaler AI. I morgen handler den.</h2>
-
-        <div className="sb-timeline reveal">
-          <div className="sb-timeline-step">
-            <span>Før</span>
-            Klikket
-          </div>
-          <div className="sb-timeline-step now">
-            <span>I dag</span>
-            Svaret
-          </div>
-          <div className="sb-timeline-step next">
-            <span>I morgen</span>
-            Kjøpet
-          </div>
-        </div>
-
-        <figure className="sb-figure reveal">
-          <img
-            src="/bilder/storebrand/chatgpt-anbefaling.webp"
-            alt="Skjermbilde fra ChatGPT der Storebrand står øverst på spørsmålet om hvilken forsikringsleverandør man bør velge"
-            width={1400}
-            height={1260}
-            loading="lazy"
-          />
-          <figcaption>Målet, konkret: Storebrand først i svaret.</figcaption>
-        </figure>
-
-        {reflection.map((paragraph, index) => (
-          <p
-            className={`sb-body ${revealClass(index, 2)}`}
-            key={paragraph.slice(0, 24)}
-            style={{ marginTop: index === 0 ? '3rem' : '1rem' }}
-          >
-            {paragraph}
-          </p>
-        ))}
       </section>
 
       {/* TEAM */}

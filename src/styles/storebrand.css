@@ -763,41 +763,6 @@ body.case-storebrand {
 .sb-tool .sb-figure figcaption { color: rgba(244,238,232,0.6); }
 .sb-tool .sb-video { border-color: rgba(244,238,232,0.2); background: #000; }
 
-/* ── AVSLUTNING ── */
-.sb-timeline {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  margin: 3rem 0;
-}
-.sb-timeline-step {
-  padding: 1.4rem 1.6rem;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  font-size: 1.2rem;
-  font-weight: 200;
-}
-.sb-timeline-step span {
-  display: block;
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--dim);
-  margin-bottom: 0.4rem;
-}
-.sb-timeline-step.now {
-  background: var(--sb-red);
-  border-color: var(--sb-red);
-  color: #fff;
-}
-.sb-timeline-step.now span { color: rgba(255,255,255,0.7); }
-.sb-timeline-step.next {
-  background: var(--sb-maroon);
-  border-color: var(--sb-maroon);
-  color: var(--sb-paper);
-}
-.sb-timeline-step.next span { color: #E8A49E; }
-
 /* ── TEAM ── */
 .sb-team { background: var(--sb-tint); }
 .sb-team-grid {
@@ -868,7 +833,6 @@ body.case-storebrand {
   .sb-compare { grid-template-columns: 1fr 1fr; }
   .sb-contrib-grid { grid-template-columns: 1fr 1fr; }
   .sb-measure-grid { grid-template-columns: 1fr 1fr; }
-  .sb-timeline { grid-template-columns: 1fr 1fr 1fr; }
   .sb-before-after.two { grid-template-columns: 1fr 1fr; }
 }
 

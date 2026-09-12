@@ -213,11 +213,6 @@ export const citedDomains = [
   { name: 'Yelp', share: 21.0 },
 ];
 
-export const reflection = [
-  'Prosjektet handlet like mye om innhold som om grensesnitt. Det meste av det som avgjør om Storebrand havner i et AI-svar, er strukturen bak sidene — ikke hvordan de ser ut.',
-  'Det jeg tar med meg videre er hvor kort veien er fra research til noe konkret: fire intervjuer og en gjennomgang av informasjonsarkitekturen ga nok til å skissere en løsning teamet kunne bygge videre på.',
-];
-
 // De åtte grepene fra IA-gjennomgangen. Hvert grep er én fane i eksempelrammen:
 // `tab` er faneteksten, `lead` og `desc` forklarer grepet, og `examples` er
 // utsnittene fra artikkelen «Hva gjør jeg ved skade på bil?» som viser det i
