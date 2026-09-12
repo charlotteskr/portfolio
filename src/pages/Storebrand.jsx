@@ -447,29 +447,54 @@ export default function Storebrand() {
 
         <div className="sb-before-after two reveal">
           <figure>
-            <img
-              src="/bilder/storebrand/wikipedia-for.webp"
-              alt="Storebrands Wikipedia-infoboks før oppdatering, med nøkkeltall fra 2019"
-              width={519}
-              height={1455}
-              loading="lazy"
-            />
+            <button
+              type="button"
+              className="sb-ba-shot"
+              onClick={() =>
+                setZoomed({
+                  image: '/bilder/storebrand/wikipedia-for.webp',
+                  alt: 'Storebrands Wikipedia-infoboks før oppdatering, med nøkkeltall fra 2019',
+                })
+              }
+              aria-label="Vis infoboksen før oppdatering i større format"
+            >
+              <img
+                src="/bilder/storebrand/wikipedia-for.webp"
+                alt="Storebrands Wikipedia-infoboks før oppdatering, med nøkkeltall fra 2019"
+                width={519}
+                height={1455}
+                loading="lazy"
+              />
+            </button>
             <figcaption>
               <span className="sb-ba-label">Før</span>
               Forvaltningskapital fra 2019, resultat fra 2015 og fire datterselskaper.
             </figcaption>
           </figure>
           <figure>
-            <img
-              src="/bilder/storebrand/wikipedia-etter.webp"
-              alt="Storebrands Wikipedia-infoboks etter oppdatering, med nøkkeltall fra 2025"
-              width={302}
-              height={1101}
-              loading="lazy"
-            />
+            <button
+              type="button"
+              className="sb-ba-shot"
+              onClick={() =>
+                setZoomed({
+                  image: '/bilder/storebrand/wikipedia-etter.webp',
+                  alt: 'Storebrands Wikipedia-infoboks etter oppdatering, med nøkkeltall fra 2025',
+                })
+              }
+              aria-label="Vis infoboksen etter oppdatering i større format"
+            >
+              <img
+                src="/bilder/storebrand/wikipedia-etter.webp"
+                alt="Storebrands Wikipedia-infoboks etter oppdatering, med nøkkeltall fra 2025"
+                width={302}
+                height={1101}
+                loading="lazy"
+              />
+            </button>
             <figcaption>
               <span className="sb-ba-label">Etter</span>
-              Tall fra 2025, riktig styreleder og alle åtte datterselskaper.
+              Tall fra 2025, riktig styreleder og alle åtte datterselskaper. Informasjonen er
+              markert med kildehenvisninger til tredjepartskilder.
             </figcaption>
           </figure>
         </div>
