@@ -5,7 +5,6 @@ import {
   expertPrototypes,
   heroMeta,
   iaAfter,
-  iaExamples,
   iaPrinciples,
   measures,
   reflection,
@@ -34,7 +33,7 @@ export default function Storebrand() {
   const [zoomed, setZoomed] = useState(null);
 
   const proto = expertPrototypes[activeProto];
-  const iaExample = iaExamples[activeIa];
+  const iaPrinciple = iaPrinciples[activeIa];
 
   // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
   useEffect(() => {
@@ -236,40 +235,22 @@ export default function Storebrand() {
           </figcaption>
         </figure>
 
-        <h3 className="sb-sub reveal">Ni grep som gjør innholdet lesbart for AI</h3>
+        <h3 className="sb-sub reveal">Åtte grep som gjør innholdet lesbart for AI</h3>
         <p className="sb-body reveal">
-          Ut fra gjennomgangen samlet vi ni grep. Hvert enkelt er lite, og ingen av dem endrer
-          hva som står på siden — bare hvordan det er satt opp. Det er først når de brukes
-          sammen at innholdet blir tydelig strukturert, oppdelt og kildemerket, og dermed noe
-          en modell kan plukke opp, gjengi og vise til i et AI-søk.
+          Gjennomgangen av informasjonsarkitekturen resulterte i åtte grep som kan bidra
+          positivt til at innholdet blir strukturert på en slik måte som er til fordel for
+          AI-modeller. Det er derimot ingen fasit på om det ene grepet er bedre enn det andre,
+          og det vil variere ut fra kontekst i innholdet. Under vises grepene tatt i bruk i
+          praksis.
         </p>
 
-        <div className="sb-ia-grid">
-          {iaPrinciples.map((item, index) => (
-            <div className={`sb-ia-card ${revealClass(index, 3)}`} key={item.num}>
-              <div className="sb-ia-num">{item.num}</div>
-              <div className="sb-ia-title">{item.title}</div>
-              <div className="sb-ia-lead">{item.lead}</div>
-              <p className="sb-ia-desc">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <h3 className="sb-sub reveal">Grepene i praksis</h3>
-        <p className="sb-body reveal">
-          De samme ni grepene, brukt på én konkret artikkel — «Hva gjør jeg ved skade på
-          bil?». Fanene i rammen under bruker samme nummerering som rutenettet over — velg et
-          grep for å se utsnittet, og klikk på bildet for å åpne det i full størrelse.
-        </p>
-
-        {/* Hele fanevisningen ligger i én ramme, så det er tydelig at fanene,
-            teksten og bildet hører sammen. Overskrift og forklaring står over
-            bildet, og fanene bærer nummereringen fra rutenettet over. */}
+        {/* Ett grep per fane: forklaringen og utsnittet står samlet i rammen,
+            framfor å gjentas i et rutenett over. Grep 05 har to utsnitt. */}
         <div className="sb-ia-example reveal">
           <div className="sb-proto-tabs">
-            {iaExamples.map((item, index) => (
+            {iaPrinciples.map((item, index) => (
               <button
-                key={item.tab}
+                key={item.num}
                 type="button"
                 className={`sb-proto-tab${index === activeIa ? ' active' : ''}`}
                 onClick={() => setActiveIa(index)}
@@ -281,27 +262,37 @@ export default function Storebrand() {
           </div>
 
           <div className="sb-ia-example-body">
-            <div className="sb-ia-example-title">{iaExample.title}</div>
-            <p className="sb-ia-example-desc">{iaExample.desc}</p>
+            <div className="sb-ia-example-num">Grep {iaPrinciple.num}</div>
+            <div className="sb-ia-example-title">{iaPrinciple.title}</div>
+            <p className="sb-ia-example-lead">{iaPrinciple.lead}</p>
+            <p className="sb-ia-example-desc">{iaPrinciple.desc}</p>
           </div>
 
-          <button
-            type="button"
-            className="sb-ia-example-visual"
-            onClick={() => setZoomed({ image: iaExample.image, alt: iaExample.alt })}
-            aria-label={`Vis ${iaExample.title} i større format`}
-          >
-            <img
-              src={iaExample.image}
-              alt={iaExample.alt}
-              width={iaExample.width}
-              height={iaExample.height}
-              loading="lazy"
-            />
-          </button>
+          {iaPrinciple.examples.map((example) => (
+            <figure className="sb-ia-shot" key={example.image + example.title}>
+              <button
+                type="button"
+                className="sb-ia-example-visual"
+                onClick={() => setZoomed({ image: example.image, alt: example.alt })}
+                aria-label={`Vis ${example.title} i større format`}
+              >
+                <img
+                  src={example.image}
+                  alt={example.alt}
+                  width={example.width}
+                  height={example.height}
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <span className="sb-ia-shot-title">{example.title}</span>
+                {example.desc}
+              </figcaption>
+            </figure>
+          ))}
         </div>
 
-        <h3 className="sb-sub reveal">De ni grepene satt sammen</h3>
+        <h3 className="sb-sub reveal">De åtte grepene satt sammen</h3>
         <p className="sb-body reveal">
           Her er den samme artikkelen med grepene lagt inn. Innholdet er det samme som i
           skjermdumpen øverst i seksjonen — men det er delt opp i nummererte spørsmål, med

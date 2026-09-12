@@ -504,44 +504,16 @@ body.case-storebrand {
 
 /* ── TILTAK 02: INFORMASJONSARKITEKTUR ── */
 /* Underoverskrift inne i en seksjon — mindre enn .sb-title, men med samme
-   lette vekt, så de ni grepene og eksemplene leses som deler av samme tiltak. */
+   lette vekt, så de åtte grepene og eksemplene leses som deler av samme tiltak. */
 .sb-sub {
   font-size: clamp(1.4rem, 2.6vw, 2rem);
   font-weight: 200;
   line-height: 1.25;
   margin: 4.5rem 0 1.25rem;
 }
-.sb-ia-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 2.5rem;
-}
-.sb-ia-card {
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--sb-sand);
-}
-.sb-ia-num {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  color: var(--sb-red-ink);
-  margin-bottom: 0.7rem;
-}
-.sb-ia-title { font-size: 1.15rem; font-weight: 300; margin-bottom: 0.35rem; }
-.sb-ia-lead {
-  font-size: 0.85rem;
-  color: var(--sb-ink);
-  line-height: 1.5;
-  margin-bottom: 0.7rem;
-  font-weight: 400;
-}
-.sb-ia-desc { font-size: 0.88rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
-
-/* Eksempelvisningen er rammet inn som ett element: faner øverst, så grep-nummer,
-   overskrift og forklaring, og til slutt utsnittet. Teksten står over bildet,
-   slik at det er tydelig hvilket grep bildet viser. */
+/* Eksempelrammen viser utsnittet for det grepet som er valgt i rutenettet over:
+   først hvilket grep det er, så overskrift og forklaring, og til slutt bildet.
+   Teksten står over bildet, slik at det er tydelig hva bildet viser. */
 .sb-ia-example {
   margin-top: 2.5rem;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -556,7 +528,21 @@ body.case-storebrand {
 }
 .sb-ia-example .sb-proto-tab { background: rgba(255,255,255,0.5); }
 .sb-ia-example-body { max-width: 68ch; margin-bottom: 1.75rem; }
+.sb-ia-example-num {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sb-red-ink);
+  margin-bottom: 0.7rem;
+}
 .sb-ia-example-title { font-size: 1.3rem; font-weight: 200; margin-bottom: 0.6rem; }
+/* Kortversjonen av grepet, over den utfyllende forklaringen. */
+.sb-ia-example-lead {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+  font-weight: 400;
+}
 .sb-ia-example-desc {
   font-size: 0.95rem;
   color: var(--dim);
@@ -574,6 +560,17 @@ body.case-storebrand {
   cursor: zoom-in;
 }
 .sb-ia-example-visual img { display: block; width: 100%; height: auto; }
+/* Grep 05 har to utsnitt; de øvrige ett. */
+.sb-ia-shot + .sb-ia-shot { margin-top: 2.5rem; }
+.sb-ia-shot figcaption {
+  margin-top: 1rem;
+  max-width: 68ch;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--dim);
+  font-weight: 300;
+}
+.sb-ia-shot-title { display: block; color: var(--sb-ink); font-weight: 400; }
 
 /* ── I DAG / FORSLAG SIDE OM SIDE ── */
 /* Hvert forslag står ved siden av det det erstatter. Rammene er like høye og
@@ -812,7 +809,6 @@ body.case-storebrand {
   .sb-measure-grid { grid-template-columns: 1fr 1fr; }
   .sb-timeline { grid-template-columns: 1fr 1fr 1fr; }
   .sb-before-after.two { grid-template-columns: 1fr 1fr; }
-  .sb-ia-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ── ≥ 769px — STORT NETTBRETT ── */
@@ -820,7 +816,6 @@ body.case-storebrand {
   .sb-problem-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .sb-contrib-grid { grid-template-columns: repeat(3, 1fr); }
   .sb-measure-grid { grid-template-columns: repeat(3, 1fr); }
-  .sb-ia-grid { grid-template-columns: repeat(3, 1fr); }
   /* Dagens løsning til venstre, forslaget til høyre. */
   .sb-pair { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .sb-team-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
