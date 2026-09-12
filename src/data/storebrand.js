@@ -4,8 +4,8 @@
 
 export const heroMeta = [
   { label: 'Rolle', value: 'UX-design og research' },
-  { label: 'Kontekst', value: 'Sandbox 2026' },
   { label: 'Tidsbruk', value: '8 uker' },
+  { label: 'Kontekst', value: 'Sandbox 2026' },
   { label: 'Leveranse', value: '7 tiltak + analyseverktøy' },
 ];
 
@@ -57,8 +57,8 @@ export const searchShift = {
 export const contributions = [
   {
     icon: 'interview',
-    title: 'Fire brukerintervjuer',
-    desc: 'Jeg gjennomførte fire intervjuer om hvordan folk faktisk bruker AI når de skal velge forsikring og pensjon — og hva de stoler på i svaret de får.',
+    title: 'Brukerintervju',
+    desc: 'Jeg og en kollega gjennomførte fire intervjuer for å forstå bruk, vaner og bekymringer knyttet til ulike AI-modeller — og hvordan kunder vurderer og anvender svarene de får.',
   },
   {
     icon: 'compass',

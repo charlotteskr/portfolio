@@ -5,9 +5,9 @@
 
 export const heroMeta = [
   { label: 'Rolle', value: 'Fagrådgiver' },
+  { label: 'Periode', value: 'Nov. 2025 – d.d.' },
   { label: 'Organisasjon', value: 'KS Digital' },
   { label: 'Team', value: 'Team KS Kunnskap' },
-  { label: 'Periode', value: 'Nov. 2025 – d.d.' },
 ];
 
 // De tre løftene tjenesten selges på — går igjen i presentasjonen og på flyeren.

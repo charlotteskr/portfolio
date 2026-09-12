@@ -5,8 +5,8 @@
 
 export const heroMeta = [
   { label: 'Rolle', value: 'UX-designer' },
-  { label: 'Team', value: '3 UX + 3 utviklere' },
-  { label: 'Metode', value: 'Double Diamond' },
+  { label: 'Tidsbruk', value: '4 måneder' },
+  { label: 'Kontekst', value: 'Skoleoppgave i IoT' },
   { label: 'Leveranse', value: 'Interaktiv utstilling' },
 ];
 
