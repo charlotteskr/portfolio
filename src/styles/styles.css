@@ -69,7 +69,9 @@ body {
   /* flex + min-height gir en treffflate på 44px uansett fontstørrelse.
      Under det blir lenkene vanskelige å treffe med tommelen.
      fit-content holder treffflaten på teksten: uten den strekker lenken seg
-     over hele listas bredde, og man kan klikke langt ute i tom luft. */
+     over hele listas bredde, og man kan klikke langt ute i tom luft.
+     padding-right gir litt slark etter navnet uten å flytte teksten, siden
+     boksen vokser til høyre fra fit-content-bredden. */
   display: flex;
   align-items: center;
   width: fit-content;
@@ -79,7 +81,7 @@ body {
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--ink);
   text-decoration: none;
-  padding: 0.55rem 0;
+  padding: 0.55rem 2.5rem 0.55rem 0;
   transition: opacity 0.2s;
 }
 .project-item:hover { opacity: 0.5; }
@@ -143,7 +145,7 @@ body {
   display: flex;
   align-items: center;
   min-height: 44px;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-size: clamp(0.8rem, 1.3vw, 0.9rem);
   font-weight: 300;
   color: var(--ink);
   text-decoration: none;
