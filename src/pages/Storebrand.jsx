@@ -148,10 +148,6 @@ export default function Storebrand() {
           <span className="sb-eyebrow-text">Min rolle</span>
         </div>
         <h2 className="sb-title reveal">Hva jeg gjorde</h2>
-        <p className="sb-body reveal">
-          De sju tiltakene var en samlet leveranse fra teamet. Mitt bidrag lå på research- og
-          designsiden — og på å gjøre funnene om til noe konkret å se på.
-        </p>
 
         <div className="sb-contrib-grid">
           {contributions.map((item, index) => (
