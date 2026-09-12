@@ -48,12 +48,6 @@ export default function Storebrand() {
     <div className="sb-page">
       {/* HERO */}
       <section className="sb-hero">
-        {/* Merknaden ligger inne i heroen framfor øverst på siden, siden nav-en
-            er position: fixed og ville dekket den. */}
-        <p className="sb-wip">
-          <span className="sb-wip-dot" aria-hidden="true" />
-          Innholdet på denne siden er under arbeid
-        </p>
         <div className="sb-hero-inner">
           <p className="sb-hero-tag">Prosjekt — UX-design og research</p>
           <h1 className="sb-hero-title">
