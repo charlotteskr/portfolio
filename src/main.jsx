@@ -4,8 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 // Rekkefølgen speiler den gamle <link>-rekkefølgen i .html-filene:
-// project.css først, så styles.css med tokens, så sidespesifikk CSS, så nav.
-import './styles/project.css';
+// styles.css med tokens først, så sidespesifikk CSS, så nav.
 import './styles/styles.css';
 import './styles/mjospromenaden.css';
 import './styles/smart.css';
