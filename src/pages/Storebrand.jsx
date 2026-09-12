@@ -60,12 +60,11 @@ export default function Storebrand() {
           <p className="sb-hero-tag">Prosjekt — UX-design og research</p>
           <h1 className="sb-hero-title">
             Storebrand
-            <em>å bli en del av AI-ens svar</em>
+            <em>å bli synlig, nevnt og anbefalt i AI svar</em>
           </h1>
           <p className="sb-hero-desc">
-            Før konkurrerte selskaper om klikket. Nå konkurrerer de om å bli nevnt når en
-            AI-tjeneste svarer kunden direkte. På Sandbox 2026 undersøkte vi hva som skal til
-            for at Storebrand havner i det svaret — og leverte sju konkrete tiltak og et verktøy
+            På Sandbox 2026 undersøkte vi hva som skal til
+            for at Storebrand havner i AI svaret — og leverte sju konkrete tiltak og et verktøy
             for å måle effekten.
           </p>
         </div>
@@ -91,18 +90,15 @@ export default function Storebrand() {
         </div>
         <div className="sb-problem-grid">
           <div>
-            <h2 className="sb-title reveal">AI er en ny inngang til kundens valg</h2>
+            <h2 className="sb-title reveal">Språkmodeller er kilden til kunders vurdering og valg</h2>
           </div>
           <div>
             <p className="sb-body reveal">
-              En kunde som spør «jeg har pensjon flere steder, bør jeg samle den, og hvilken
-              leverandør passer meg?» får ikke lenger ti lenker å velge mellom. Den får én
+              En kunde som spør «Hvilke forsikring er best?» får ikke lenger ti lenker å velge mellom. Den får én grundig vurdert
               anbefaling.
             </p>
             <p className="sb-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
-              Det flytter konkurransen fra søkeresultatet til selve svaret. Flere av
-              konkurrentene har begynt å tilpasse seg i småbiter, men ingen hadde tatt et
-              helhetlig grep om det ennå.
+              Det flytter konkurransen fra søkeresultatet til selve vurderignen bak søks
             </p>
           </div>
         </div>
@@ -116,9 +112,10 @@ export default function Storebrand() {
         </div>
         <h2 className="sb-title reveal">Ett spørsmål, mange søk</h2>
         <p className="sb-body reveal">
-          Der du før måtte gjøre et titalls søk selv for å finne fram til en bilforsikring,
-          gjør AI-en dem i bakgrunnen. Ett spørsmål brytes opp i mange delspørsmål — kalt
-          query fan-out — og settes sammen igjen til ett svar.
+          Der du før måtte gjøre et titalls søk selv for å finne fram til beste forsikring,
+          gjør AI-en jobben for deg i bakgrunnen. Ett spørsmål brytes opp i mange delspørsmål
+          og settes sammen igjen til ett svar. Troverdighet, fakta og vurdering er noen av de tingene en språkmoddel,
+          eller ofte kejnt som AI ser på for å gi kunden best mulig svar.
         </p>
 
         <div className="sb-compare">
