@@ -67,9 +67,12 @@ body {
 
 .project-item {
   /* flex + min-height gir en treffflate på 44px uansett fontstørrelse.
-     Under det blir lenkene vanskelige å treffe med tommelen. */
+     Under det blir lenkene vanskelige å treffe med tommelen.
+     fit-content holder treffflaten på teksten: uten den strekker lenken seg
+     over hele listas bredde, og man kan klikke langt ute i tom luft. */
   display: flex;
   align-items: center;
+  width: fit-content;
   min-height: 44px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
