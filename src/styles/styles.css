@@ -225,8 +225,57 @@ body {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
+/* ── TIL TOPPEN ──
+   Fast knapp nede til høyre på case-sidene. Ligger på z-index 98, altså under
+   nav-en (100), mobilmenyen (99) og lightboxene (200) — den skal aldri flyte
+   oppå noe av det. Den er nøytral svart-hvit, som footeren, framfor å plukke
+   opp sidens aksentfarge — den flyter over seksjoner i alle fire palettene. */
+.to-top {
+  position: fixed;
+  right: clamp(1rem, 4vw, 2.5rem);
+  bottom: clamp(1rem, 4vw, 2.5rem);
+  z-index: 98;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 50%;
+  /* Uten backdrop-filter blir flaten mer dekkende, så den hvite pila holder
+     kontrasten mot lyse seksjoner. @supports under gjør den gjennomsiktig
+     der uskarpheten faktisk virker. */
+  background: rgba(0,0,0,0.62);
+  color: var(--white);
+  font-size: 1.6rem;
+  line-height: 1;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  cursor: pointer;
+  /* Skjult til man har scrollet: ute av veien for klikk og tastatur. */
+  opacity: 0;
+  transform: translateY(0.5rem);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.to-top.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.to-top:hover { opacity: 0.75; }
+/* Frostet glass: flaten slipper gjennom og gjør innholdet bak uskarpt.
+   0,45 er så gjennomsiktig den kan bli og fortsatt gi pila 3:1 mot en hvit
+   seksjon, som er minstekravet for grafiske symboler. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .to-top {
+    background: rgba(0,0,0,0.45);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    backdrop-filter: blur(14px) saturate(1.4);
+  }
+}
+
 /* Respekter systeminnstillingen for redusert bevegelse: innholdet skal
    fortsatt være synlig, det skal bare ikke animeres inn. */
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .to-top { transition: none; transform: none; }
 }
