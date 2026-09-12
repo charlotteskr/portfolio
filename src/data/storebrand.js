@@ -82,8 +82,8 @@ export const contributions = [
   },
   {
     icon: 'puzzle',
-    title: 'Copilot Cowork i prosessen',
-    desc: 'Jeg brukte Copilot Cowork aktivt gjennom hele prosjektet — til å strukturere research, teste formuleringer og komme raskere fra innsikt til skisse.',
+    title: 'Anvende AI-verktøy',
+    desc: 'Jeg brukte Copilot Cowork og Claude Code aktivt gjennom hele prosjektet — til å strukturere research, teste formuleringer og komme raskere fra innsikt til skisse.',
   },
 ];
 
