@@ -241,9 +241,16 @@ export const protoComponents = [
   },
 ];
 
+// De to som skrev bacheloroppgaven. `me` markerer meg og styrer «Meg»-merket,
+// på samme måte som på smArt- og Storebrand-siden.
+export const team = [
+  { name: 'Charlotte Skråmestø', role: 'Tjenestedesigner', me: true },
+  { name: 'Hedda S. Undseth', role: 'Tjenestedesigner' },
+];
+
 export const heroMeta = [
+  { label: 'Rolle', value: 'Tjenestedesigner' },
   { label: 'Tidsbruk', value: '4 måneder' },
-  { label: 'Type', value: 'Bacheloroppgave' },
-  { label: 'Gruppe', value: 'Charlotte Skråmestø & Hedda S. Undseth' },
+  { label: 'Kontekst', value: 'Bacheloroppgave' },
   { label: 'Oppdragsgiver', value: 'Gjøvik kommune' },
 ];

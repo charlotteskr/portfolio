@@ -6,6 +6,7 @@ import {
   personas,
   processPhases,
   protoComponents,
+  team,
 } from '../data/mjospromenaden';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -373,6 +374,27 @@ export default function Mjospromenaden() {
           interaksjonsdesigner ved å se på hvordan flere deler av løsningen jobber sammen for å
           skape en helhetlig løsning.
         </p>
+      </section>
+
+      {/* TEAM */}
+      <section className="team-section">
+        <div className="section-eyebrow reveal">
+          <div className="eyebrow-dot" style={{ background: 'var(--coral)' }}></div>
+          <span className="eyebrow-text">Team</span>
+        </div>
+        <h2 className="section-title reveal">Teamet bak</h2>
+        <p className="section-body reveal">
+          Bacheloroppgaven ble gjennomført av to tjenestedesignere.
+        </p>
+        <div className="team-grid reveal">
+          {team.map((member) => (
+            <div className={`team-member${member.me ? ' me' : ''}`} key={member.name}>
+              <span className="team-name">{member.name}</span>
+              <span className="team-role">{member.role}</span>
+              {member.me && <span className="team-flag">Meg</span>}
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );

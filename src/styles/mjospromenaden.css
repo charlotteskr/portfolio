@@ -734,6 +734,35 @@ section {
 /* ── REFLECTION ── */
 .reflection-section { background: var(--bg); }
 
+/* ── TEAM ── */
+.team-section { background: var(--white); }
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+.team-member {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  align-items: baseline;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--sand);
+}
+.team-member.me { font-weight: 500; }
+.team-name { font-size: 0.98rem; }
+.team-role { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; }
+.team-flag {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
 /* ── QUOTE ── */
 .quote-section {
   background: var(--white);
@@ -841,6 +870,7 @@ section {
 
   .persona-age { font-size: 0.78rem; }
   .persona-list li { font-size: 0.8rem; }
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
 }
 
 /* ══════════════════════════════════════════════════════════════════
