@@ -222,7 +222,7 @@ export default function Storebrand() {
               src="/bilder/storebrand/storebrand-idag.webp"
               alt="Artikkelside på storebrand.no i full lengde — lang og tettpakket"
               width={1100}
-              height={7699}
+              height={7104}
               loading="lazy"
             />
             <span className="sb-shot-hint">Klikk for hele siden</span>
@@ -335,20 +335,14 @@ export default function Storebrand() {
         <h2 className="sb-title reveal">Fra spredte kontaktkort til et ekspertunivers</h2>
         <p className="sb-body reveal">
           Storebrand har ekspertene, men profilene finnes bare som spredte, statiske kort med
-          lite innhold. Jeg fant dem tre steder: som et enkelt kontaktkort, som en
-          «Kontakter»-bolk nederst i artiklene, og på en egen side under presserommet.
-          Gjensidige og DNB har kommet lenger med fullverdige forfatterprofiler — men ingen har
-          bygget et helhetlig, AI-lesbart ekspertunivers. Det var åpningen.
+          lite innhold. AI-modeller vektlegger erfaring, ekspertise, autoritet og tillit, og
+          ekspertprofilene gjøres lesbare for AI gjennom schema-markup og sameAs-koblinger i
+          koden.
         </p>
 
-        <p className="sb-body reveal" style={{ marginTop: '3rem' }}>
-          Jeg skisset hvordan det kunne se ut i stedet. Hver skisse står ved siden av det den
-          erstatter — velg et av de tre stedene, og klikk på et bilde for å se hele det.
-        </p>
-
-        {/* Hvert forslag står ved siden av det det erstatter. Rammene er like
-            høye og viser hele skjermdumpen skalert ned, så de to står på linje
-            og ingenting er skjult. Klikk forstørrer. */}
+        {/* Hvert forslag står ved siden av det det erstatter, i rammer av samme
+            høyde. Skjermdumpene beskjæres nedover framfor å skaleres ned — se
+            .sb-pair-visual. Plusset signaliserer at klikk åpner hele bildet. */}
         <div className="sb-proto">
           <div className="sb-proto-tabs reveal">
             {expertPrototypes.map((item, index) => (
@@ -382,6 +376,7 @@ export default function Storebrand() {
                   height={proto.before.height}
                   loading="lazy"
                 />
+                <span className="sb-pair-zoom" aria-hidden="true" />
               </button>
               <figcaption>
                 <span className="sb-pair-title">{proto.before.title}</span>
@@ -404,18 +399,13 @@ export default function Storebrand() {
                   height={proto.height}
                   loading="lazy"
                 />
+                <span className="sb-pair-zoom" aria-hidden="true" />
               </button>
               <figcaption>
                 <span className="sb-pair-title">{proto.title}</span>
                 {proto.desc}
               </figcaption>
             </figure>
-          </div>
-
-          <div className="sb-proto-tags reveal">
-            {proto.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
           </div>
         </div>
       </section>

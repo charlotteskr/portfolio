@@ -153,20 +153,19 @@ export const expertPrototypes = [
   {
     tab: 'Oversikt',
     title: 'Oversiktsside for eksperter',
-    desc: 'Én inngang til alle ekspertene, filtrerbar på forretningsområde og rolle. I dag ligger den samlede oversikten under presserommet, et sted kunder aldri går.',
+    desc: 'Én inngang til alle ekspertene, filtrerbar på forretningsområde og rolle.',
     before: {
-      title: 'Presse › Kontakter',
-      note: '18 kort i et rutenett, ni merket «Pressekontakt» — og ingen som lenker videre.',
-      image: '/bilder/storebrand/ekspertkort-presse.webp',
-      alt: 'Siden Presse › Kontakter på storebrand.no med et rutenett av pressekontaktkort',
-      width: 2392,
-      height: 1340,
+      title: 'Kontakter',
+      note: 'I dag ligger den samlede oversikten under presse. Rollen og fagområdet til kontaktene mangler.',
+      image: '/bilder/storebrand/kontakter.webp',
+      alt: 'Kontakter-siden på storebrand.no i full lengde, med et rutenett av kontaktkort uten rolle eller fagområde',
+      width: 1516,
+      height: 3728,
     },
     image: '/bilder/storebrand/eksperter-oversikt.webp',
     alt: 'Skisse av oversiktsside med filtrerbare ekspertkort på storebrand.no',
     width: 1400,
-    height: 1887,
-    tags: ['Filtrering', 'Én inngang', 'Skisse'],
+    height: 1361,
   },
   {
     tab: 'Profil',
@@ -183,8 +182,7 @@ export const expertPrototypes = [
     image: '/bilder/storebrand/ekspertprofil.webp',
     alt: 'Skisse av fullverdig ekspertprofil med bio, fagområder og artikkelliste',
     width: 1000,
-    height: 2056,
-    tags: ['Bio', 'Artikkelliste', 'Fagområder'],
+    height: 1689,
   },
   {
     tab: 'Artikkel',
@@ -202,7 +200,6 @@ export const expertPrototypes = [
     alt: 'Skisse av artikkelside med tydelig forfatterkort som lenker til ekspertprofilen',
     width: 1200,
     height: 1452,
-    tags: ['Schema.org', 'sameAs', 'Forfatterkort'],
   },
 ];
 
@@ -378,5 +375,5 @@ export const iaAfter = {
   image: '/bilder/storebrand/ia/storebrand-etter.webp',
   alt: 'Omstrukturert artikkelside på storebrand.no i full lengde, med spørsmålsoverskrifter, faktaboks, punktlister, tabell, FAQ og ekspertkort',
   width: 1100,
-  height: 2196,
+  height: 1792,
 };
