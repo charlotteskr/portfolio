@@ -5,7 +5,7 @@
 export const heroMeta = [
   { label: 'Rolle', value: 'UX-design og research' },
   { label: 'Kontekst', value: 'Sandbox 2026' },
-  { label: 'Team', value: 'Team AI-søk' },
+  { label: 'Tidsbruk', value: '8 uker' },
   { label: 'Leveranse', value: '7 tiltak + analyseverktøy' },
 ];
 
@@ -85,6 +85,16 @@ export const contributions = [
     title: 'Copilot Cowork i prosessen',
     desc: 'Jeg brukte Copilot Cowork aktivt gjennom hele prosjektet — til å strukturere research, teste formuleringer og komme raskere fra innsikt til skisse.',
   },
+];
+
+// Team AI-søk på Sandbox 2026. `me` markerer meg og styrer «Meg»-merket,
+// på samme måte som på smArt-siden.
+export const team = [
+  { name: 'Charlotte Skråmestø', role: 'UX-design og research', me: true },
+  { name: 'Elisa Andersson', role: 'Forretningsutvikling' },
+  { name: 'Eskil Aglen', role: 'Forretningsutvikling' },
+  { name: 'Marius Dale', role: 'Forretningsutvikling og tech' },
+  { name: 'Yngvild Haldorsen', role: 'Tech' },
 ];
 
 // De sju tiltakene teamet landet på. `mine` markerer dem jeg jobbet direkte

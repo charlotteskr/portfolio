@@ -10,6 +10,7 @@ import {
   measures,
   reflection,
   searchShift,
+  team,
 } from '../data/storebrand';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -577,6 +578,27 @@ export default function Storebrand() {
             {paragraph}
           </p>
         ))}
+      </section>
+
+      {/* TEAM */}
+      <section className="sb-team">
+        <div className="sb-eyebrow reveal">
+          <div className="sb-eyebrow-dot" />
+          <span className="sb-eyebrow-text">Team</span>
+        </div>
+        <h2 className="sb-title reveal">Hvem gjorde hva</h2>
+        <p className="sb-body reveal">
+          Team AI-søk var et tverrfaglig team bestående av fem studenter.
+        </p>
+        <div className="sb-team-grid reveal">
+          {team.map((member) => (
+            <div className={`sb-team-member${member.me ? ' me' : ''}`} key={member.name}>
+              <span className="sb-team-name">{member.name}</span>
+              <span className="sb-team-role">{member.role}</span>
+              {member.me && <span className="sb-team-flag">Meg</span>}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Felles lightbox for alle skjermbildene som kan klikkes opp. */}

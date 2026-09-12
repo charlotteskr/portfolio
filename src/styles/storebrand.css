@@ -740,6 +740,35 @@ body.case-storebrand {
 }
 .sb-timeline-step.next span { color: #E8A49E; }
 
+/* ── TEAM ── */
+.sb-team { background: var(--sb-tint); }
+.sb-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+.sb-team-member {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  align-items: baseline;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.sb-team-member.me { font-weight: 500; }
+.sb-team-name { font-size: 0.98rem; }
+.sb-team-role { font-size: 0.8rem; color: var(--dim); letter-spacing: 0.06em; }
+.sb-team-flag {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--sb-red);
+  color: #fff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
 /* ── LIGHTBOX ── */
 .sb-lightbox {
   position: fixed;
@@ -794,6 +823,7 @@ body.case-storebrand {
   .sb-ia-grid { grid-template-columns: repeat(3, 1fr); }
   /* Dagens løsning til venstre, forslaget til høyre. */
   .sb-pair { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .sb-team-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
 }
 
 /* ── ≥ 1280px — WIDESCREEN ── */
