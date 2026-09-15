@@ -146,7 +146,7 @@ export const thumbAnatomy = [
     part: 'Logo',
     place: 'Øverst til venstre',
     x: 14, y: 11.5,
-    desc: 'KS Digital-logoen står i samme hjørne på alle miniatyrbildene, og knytter kurset til avsenderen.',
+    desc: 'KS Digital-logoen står i samme hjørne på alle miniatyrbildene, og signaliserer kvalitet og eierskap.',
   },
   {
     num: '02',
@@ -174,7 +174,7 @@ export const thumbAnatomy = [
     part: 'Farge',
     place: 'Flaten og bølgene',
     x: 80, y: 89,
-    desc: 'Fargen bærer den samme opplysningen som undertittelen: hvem det er for. Det er den du oppfatter først, før noe er lest.',
+    desc: 'Hver rolle er gitt en farge, slik at de er lett gjenkjennelige. Bølgen gir visuell interesse og brukes igjen i bannerne.',
   },
   {
     num: '06',

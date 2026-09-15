@@ -225,8 +225,7 @@ export default function KsKunnskap() {
         <p className="ks-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
           Struktureringen av sitemapet gikk gjennom flere iterasjoner. Det viktige var å
           konkretisere hvilke behov de ulike ansatte i kommunen faktisk har, og formidle
-          svaret så enkelt som mulig. Å samle informasjonen var én ting — å definere hvor
-          man finner hva, var det som virkelig avgjorde om siden fungerte.
+          svaret så enkelt som mulig.
         </p>
         <p className="ks-body reveal reveal-delay-2" style={{ marginTop: '1rem' }}>
           Jeg var også ansvarlig for å sette opp de tekniske elementene på siden, i form av
@@ -269,7 +268,7 @@ export default function KsKunnskap() {
             <span className="ks-chapter-name">Miniatyrbilder og banner</span>
           </span>
         </div>
-        <h2 className="ks-title reveal">Å skille kursene fra hverandre uten å lese</h2>
+        <h2 className="ks-title reveal">Visuelt skille kursene</h2>
         <p className="ks-body reveal">
           Kursene i KS Kunnskap vises som kort i et rutenett — både på startsiden og på
           undersider for ulike behov. Slike rutenett avhenger i stor grad av visuell
@@ -279,11 +278,6 @@ export default function KsKunnskap() {
         </p>
 
         <h3 className="ks-sub reveal">Oppbygging</h3>
-        <p className="ks-body reveal">
-          Løsningen ble et fast system der hvert element bærer én bestemt opplysning. Da
-          slipper brukeren å lese seg fram til om kurset er relevant — informasjonen ligger
-          i formen, plasseringen og fargen.
-        </p>
 
         <div className="ks-anatomy reveal">
           {/* Markørene ligger som prosentkoordinater oppå bildet. Bildet har fast
@@ -339,10 +333,11 @@ export default function KsKunnskap() {
 
         <h3 className="ks-sub reveal">Én farge per rolle</h3>
         <p className="ks-body reveal">
-          Systemet er brukt på hver av rollene. Miniatyrbildet møter deg i kurskatalogen,
-          banneret på toppen av rollens egen inngang — og fargen er den samme begge steder.
-          Bølgeformen har jeg tegnet selv, mens fargene er hentet fra designmanualen, så
-          rollene skiller seg fra hverandre uten å bryte med uttrykket ellers.
+          Det ble viktig å skille rollene fra hverandre på en måte som gjør dem lett
+          gjenkjennelige, og som gjør det enkelt å se hvilke kurs som hører til hvilken
+          rolle. Samtidig skal alle bildene oppleves som en helhet, og som at de alle
+          handler om opplæring i KS Kunnskap. Miniatyrbildet og banneret kobles sammen med
+          samme primær- og sekundærfarge, samt gjenbruk av bølgen.
         </p>
 
         <div className="ks-roles">
@@ -389,13 +384,6 @@ export default function KsKunnskap() {
             </div>
           ))}
         </div>
-
-        <h3 className="ks-sub reveal">Resultatet i rutenettet</h3>
-        <p className="ks-body reveal">
-          Her ser du systemet satt sammen. Kortene deler oppbygging og leses som én
-          familie, men fargen grupperer dem etter rolle, og nummereringen viser rekkefølgen
-          innenfor hver rolle. Innholdsprodusent har ni læringsløp, nummerert 1 til 9.
-        </p>
 
         <figure className="ks-figure reveal">
           <button
