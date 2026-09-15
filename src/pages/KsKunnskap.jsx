@@ -26,12 +26,19 @@ function revealClass(index, cycle) {
   return step === 0 ? 'reveal' : `reveal reveal-delay-${step}`;
 }
 
+// Mockupene som hører til presentasjonen. Den første ligger alene i kapittel
+// 01 og er derfor ikke med her.
+const presentationMockups = mockups.slice(1);
+
 export default function KsKunnskap() {
   useDocumentTitle('KS Kunnskap — Charlotte Skråmestø');
   usePageClass('case-ks');
   useReveal();
 
+  const [activeMockup, setActiveMockup] = useState(0);
   const [zoomed, setZoomed] = useState(null);
+
+  const mockup = presentationMockups[activeMockup];
 
   // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
   useEffect(() => {
@@ -526,33 +533,43 @@ export default function KsKunnskap() {
           </figcaption>
         </figure>
 
-
-        <div className="ks-mockups">
-          {mockups.slice(1).map((item, index) => (
-            <figure
-              className={`ks-mockup${item.narrow ? ' narrow' : ''} ${revealClass(index, 2)}`}
-              key={item.image}
-            >
+        {/* Én mockup per fane, samme grep som på Storebrand-siden: teksten
+            forklarer bildet som står under den, og bildet får hele rammens
+            bredde i stedet for en halv rutenettspalte. */}
+        <div className="ks-showcase reveal">
+          <div className="ks-tabs">
+            {presentationMockups.map((item, index) => (
               <button
+                key={item.image}
                 type="button"
-                className="ks-mockup-visual"
-                onClick={() => setZoomed({ image: item.image, alt: item.alt })}
-                aria-label={`Vis ${item.title} i større format`}
+                className={`ks-tab${index === activeMockup ? ' active' : ''}`}
+                onClick={() => setActiveMockup(index)}
+                aria-pressed={index === activeMockup}
               >
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  width={item.width}
-                  height={item.height}
-                  loading="lazy"
-                />
+                {item.title}
               </button>
-              <figcaption>
-                <span className="ks-mockup-title">{item.title}</span>
-                {item.desc}
-              </figcaption>
-            </figure>
-          ))}
+            ))}
+          </div>
+
+          <div className="ks-showcase-body">
+            <div className="ks-showcase-title">{mockup.title}</div>
+            <p className="ks-showcase-desc">{mockup.desc}</p>
+          </div>
+
+          <button
+            type="button"
+            className={`ks-showcase-visual${mockup.narrow ? ' narrow' : ''}`}
+            onClick={() => setZoomed({ image: mockup.image, alt: mockup.alt })}
+            aria-label={`Vis ${mockup.title} i større format`}
+          >
+            <img
+              src={mockup.image}
+              alt={mockup.alt}
+              width={mockup.width}
+              height={mockup.height}
+              loading="lazy"
+            />
+          </button>
         </div>
 
         <h3 className="ks-sub reveal">Flyeren</h3>

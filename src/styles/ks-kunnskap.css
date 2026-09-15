@@ -527,7 +527,69 @@ body.case-ks {
 
 /* ── MOCKUPS ──
    Bildene har gjennomsiktig bakgrunn, så de får ingen ramme — bare luft. */
-.ks-mockups { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+/* ── MOCKUPVISNING ──
+   De fire mockupene fra presentasjonen deler én ramme med faner. Alternativet
+   var et rutenett, men da måtte hvert bilde krympes til en halv spalte, og
+   detaljene i skjermbildene forsvant. Nå står ett bilde om gangen i full
+   bredde, med sin egen forklaring over.
+   Seksjonen er sand, så rammen er hvit — motsatt av tilsvarende ramme på
+   Storebrand-siden, men samme kontrastforhold. */
+.ks-showcase {
+  margin-top: 2.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--ks-paper);
+}
+.ks-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+/* min-height gir samme 44px treffflate som knappene ellers på siden. */
+.ks-tab {
+  font: inherit;
+  font-size: 0.85rem;
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.ks-tab:hover { border-color: var(--ks-purple); color: var(--ks-purple); }
+.ks-tab.active {
+  background: var(--ks-purple);
+  border-color: var(--ks-purple);
+  color: #fff;
+}
+.ks-showcase-body { max-width: 68ch; margin-bottom: 1.75rem; }
+.ks-showcase-title { font-size: 1.3rem; font-weight: 200; margin-bottom: 0.5rem; }
+.ks-showcase-desc {
+  font-size: 0.95rem;
+  color: var(--dim);
+  line-height: 1.75;
+  font-weight: 300;
+}
+.ks-showcase-visual {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  cursor: zoom-in;
+}
+.ks-showcase-visual img { display: block; width: 100%; height: auto; }
+/* Mobilmockupen er høy og smal og skal ikke strekkes over hele rammen. */
+.ks-showcase-visual.narrow { max-width: 260px; margin: 0 auto; }
+
 .ks-mockup-visual {
   display: block;
   width: 100%;
@@ -537,22 +599,6 @@ body.case-ks {
   cursor: zoom-in;
 }
 .ks-mockup-visual img { display: block; width: 100%; height: auto; }
-/* Mobilmockupen er høy og smal og skal ikke strekkes over hele spalten. */
-.ks-mockup.narrow .ks-mockup-visual img { max-width: 240px; margin: 0 auto; }
-.ks-mockup figcaption {
-  margin-top: 0.9rem;
-  font-size: 0.85rem;
-  color: var(--dim);
-  line-height: 1.65;
-  font-weight: 300;
-}
-.ks-mockup-title {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: var(--ks-navy);
-  margin-bottom: 0.35rem;
-}
 
 /* ── FLYER ── */
 .ks-flyer { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
@@ -627,7 +673,6 @@ body.case-ks {
   .ks-swatches.soft { grid-template-columns: repeat(4, 1fr); }
   .ks-role-pair { grid-template-columns: 1fr 1.42fr; gap: 1.25rem; }
   .ks-flyer { grid-template-columns: 1fr 1fr; }
-  .ks-mockups { grid-template-columns: 1fr 1fr; }
 }
 
 /* ── ≥ 769px — STORT NETTBRETT ── */
