@@ -89,43 +89,6 @@ export const thumbGrid = {
   height: 1817,
 };
 
-// Legemiddelhåndtering fikk en egen visuell serie, med banner øverst på siden
-// og miniatyrbilde i rutenettet — samme motiv i to formater.
-export const medicationSet = [
-  {
-    role: 'Helsefagarbeider og assistenter',
-    tint: '#D0AEF4',
-    banner: {
-      image: '/bilder/ks-kunnskap/banner-ass.webp',
-      alt: 'Banner i lys lilla med tabletter og kapsler rundt tittelen «Helsefagarbeider og assistenter»',
-      width: 2000,
-      height: 647,
-    },
-    thumb: {
-      image: '/bilder/ks-kunnskap/miniatyr-ass.webp',
-      alt: 'Miniatyrbilde i lys lilla med tabletter og tittelen «Helsefagarbeider og assistenter»',
-      width: 1280,
-      height: 720,
-    },
-  },
-  {
-    role: 'Sykepleier og vernepleier',
-    tint: '#AEC3E4',
-    banner: {
-      image: '/bilder/ks-kunnskap/banner-vpl.webp',
-      alt: 'Banner i lys blå med tabletter og kapsler rundt tittelen «Sykepleier og vernepleier»',
-      width: 2000,
-      height: 647,
-    },
-    thumb: {
-      image: '/bilder/ks-kunnskap/miniatyr-vpl.webp',
-      alt: 'Miniatyrbilde i lys blå med tabletter og tittelen «Sykepleier og vernepleier»',
-      width: 1280,
-      height: 720,
-    },
-  },
-];
-
 // Prøvekortet som brukes til å forklare oppbyggingen. Innholdsprodusent er
 // valgt fordi det er den eneste rollen med nummererte læringsløp, så alle seks
 // elementene er synlige samtidig. Markørene plasseres i prosent av bildet, som

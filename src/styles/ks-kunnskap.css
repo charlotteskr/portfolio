@@ -477,36 +477,6 @@ body.case-ks {
 }
 .ks-an-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
 
-/* ── LEGEMIDDELSERIEN ──
-   Banner og miniatyrbilde av samme motiv, side om side. */
-.ks-med { display: grid; gap: 3rem; margin-top: 2.5rem; }
-.ks-med-head {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 1.05rem;
-  font-weight: 300;
-  margin-bottom: 1.25rem;
-}
-.ks-med-chip {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  flex-shrink: 0;
-}
-.ks-med-pair { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
-.ks-med-visual {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  cursor: zoom-in;
-}
-.ks-med-visual img { display: block; width: 100%; height: auto; }
-
 /* ── BILDEBIBLIOTEK ──
    Illustrasjonene er SVG-striper i ulik bredde; rammen holder dem på linje. */
 .ks-illus { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
@@ -627,7 +597,6 @@ body.case-ks {
   .ks-work-grid { grid-template-columns: 1fr 1fr; }
   .ks-swatches { grid-template-columns: repeat(3, 1fr); }
   .ks-swatches.soft { grid-template-columns: repeat(4, 1fr); }
-  .ks-med-pair { grid-template-columns: 1.72fr 1fr; gap: 1.25rem; }
   .ks-role-pair { grid-template-columns: 1fr 1.42fr; gap: 1.25rem; }
   .ks-flyer { grid-template-columns: 1fr 1fr; }
   .ks-mockups { grid-template-columns: 1fr 1fr; }

@@ -4,7 +4,6 @@ import {
   flyer,
   heroMeta,
   illustrations,
-  medicationSet,
   mockups,
   palette,
   pillars,
@@ -406,65 +405,6 @@ export default function KsKunnskap() {
             periferisynet.
           </figcaption>
         </figure>
-
-        <h3 className="ks-sub reveal">Legemiddelhåndtering</h3>
-        <p className="ks-body reveal">
-          Kursene i legemiddelhåndtering finnes i egne versjoner for ulike yrkesgrupper, med
-          hver sin passeringstest. De fikk en egen visuell serie der motivet
-          går igjen i to formater — banner øverst på kurssiden og miniatyrbilde i
-          rutenettet — med hver sin farge per yrkesgruppe.
-        </p>
-
-        <div className="ks-med">
-          {medicationSet.map((item, index) => (
-            <div className={`ks-med-row ${revealClass(index, 2)}`} key={item.role}>
-              <div className="ks-med-head">
-                <span className="ks-med-chip" style={{ background: item.tint }} />
-                {item.role}
-              </div>
-              <div className="ks-med-pair">
-                <figure>
-                  <span className="ks-tag">Banner</span>
-                  <button
-                    type="button"
-                    className="ks-med-visual"
-                    onClick={() =>
-                      setZoomed({ image: item.banner.image, alt: item.banner.alt })
-                    }
-                    aria-label={`Vis banneret for ${item.role} i større format`}
-                  >
-                    <img
-                      src={item.banner.image}
-                      alt={item.banner.alt}
-                      width={item.banner.width}
-                      height={item.banner.height}
-                      loading="lazy"
-                    />
-                  </button>
-                </figure>
-                <figure>
-                  <span className="ks-tag">Miniatyrbilde</span>
-                  <button
-                    type="button"
-                    className="ks-med-visual"
-                    onClick={() =>
-                      setZoomed({ image: item.thumb.image, alt: item.thumb.alt })
-                    }
-                    aria-label={`Vis miniatyrbildet for ${item.role} i større format`}
-                  >
-                    <img
-                      src={item.thumb.image}
-                      alt={item.thumb.alt}
-                      width={item.thumb.width}
-                      height={item.thumb.height}
-                      loading="lazy"
-                    />
-                  </button>
-                </figure>
-              </div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* KODING */}
