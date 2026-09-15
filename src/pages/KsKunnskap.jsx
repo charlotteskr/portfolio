@@ -68,7 +68,7 @@ export default function KsKunnskap() {
             </div>
           ))}
         </div>
-        <a href="#arbeidet" className="ks-hero-cta">
+        <a href="#ressurssenter" className="ks-hero-cta">
           Se arbeidet
           <span>↓</span>
         </a>
@@ -86,19 +86,31 @@ export default function KsKunnskap() {
           </div>
           <div>
             <p className="ks-body reveal">
-              KS Kunnskap er en delings- og læringsplattform bygget på Valamis. Den største
-              gevinsten ligger ikke i selve verktøyet, men i at innhold kan utvikles én gang,
-              sammen, og deles med hele sektoren — i stedet for at hver enkelt kommune lager
-              det samme kurset for seg selv.
+              KS Kunnskap er en delings- og læringsplattform levert av det finske selskapet
+              Valamis. Plattformen er en SaaS-løsning (Software as a Service), der strukturen
+              bygges opp av moduler og widgets.
             </p>
             <p className="ks-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
-              Det stiller krav til hvordan innholdet presenteres. En felles katalog blir
-              raskt uoversiktlig hvis alt ser likt ut, og informasjonen om tjenesten er
-              spredt over flere plattformer. Det er der arbeidet mitt ligger.
+              Målgruppen er alle ansatte i kommuner og fylkeskommuner, fra ledere til
+              assistenter, på tvers av sektorer. Brukergruppen varierer stort i alder og
+              teknisk kompetanse, og bruksmønsteret varierer like mye: noen er innom
+              plattformen daglig, andre en sjelden gang.
+            </p>
+            <p className="ks-body reveal reveal-delay-2" style={{ marginTop: '1rem' }}>
+              Hovedoppgaven til plattformen er å fasilitere og drive fram kvalitetssikrede
+              kurs til alle brukerne, bygget på tanken om deling av innhold — det utvikles
+              én gang, sammen, og deles med hele sektoren.
+            </p>
+            <p className="ks-body reveal reveal-delay-3" style={{ marginTop: '1rem' }}>
+              Utfordringene ligger i de samme forskjellene: ulike behov, ulik teknisk
+              kompetanse og begrenset tid hos brukerne. Derfor er det særlig viktig at
+              innhold, informasjon og kurs er lett tilgjengelig og strukturert på en måte
+              som krever mindre kognitiv belastning av sluttbrukeren.
             </p>
           </div>
         </div>
 
+        <h3 className="ks-sub reveal">Hovedfunksjoner</h3>
         <div className="ks-pillars">
           {pillars.map((item, index) => (
             <div className={`ks-pillar ${revealClass(index, 3)}`} key={item.title}>
@@ -111,11 +123,11 @@ export default function KsKunnskap() {
         <figure className="ks-figure reveal">
           <button
             type="button"
-            className="ks-shot"
+            className="ks-mockup-visual"
             onClick={() =>
               setZoomed({ image: mockups[0].image, alt: mockups[0].alt })
             }
-            aria-label="Vis startsiden i større format"
+            aria-label="Vis forsiden i større format"
           >
             <img
               src={mockups[0].image}
@@ -126,14 +138,15 @@ export default function KsKunnskap() {
             />
           </button>
           <figcaption>
-            Startsiden i KS Kunnskap. Hver ansatt får sin egen oversikt over pågående
-            læringsløp, attester og arrangementer de er påmeldt.
+            Slik møter brukeren KS Kunnskap: innlogging på maskinen, og startsiden foran,
+            der hver ansatt får sin egen oversikt over pågående læringsløp, attester og
+            arrangementer de er påmeldt.
           </figcaption>
         </figure>
       </section>
 
       {/* MIN ROLLE */}
-      <section className="ks-role" id="arbeidet">
+      <section className="ks-role">
         <div className="ks-eyebrow reveal">
           <div className="ks-eyebrow-dot" />
           <span className="ks-eyebrow-text">Min rolle</span>
@@ -166,19 +179,9 @@ export default function KsKunnskap() {
         </div>
         <h2 className="ks-title reveal">Bygget på KS Digitals designmanual</h2>
         <p className="ks-body reveal">
-          Den grafiske profilen er ikke min. Den er KS Digitals designmanual, som legger
-          føringene for det visuelle uttrykket på tvers av tjenestene selskapet leverer. I
-          KS Kunnskap bruker vi den bevisst videre, slik at plattformen kobles visuelt til
-          avsenderen — møter du KS Kunnskap, skal du kjenne igjen at det er KS Digital som
-          står bak.
+          Tjenester og produkter levert av KS Digital følger samme designmanual for å skape
+          et helhetlig uttrykk og koble dem sammen.
         </p>
-        <p className="ks-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
-          Det er altså rammen alt arbeidet mitt holder seg innenfor. Marineblå bærer tekst
-          og mørke flater, lilla er aksenten som går igjen i logo og markeringer, og de lyse
-          tonene holder flatene rolige nok til at innholdet er det som skiller kursene fra
-          hverandre.
-        </p>
-
         <div className="ks-swatches reveal">
           {palette.core.map((colour) => (
             <div className="ks-swatch" key={colour.hex}>
@@ -203,7 +206,7 @@ export default function KsKunnskap() {
       </section>
 
       {/* RESSURSSENTER */}
-      <section className="ks-resource">
+      <section className="ks-resource" id="ressurssenter">
         <div className="ks-chapter reveal">
           <span className="ks-chapter-num">01</span>
           <span>

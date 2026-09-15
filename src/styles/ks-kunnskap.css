@@ -250,6 +250,8 @@ body.case-ks {
   gap: 1.25rem;
   margin-top: 3rem;
 }
+/* Står boksene rett under en underoverskrift, holder overskriften avstanden. */
+.ks-sub + .ks-pillars { margin-top: 0; }
 .ks-pillar {
   padding: 1.75rem;
   border: 1px solid var(--line);

@@ -305,12 +305,12 @@ export const flyer = [
 // Mockupene som ble laget for presentasjonen for å vise løsningen i bruk.
 export const mockups = [
   {
-    image: '/bilder/ks-kunnskap/mockup-startside.webp',
-    alt: 'Mockup på bærbar datamaskin av startsiden i KS Kunnskap med mine læringsløp, kommende arrangement og attester',
-    title: 'Min startside',
-    desc: 'Oversikt over påmeldte læringsløp, attester og kommende arrangementer.',
+    image: '/bilder/ks-kunnskap/mockup-forside.webp',
+    alt: 'Mockup av KS Kunnskap: innloggingssiden på en bærbar datamaskin, med startsiden og Mine læringsløp i et vindu foran',
+    title: 'Forsiden',
+    desc: 'Innlogging og startside — det første brukeren møter i plattformen.',
     width: 1800,
-    height: 1157,
+    height: 1063,
   },
   {
     image: '/bilder/ks-kunnskap/mockup-kurskatalog.webp',
