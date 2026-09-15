@@ -473,7 +473,7 @@ export default function KsKunnskap() {
             <span className="ks-chapter-name">Markedsmateriell</span>
           </span>
         </div>
-        <h2 className="ks-title reveal">Å forklare tjenesten til noen som aldri har hørt om den</h2>
+        <h2 className="ks-title reveal">Hva er KS Kunnskap?</h2>
         <p className="ks-body reveal">
           En presentasjon og en flyer ble utformet for å informere om kjernefunksjonene i
           KS Kunnskap, til eksternt og internt bruk. Forutsetningen var at leseren ikke har
