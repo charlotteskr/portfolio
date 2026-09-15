@@ -200,6 +200,34 @@ body.case-ks {
   margin-bottom: 0.6rem;
 }
 
+/* Knapp til en ekstern fil, f.eks. presentasjonen hos KS Digital. Samme
+   pilleform og versaler som .ks-hero-cta, men for de lyse seksjonene — lilla
+   på sand har 4,5:1, så teksten er lesbar. min-height gir 44px treffflate. */
+.ks-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 44px;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--ks-purple);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.ks-cta:hover {
+  transform: translateY(-2px);
+  background: var(--ks-navy);
+  box-shadow: 0 10px 24px -10px rgba(0,26,88,0.5);
+}
+.ks-cta span { transition: transform 0.25s ease; }
+.ks-cta:hover span { transform: translate(2px, -2px); }
+
 /* ── KAPITTELMARKØR ──
    Hvert av de fem områdene åpner med en strek, et stort nummer og navnet,
    slik at de leses som tydelig atskilte kapitler. */

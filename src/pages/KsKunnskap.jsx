@@ -489,6 +489,19 @@ export default function KsKunnskap() {
           seeren.
         </p>
 
+        <p className="ks-body reveal" style={{ marginTop: '1rem' }}>
+          Vil du se hele presentasjonen, ligger den offentlig tilgjengelig hos KS Digital.
+        </p>
+        <a
+          className="ks-cta reveal"
+          href="https://ksdigital.no/wp-content/uploads/2026/08/Markedsmateriell_innslag-til-beslutningstakere-i-kommuner-og-fylkeskommuner.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          Se hele presentasjonen (PDF)
+          <span aria-hidden="true">↗</span>
+        </a>
+
         <div className="ks-mockups">
           {mockups.slice(1).map((item, index) => (
             <figure
