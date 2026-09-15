@@ -265,6 +265,15 @@ export const flyer = [
   },
 ];
 
+// Tittelbildet fra presentasjonen. Ligger over mockupene som en forsmak på
+// hva lenka til PDF-en åpner.
+export const presentationCover = {
+  image: '/bilder/ks-kunnskap/presentasjon-forside.webp',
+  alt: 'Forsidelysbildet i presentasjonen: KS Kunnskap med undertittelen «Læringsplattform for kommuner og fylkeskommuner», en mockup av plattformen på bærbar datamaskin og mobil over et foto av en person med hodetelefoner, og stikkordene Delingsfellesskap, Kompetanseheving og Helhetlig oppfølging nederst',
+  width: 1406,
+  height: 787,
+};
+
 // Mockupene som ble laget for presentasjonen for å vise løsningen i bruk.
 export const mockups = [
   {

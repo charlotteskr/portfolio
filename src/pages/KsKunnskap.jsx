@@ -7,6 +7,7 @@ import {
   mockups,
   palette,
   pillars,
+  presentationCover,
   resourceCentre,
   roleSets,
   thumbAnatomy,
@@ -501,6 +502,30 @@ export default function KsKunnskap() {
           Se hele presentasjonen (PDF)
           <span aria-hidden="true">↗</span>
         </a>
+
+        <figure className="ks-figure reveal">
+          <button
+            type="button"
+            className="ks-shot"
+            onClick={() =>
+              setZoomed({ image: presentationCover.image, alt: presentationCover.alt })
+            }
+            aria-label="Vis forsidelysbildet i større format"
+          >
+            <img
+              src={presentationCover.image}
+              alt={presentationCover.alt}
+              width={presentationCover.width}
+              height={presentationCover.height}
+              loading="lazy"
+            />
+          </button>
+          <figcaption>
+            Forsidelysbildet setter tonen for resten av presentasjonen: navnet, hvem
+            plattformen er for, og de tre gevinstene som går igjen videre.
+          </figcaption>
+        </figure>
+
 
         <div className="ks-mockups">
           {mockups.slice(1).map((item, index) => (
