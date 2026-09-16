@@ -87,8 +87,8 @@ export default function Smart() {
           </div>
           <div>
             <p className="sm-body reveal">
-              Innsikten fra research gjorde det nødvendig å ramme inn problemet på nytt. Vi
-              landet på én problemstilling som styrte resten av prosjektet.
+              Hvordan kan vi gjøre kunstutstillinger interaktive og engasjerende, slik at
+              de skaper et personlig og varig inntrykk hos unge voksne?
             </p>
             <p className="sm-body reveal reveal-delay-1" style={{ marginTop: '1rem' }}>
               smArt var et gruppeprosjekt med seks personer. Mitt bidrag lå på UX-siden —
@@ -97,10 +97,6 @@ export default function Smart() {
             </p>
           </div>
         </div>
-        <p className="sm-statement reveal">
-          «Hvordan kan vi gjøre kunstutstillinger interaktive og engasjerende, slik at de
-          skaper et personlig og varig inntrykk hos unge voksne?»
-        </p>
       </section>
 
       {/* PROSESS */}

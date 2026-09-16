@@ -257,18 +257,8 @@ body.case-smart {
 }
 
 /* ── PROBLEMSTILLING ── */
-/* Seksjonen er hvit; problemstillingen bærer fargen i sin egen oransje boks. */
+/* Seksjonen er hvit — problemstillingen står som overskrift, uten egen boks. */
 .sm-problem-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-.sm-statement {
-  margin-top: 2.5rem;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  background: var(--phase-define);
-  color: var(--ink-smart);
-  border-radius: 14px;
-  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
-  font-weight: 300;
-  line-height: 1.45;
-}
 
 /* ── PROSESS ── */
 /* Fasefargene er hele fargeholdet her — trinnene og panelet står på hvitt. */
