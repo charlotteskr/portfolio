@@ -345,29 +345,6 @@ body.case-smart {
 .sm-insight-title { font-size: 1.05rem; font-weight: 400; margin-bottom: 0.5rem; }
 .sm-insight-desc { font-size: 0.9rem; color: var(--dim); line-height: 1.7; font-weight: 300; }
 
-.sm-cluster-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-  margin-top: 2rem;
-}
-.sm-cluster-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--dim);
-  line-height: 1.6;
-}
-.sm-cluster-list li::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0.55em;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 /* ── HOVEDFUNN ── */
 .sm-findings-grid {
   display: grid;
@@ -484,6 +461,39 @@ body.case-smart {
 }
 
 /* ── VISUELL IDENTITET ── */
+/* Logoene er strektegnet i mørkt blekk uten egen bakgrunn. Den tonede
+   seksjonsflata ville lagt en gul film bak strekene, så de får hver sin
+   hvite flate — samme rolle som --card har for kortene ellers. */
+.sm-logos { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+.sm-logo { margin: 0; }
+.sm-logo-flate {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  min-height: 150px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+/* Kildene er 256 og 260 px brede. De skaleres ikke opp over egen størrelse —
+   en SVG tåler det, men de to logoene ville da fått ulik optisk vekt. */
+.sm-logo-flate img { width: 100%; max-width: 260px; height: auto; }
+.sm-logo-name {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.sm-logo-desc {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
 .sm-swatches { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
 .sm-swatch { width: 130px; }
 .sm-swatch-chip {
@@ -523,6 +533,47 @@ body.case-smart {
 .sm-solution .sm-title { color: var(--paper); }
 .sm-solution .sm-body { color: rgba(240,232,217,0.72); }
 .sm-solution .sm-eyebrow-text { color: var(--accent); }
+
+/* ── FYSISKE ELEMENTER ──
+   De to fotoene har svært ulikt format — rammen ligger, kontrolleren står.
+   En felles flate på 240px høyde med contain lar begge beholde sitt eget
+   format uten at den stående blir dobbelt så høy som den liggende. 240px er
+   også nøyaktig rammebildets egen høyde, så det skaleres ikke opp.
+
+   Flata og kantlinja er de samme som skjermene i flytkartet under får: sand
+   mot den mørke seksjonen, med en kant tynnet fra fasefargen. */
+.sm-physical { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+.sm-physical-flate {
+  display: grid;
+  place-items: center;
+  height: 240px;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 12px;
+  background: var(--paper);
+  overflow: hidden;
+}
+.sm-physical-flate img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.sm-physical-card { margin: 0; }
+.sm-physical-title {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.sm-physical-desc {
+  margin-top: 0.4rem;
+  font-size: 0.87rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(240, 232, 217, 0.72);
+  max-width: 46ch;
+}
 
 /* ── FLYTKART OVER PROTOTYPEN ──
    Samme lesning som prototypevisningen i Figma: skjermene ligger etter
@@ -687,7 +738,8 @@ body.case-smart {
 @media (min-width: 481px) {
   .sm-findings-grid,
   .sm-insights-grid { grid-template-columns: 1fr 1fr; }
-  .sm-cluster-list { grid-template-columns: 1fr 1fr; }
+  .sm-logos { grid-template-columns: 1fr 1fr; }
+  .sm-physical { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -707,7 +759,9 @@ body.case-smart {
    ≥ 901px — laptop
    ══════════════════════════════════════════════════════════════════ */
 @media (min-width: 901px) {
-  .sm-insights-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Seks innsiktskort går opp i tre spalter, ikke fire. Hovedfunnene er
+     fire og beholder sine egne. */
+  .sm-insights-grid { grid-template-columns: repeat(3, 1fr); }
   .sm-findings-grid { grid-template-columns: repeat(4, 1fr); }
   .sm-competitors { grid-template-columns: repeat(3, 1fr); }
   .sm-controllers { grid-template-columns: repeat(3, 1fr); }

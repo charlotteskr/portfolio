@@ -50,45 +50,45 @@ export const processPhases = [
   },
 ];
 
+// Seks kort i tre spalter. Fargene sykler gjennom de fire fasefargene i
+// rekkefølge, slik at ingen naboer i rutenettet får samme farge.
 export const insights = [
   {
-    icon: 'interview',
+    icon: 'notes',
     color: 'var(--phase-discover)',
+    title: 'Brainstorming og hypoteser',
+    desc: 'Teamet satte seg sammen og skrev ned antakelsene våre om prosjektet på post-it-lapper. Det ga oss ett felles utgangspunkt og gjorde tydelig hva vi faktisk måtte finne ut.',
+  },
+  {
+    icon: 'interview',
+    color: 'var(--phase-define)',
     title: 'Brukerintervju',
     desc: 'Seks personer ble intervjuet om sitt forhold til smartspeil og kunst. Svarene ble sortert i et affinitetsdiagram.',
   },
   {
     icon: 'puzzle',
-    color: 'var(--phase-define)',
+    color: 'var(--phase-develop)',
     title: 'Affinitetsdiagram',
     desc: 'Utsagnene fra intervjuene ble gruppert i ti temaer som viste hvor stor variasjon det var i kunstkunnskap og forventninger.',
   },
   {
+    icon: 'hand',
+    color: 'var(--phase-deliver)',
+    title: 'Innlandet Vitensenter',
+    desc: 'Vi fikk omvisning og prøvde de interaktive utstillingene selv. Å stå i rommet viste hva som faktisk holder på oppmerksomheten, og hva som bare ser bra ut på papiret.',
+  },
+  {
     icon: 'compass',
-    color: 'var(--phase-develop)',
+    color: 'var(--phase-discover)',
     title: 'Ekspertintervju',
     desc: 'Vi snakket med designlederen ved Innlandet Vitensenter om hva interaktive utstillinger krever, og hvilke fallgruver vi burde unngå.',
   },
   {
     icon: 'chart',
-    color: 'var(--phase-deliver)',
+    color: 'var(--phase-define)',
     title: 'Konkurrentanalyse',
     desc: 'Tre eksisterende løsninger ble kartlagt for å forstå hva smArt måtte gjøre annerledes enn det som allerede fantes.',
   },
-];
-
-// Klyngene fra affinitetsdiagrammet, oversatt. Rekkefølgen følger plakaten.
-export const affinityClusters = [
-  'Brukerne vet hva et smartspeil er, men har lite førstehåndserfaring',
-  'Brukerne har ulike ønsker for hva et smartspeil skal kunne',
-  'Skepsis og bekymring for at kunst blir for lett tilgjengelig',
-  'Flere ønsket en måte å bli en del av kunsten på',
-  'Smartspeil oppfattes som et tilgjengelig og hverdagslig objekt',
-  'Folk foretrekker ulike måter å lære om kunst på',
-  'Nøytralt eller positivt forhold til interaktiv læring',
-  'Brukerne vil ha lettfattelig informasjon som unngår kognitiv overbelastning',
-  'Noen ønsker en dypere og mer teknisk forståelse av kunst',
-  'Kunnskapen om kunst varierer sterkt mellom brukerne',
 ];
 
 export const findings = [
@@ -239,6 +239,27 @@ export const controllers = [
   },
 ];
 
+// Logoene fra designmanualen. Begge er tegnet i samme mørke blekk uten egen
+// bakgrunn, og står derfor på hvit flate i seksjonen.
+export const brandLogos = [
+  {
+    image: '/bilder/smart/primaerlogo.svg',
+    name: 'Primærlogo',
+    desc: 'Navnet er et ordspill: «smart» peker på AI-funksjonene, «Art» på kunsten. Ordmerket er satt i en serif for et stilrent og klassisk uttrykk, og tverrstreken i A-en er byttet ut med et glimt — ikonet som har blitt synonymt med AI.',
+    alt: 'Primærlogoen: ordmerket smArt mellom to streker, der tverrstreken i A-en er et firestrålet glimt, med underteksten «An interactive Ai art exibition»',
+    width: 256,
+    height: 87,
+  },
+  {
+    image: '/bilder/smart/sekundaerlogo.svg',
+    name: 'Sekundærlogo',
+    desc: 'Én linje til trange flater, der undertittelen er byttet ut med «Gallery» og et glimt skiller de to ordene.',
+    alt: 'Sekundærlogoen: ordmerket smArt på én linje, etterfulgt av et firestrålet glimt og ordet Gallery',
+    width: 260,
+    height: 65,
+  },
+];
+
 // Merkevaren er definert i prosjektet selv — verdiene er hentet rett fra
 // designmanualen på plakat 5 og gjenbrukes som sidens palett.
 export const brandColors = [
@@ -253,6 +274,27 @@ export const brandType = [
   { role: 'Overskrift 1', font: 'Albert Sans', weight: 'Regular' },
   { role: 'Overskrift 2', font: 'Aboreto', weight: 'Regular' },
   { role: 'Brødtekst', font: 'Akatab', weight: 'Regular / Bold' },
+];
+
+// De to fysiske delene av utstillingen: flata verket vises på, og tingen
+// brukeren styrer den med.
+export const physical = [
+  {
+    image: '/bilder/smart/ramme.webp',
+    title: 'Rammen',
+    desc: 'Skjermen står i en utskåret treramme. Det digitale verket møter besøkende som et maleri på veggen, ikke som en skjerm — utstillingen skulle kjennes som et museum.',
+    alt: 'Svart skjerm montert i en utskåret treramme med ornamenter i hvert hjørne',
+    width: 344,
+    height: 240,
+  },
+  {
+    image: '/bilder/smart/kontroller.webp',
+    title: 'Kontrolleren',
+    desc: 'Navigeringen skjer fra en mobil i en holder ved siden av rammen. Fire retningsknapper og én midtknapp — det er hele grensesnittet brukeren holder i.',
+    alt: 'Mobil i en blå holder som viser kontrolleren: fire retningsknapper rundt en midtknapp',
+    width: 115,
+    height: 257,
+  },
 ];
 
 // Flytkartet over den ferdige prototypen. Rekkefølgen er den samme som i

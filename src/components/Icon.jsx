@@ -19,6 +19,24 @@ const paths = {
     <path d="M7.75 5.25h2.65a2.6 2.6 0 0 1 5.2 0h2.65a2.5 2.5 0 0 1 2.5 2.5v2.65a2.6 2.6 0 0 0 0 5.2v2.65a2.5 2.5 0 0 1-2.5 2.5H7.75a2.5 2.5 0 0 1-2.5-2.5V15.6a2.6 2.6 0 0 1 0-5.2V7.75a2.5 2.5 0 0 1 2.5-2.5z" />
   ),
 
+  // Post-it-lapper: to lapper som ligger oppå hverandre.
+  notes: (
+    <>
+      <rect x="3.25" y="3.25" width="13" height="13" rx="1.75" />
+      <path d="M7.75 20.75h11a2 2 0 0 0 2-2v-11" />
+    </>
+  ),
+
+  // Utprøving: hånd som strekker seg ut for å ta på noe.
+  hand: (
+    <>
+      <path d="M18 11V6a2 2 0 0 0-4 0" />
+      <path d="M14 10V4a2 2 0 0 0-4 0v2" />
+      <path d="M10 10.5V6a2 2 0 0 0-4 0v8" />
+      <path d="M18 8a2 2 0 0 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.35l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+    </>
+  ),
+
   // Analyse: akse med tre stolper i ulik høyde.
   chart: (
     <>

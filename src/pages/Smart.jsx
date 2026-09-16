@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import {
-  affinityClusters,
   brandColors,
+  brandLogos,
   brandType,
   competitors,
   controllers,
@@ -9,6 +9,7 @@ import {
   heroMeta,
   insights,
   moscow,
+  physical,
   processPhases,
   team,
   walkthrough,
@@ -152,7 +153,7 @@ export default function Smart() {
 
         <div className="sm-insights-grid">
           {insights.map((item, index) => (
-            <div className={`sm-insight-card ${revealClass(index, 4)}`} key={item.title}>
+            <div className={`sm-insight-card ${revealClass(index, 3)}`} key={item.title}>
               {/* color styrer streken i ikonet, som tegnes i currentColor. */}
               <div
                 className="sm-insight-icon"
@@ -168,12 +169,6 @@ export default function Smart() {
             </div>
           ))}
         </div>
-
-        <ul className="sm-cluster-list reveal">
-          {affinityClusters.map((cluster) => (
-            <li key={cluster}>{cluster}</li>
-          ))}
-        </ul>
       </section>
 
       {/* HOVEDFUNN */}
@@ -320,6 +315,26 @@ export default function Smart() {
           mer ekspressive installasjoner.
         </p>
 
+        <div className="sm-logos">
+          {brandLogos.map((logo, index) => (
+            <figure className={`sm-logo ${revealClass(index, 2)}`} key={logo.name}>
+              <div className="sm-logo-flate">
+                <img
+                  src={logo.image}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                <span className="sm-logo-name">{logo.name}</span>
+                <p className="sm-logo-desc">{logo.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
         <div className="sm-swatches reveal">
           {brandColors.map((color) => (
             <div className="sm-swatch" key={color.hex}>
@@ -359,6 +374,33 @@ export default function Smart() {
           kontroller, et webkamera fanger ansiktet ditt, og på skjermen ser du kunstverket
           bli til. Du er både kunstneren og motivet.
         </p>
+
+        <h3 className="sm-title reveal" style={{ fontSize: '1.6rem', marginTop: '4rem' }}>
+          Det brukeren møter i rommet
+        </h3>
+        <p className="sm-body reveal">
+          Utstillingen er like mye et fysisk oppsett som et grensesnitt. To ting bærer den.
+        </p>
+
+        <div className="sm-physical">
+          {physical.map((item, index) => (
+            <figure className={`sm-physical-card ${revealClass(index, 2)}`} key={item.title}>
+              <div className="sm-physical-flate">
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  loading="lazy"
+                />
+              </div>
+              <figcaption>
+                <span className="sm-physical-title">{item.title}</span>
+                <p className="sm-physical-desc">{item.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
 
         <h3 className="sm-title reveal" style={{ fontSize: '1.6rem', marginTop: '4rem' }}>
           Slik klikker brukeren seg gjennom
