@@ -466,15 +466,15 @@ body.case-smart {
    hvite flate — samme rolle som --card har for kortene ellers. */
 .sm-logos { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
 .sm-logo { margin: 0; }
-.sm-logo-flate {
+.sm-logo-flate,
+.sm-illus-flate {
   display: grid;
   place-items: center;
-  padding: clamp(1.5rem, 5vw, 2.5rem);
-  min-height: 150px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--white);
 }
+.sm-logo-flate { padding: clamp(1.5rem, 5vw, 2.5rem); min-height: 150px; }
 /* Kildene er 256 og 260 px brede. De skaleres ikke opp over egen størrelse —
    en SVG tåler det, men de to logoene ville da fått ulik optisk vekt. */
 .sm-logo-flate img { width: 100%; max-width: 260px; height: auto; }
@@ -527,6 +527,35 @@ body.case-smart {
 }
 .sm-type-font { font-size: 1.05rem; font-weight: 300; }
 .sm-type-weight { font-size: 0.8rem; color: var(--dim); }
+
+/* ── ILLUSTRASJONER ──
+   Filene er punktbilder pakket i SVG, så de tåler ikke oppskalering. En fast
+   flatehøyde med contain gir dem samme optiske vekt selv om de fire har ulikt
+   sideforhold — lyspæra står, paletten ligger. */
+.sm-illus { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+.sm-illus-card { margin: 0; }
+.sm-illus-flate { height: 130px; padding: 1.25rem; }
+.sm-illus-flate img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.sm-illus-name {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.sm-illus-desc {
+  margin-top: 0.4rem;
+  font-size: 0.87rem;
+  color: var(--dim);
+  line-height: 1.7;
+  font-weight: 300;
+}
 
 /* ── LØSNING ── */
 .sm-solution { background: var(--ink-smart); color: var(--paper); }
@@ -762,6 +791,7 @@ body.case-smart {
   /* Seks innsiktskort går opp i tre spalter, ikke fire. Hovedfunnene er
      fire og beholder sine egne. */
   .sm-insights-grid { grid-template-columns: repeat(3, 1fr); }
+  .sm-illus { grid-template-columns: repeat(4, 1fr); }
   .sm-findings-grid { grid-template-columns: repeat(4, 1fr); }
   .sm-competitors { grid-template-columns: repeat(3, 1fr); }
   .sm-controllers { grid-template-columns: repeat(3, 1fr); }

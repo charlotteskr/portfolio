@@ -270,6 +270,39 @@ export const brandColors = [
   { name: 'Knapp', hex: '#3B6246' },
 ];
 
+// De fire illustrasjonene fra designmanualen, tegnet i Illustrator. De går
+// igjen på sidene for hver kunststil — tre av dem som kjennetegnene ved
+// stilen, slik infosiden i flytkartet lenger ned viser.
+//
+// Filene er SVG-er som pakker inn et punktbilde, ikke ekte vektorstrek. De
+// vises derfor i én fast høyde og skaleres ikke opp over den.
+export const brandIllustrations = [
+  {
+    image: '/bilder/smart/fakta.svg',
+    name: 'Fakta',
+    desc: 'Lyspæra markerer det korte du bør vite om stilen.',
+    alt: 'Håndtegnet lyspære med stråler ut til sidene, fylt i oransje',
+  },
+  {
+    image: '/bilder/smart/farge.svg',
+    name: 'Farge',
+    desc: 'Paletten står for fargebruken stilen bygger på.',
+    alt: 'Håndtegnet malerpalett med seks fargeklatter',
+  },
+  {
+    image: '/bilder/smart/komposisjon.svg',
+    name: 'Komposisjon',
+    desc: 'Trekantene i vifte viser vinkler, linjer og hvordan flata deles.',
+    alt: 'Håndtegnede trekanter lagt i vifte som en spiral',
+  },
+  {
+    image: '/bilder/smart/foelelse.svg',
+    name: 'Følelse',
+    desc: 'To ansikter i samme strek, ett glad og ett trist, for stemningen.',
+    alt: 'To håndtegnede ansikter som overlapper hverandre, det ene smiler og det andre er trist',
+  },
+];
+
 export const brandType = [
   { role: 'Overskrift 1', font: 'Albert Sans', weight: 'Regular' },
   { role: 'Overskrift 2', font: 'Aboreto', weight: 'Regular' },

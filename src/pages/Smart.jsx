@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import {
   brandColors,
+  brandIllustrations,
   brandLogos,
   brandType,
   competitors,
@@ -354,6 +355,28 @@ export default function Smart() {
             </li>
           ))}
         </ul>
+
+        <h3 className="sm-title reveal" style={{ fontSize: '1.6rem', marginTop: '4rem' }}>
+          Illustrasjoner
+        </h3>
+        <p className="sm-body reveal">
+          Fire illustrasjoner tegnet i Illustrator. De går igjen på sidene for hver
+          kunststil, der tre av dem står som kjennetegnene ved stilen.
+        </p>
+
+        <div className="sm-illus">
+          {brandIllustrations.map((item, index) => (
+            <figure className={`sm-illus-card ${revealClass(index, 4)}`} key={item.name}>
+              <div className="sm-illus-flate">
+                <img src={item.image} alt={item.alt} loading="lazy" />
+              </div>
+              <figcaption>
+                <span className="sm-illus-name">{item.name}</span>
+                <p className="sm-illus-desc">{item.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       {/* LØSNING */}
