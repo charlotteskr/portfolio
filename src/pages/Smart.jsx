@@ -402,7 +402,7 @@ export default function Smart() {
           Det brukeren møter i rommet
         </h3>
         <p className="sm-body reveal">
-          Utstillingen er like mye et fysisk oppsett som et grensesnitt. To ting bærer den.
+          Utstillingen er like mye et fysisk oppsett som et grensesnitt.
         </p>
 
         <div className="sm-physical">
