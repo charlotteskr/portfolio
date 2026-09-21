@@ -77,6 +77,7 @@ body.case-smart {
 .sm-identity     { --accent: var(--phase-develop); }
 .sm-solution     { --accent: var(--phase-deliver); }
 .sm-team         { --accent: var(--tone-lilac); }
+.sm-posters      { --accent: var(--tone-orange); }
 
 /* Vask på annenhver seksjon. Kortene blir hvite, så de løfter seg fra flaten. */
 .sm-page section.tinted {
@@ -723,6 +724,37 @@ body.case-smart {
 }
 
 /* ── LIGHTBOX ── */
+/* ── PLAKATER ──
+   To høyformat side om side på brede skjermer, stablet på smale. Plakatene er
+   tette av tekst, så de er klikkbare og åpner i den felles lightboxen. */
+.sm-poster-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-top: 2.5rem; }
+.sm-poster { margin: 0; }
+.sm-poster-shot {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--paper);
+  cursor: zoom-in;
+  transition: border-color 0.2s ease;
+}
+.sm-poster-shot:hover { border-color: var(--accent); }
+.sm-poster-shot img { display: block; width: 100%; height: auto; }
+.sm-poster-title {
+  display: block;
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+}
+.sm-poster-desc {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--dim);
+}
+
 .sm-lightbox {
   position: fixed;
   inset: 0;
@@ -809,6 +841,7 @@ body.case-smart {
   .sm-moscow { grid-template-columns: repeat(4, 1fr); }
   .sm-controllers { grid-template-columns: repeat(2, 1fr); }
   .sm-team-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
+  .sm-poster-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ══════════════════════════════════════════════════════════════════

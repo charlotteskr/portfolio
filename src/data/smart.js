@@ -357,6 +357,28 @@ export const brandType = [
   },
 ];
 
+// De to plakatene fra utstillingen. Kildefilene er SVG-er fra Figma som
+// pakker inn store punktbilder — plakat 1 alene er 56 MB — så de er rastrert
+// til webp i 1200 px bredde for visning her.
+export const posters = [
+  {
+    image: '/bilder/smart/poster-1.webp',
+    title: 'Plakat 1 — teknisk',
+    desc: 'Dokumenterer løsningen: innsikt og metoder, sensorene og skjermen, hvordan Web of Things-oppsettet henger sammen, og hva vi ville gjort videre.',
+    alt: 'Teknisk plakat for smArt med seksjonene Abstract, Insight and methods, Sensors and display, Technology composition, Solution og Future improvements, hver med en fargebjelke som overskrift',
+    width: 1200,
+    height: 1702,
+  },
+  {
+    image: '/bilder/smart/poster-2.webp',
+    title: 'Plakat 2 — visuell',
+    desc: 'Forklarer opplevelsen steg for steg med håndtegnede illustrasjoner: velg kunststil, ta bildet, la AI-en jobbe, og få ditt eget verk.',
+    alt: 'Visuell plakat for smArt med håndtegnede figurer som viser stegene «Select art style», «Take a picture», «AI is doing its magic» og «Tada! Personal artwork», avsluttet med teksten «Art just got a lot more fun»',
+    width: 1200,
+    height: 1687,
+  },
+];
+
 // De to fysiske delene av utstillingen: flata verket vises på, og tingen
 // brukeren styrer den med.
 export const physical = [

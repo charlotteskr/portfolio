@@ -11,6 +11,7 @@ import {
   insights,
   moscow,
   physical,
+  posters,
   processPhases,
   team,
   walkthrough,
@@ -516,7 +517,46 @@ export default function Smart() {
         </div>
       </section>
 
-      {/* Felles lightbox for prototypeskjermene og flytdiagrammet. */}
+      {/* PLAKATER */}
+      <section className="sm-posters">
+        <div className="sm-eyebrow reveal">
+          <div className="sm-eyebrow-dot" />
+          <span className="sm-eyebrow-text">Plakater</span>
+        </div>
+        <h2 className="sm-title reveal">To plakater til utstillingen</h2>
+        <p className="sm-body reveal">
+          Som en del av utstillingen utformet vi to plakater: en teknisk plakat som
+          dokumenterer løsningen, og en visuell plakat som forklarer opplevelsen. Klikk
+          på en plakat for å se den i full størrelse.
+        </p>
+
+        <div className="sm-poster-grid">
+          {posters.map((poster, index) => (
+            <figure className={`sm-poster ${revealClass(index, 2)}`} key={poster.image}>
+              <button
+                type="button"
+                className="sm-poster-shot"
+                onClick={() => setZoomed({ image: poster.image, alt: poster.alt })}
+                aria-label={`Åpne «${poster.title}» i full størrelse`}
+              >
+                <img
+                  src={poster.image}
+                  alt={poster.alt}
+                  width={poster.width}
+                  height={poster.height}
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <span className="sm-poster-title">{poster.title}</span>
+                <p className="sm-poster-desc">{poster.desc}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* Felles lightbox for prototypeskjermene, flytdiagrammet og plakatene. */}
       {zoomed && (
         <div
           className="sm-lightbox"
