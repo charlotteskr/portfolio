@@ -350,7 +350,9 @@ export default function Smart() {
           {brandType.map((item) => (
             <li key={item.role}>
               <span className="sm-type-role">{item.role}</span>
-              <span className="sm-type-font">{item.font}</span>
+              <span className="sm-type-font" style={{ fontFamily: item.stack }}>
+                {item.font}
+              </span>
               <span className="sm-type-weight">{item.weight}</span>
             </li>
           ))}

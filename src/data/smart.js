@@ -310,10 +310,27 @@ export const brandIllustrations = [
   },
 ];
 
+// Fontene er lastet fra Google Fonts i index.html. `stack` brukes til å sette
+// navnet på hver font i fonten den beskriver, slik at lista blir en prøve.
 export const brandType = [
-  { role: 'Overskrift 1', font: 'Albert Sans', weight: 'Regular' },
-  { role: 'Overskrift 2', font: 'Aboreto', weight: 'Regular' },
-  { role: 'Brødtekst', font: 'Akatab', weight: 'Regular / Bold' },
+  {
+    role: 'Overskrift 1',
+    font: 'Albert Sans',
+    weight: 'Regular',
+    stack: "'Albert Sans', sans-serif",
+  },
+  {
+    role: 'Overskrift 2',
+    font: 'Aboreto',
+    weight: 'Regular',
+    stack: "'Aboreto', serif",
+  },
+  {
+    role: 'Brødtekst',
+    font: 'Akatab',
+    weight: 'Regular / Bold',
+    stack: "'Akatab', sans-serif",
+  },
 ];
 
 // De to fysiske delene av utstillingen: flata verket vises på, og tingen

@@ -525,7 +525,7 @@ body.case-smart {
   color: var(--dim);
   min-width: 9rem;
 }
-.sm-type-font { font-size: 1.05rem; font-weight: 300; }
+.sm-type-font { font-size: 1.35rem; font-weight: 400; }
 .sm-type-weight { font-size: 0.8rem; color: var(--dim); }
 
 /* ── ILLUSTRASJONER ──
