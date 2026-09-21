@@ -101,6 +101,28 @@ export default function Smart() {
         </div>
       </section>
 
+      {/* TEAM */}
+      <section className="sm-team tinted">
+        <div className="sm-eyebrow reveal">
+          <div className="sm-eyebrow-dot" />
+          <span className="sm-eyebrow-text">Team</span>
+        </div>
+        <h2 className="sm-title reveal">Hvem gjorde hva</h2>
+        <p className="sm-body reveal">
+          smArt ble utviklet av seks studenter — tre fra interaksjonsdesign og tre fra
+          programvareutvikling.
+        </p>
+        <div className="sm-team-grid reveal">
+          {team.map((member) => (
+            <div className={`sm-team-member${member.me ? ' me' : ''}`} key={member.name}>
+              <span className="sm-team-name">{member.name}</span>
+              <span className="sm-team-role">{member.role}</span>
+              {member.me && <span className="sm-team-flag">Meg</span>}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* PROSESS */}
       <section className="sm-process sand">
         <div className="sm-eyebrow reveal">
@@ -490,28 +512,6 @@ export default function Smart() {
                 </div>
               )}
             </Fragment>
-          ))}
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="sm-team">
-        <div className="sm-eyebrow reveal">
-          <div className="sm-eyebrow-dot" />
-          <span className="sm-eyebrow-text">Team</span>
-        </div>
-        <h2 className="sm-title reveal">Hvem gjorde hva</h2>
-        <p className="sm-body reveal">
-          smArt ble utviklet av seks studenter — tre fra interaksjonsdesign og tre fra
-          programvareutvikling.
-        </p>
-        <div className="sm-team-grid reveal">
-          {team.map((member) => (
-            <div className={`sm-team-member${member.me ? ' me' : ''}`} key={member.name}>
-              <span className="sm-team-name">{member.name}</span>
-              <span className="sm-team-role">{member.role}</span>
-              {member.me && <span className="sm-team-flag">Meg</span>}
-            </div>
           ))}
         </div>
       </section>
