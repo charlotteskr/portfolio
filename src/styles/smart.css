@@ -601,8 +601,9 @@ body.case-smart {
    mot den mørke seksjonen, med en kant tynnet fra fasefargen. */
 .sm-physical { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
 .sm-physical-flate {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 240px;
   padding: 1rem;
   border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
@@ -610,11 +611,16 @@ body.case-smart {
   background: var(--paper);
   overflow: hidden;
 }
+/* Flata var et grid med place-items: center. På et sentrert grid-element
+   løste ikke Chrome prosenthøyden mot flata, så max-height: 100% ble ignorert
+   og bildene rendret i naturlig høyde — 240 og 257 px i en flate på 208 — og
+   ble klippet nederst av overflow: hidden. Som flex-element måler prosenten
+   mot containerens innholdsboks, og bildet skaleres inn med lik luft rundt. */
 .sm-physical-flate img {
   max-width: 100%;
   max-height: 100%;
-  width: auto; height: auto;
-  object-fit: contain;
+  width: auto;
+  height: auto;
 }
 .sm-physical-card { margin: 0; }
 .sm-physical-title {
