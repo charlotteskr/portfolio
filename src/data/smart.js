@@ -269,12 +269,32 @@ export const brandLogos = [
 
 // Merkevaren er definert i prosjektet selv — verdiene er hentet rett fra
 // designmanualen på plakat 5 og gjenbrukes som sidens palett.
-export const brandColors = [
-  { name: 'Bakgrunn', hex: '#F0E8D9' },
-  { name: 'Tekst', hex: '#2D2C29' },
-  { name: 'Modal', hex: '#D4BD91' },
-  { name: 'Knapp', hex: '#7A0B0B' },
-  { name: 'Knapp', hex: '#3B6246' },
+export const brandColorGroups = [
+  {
+    title: 'Primærfarge',
+    colors: [
+      // Den lyse beigen forsvinner mot papirflata, så prøven får grå ramme i
+      // stedet for den tonede --line.
+      { name: 'Bakgrunn', hex: '#F0E8D9', border: '#A8A8A8' },
+      { name: 'Tekst', hex: '#2D2C29' },
+      { name: 'Modal', hex: '#D4BD91' },
+      { name: 'Knapp', hex: '#7A0B0B' },
+      { name: 'Knapp', hex: '#3B6246' },
+    ],
+  },
+  {
+    // De seks tonene grensesnittet bruker på hover. Verdiene er de samme som
+    // --phase-* og --tone-* i smart.css.
+    title: 'Hover state',
+    colors: [
+      { name: 'Lilla', hex: '#D8A7E4' },
+      { name: 'Blå', hex: '#9D9FC5' },
+      { name: 'Rød', hex: '#E28585' },
+      { name: 'Oransje', hex: '#DF8E53' },
+      { name: 'Gul', hex: '#F2D759' },
+      { name: 'Grønn', hex: '#7DBF68' },
+    ],
+  },
 ];
 
 // De fire illustrasjonene fra designmanualen, tegnet i Illustrator. De går

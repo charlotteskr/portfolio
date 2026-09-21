@@ -248,6 +248,15 @@ body.case-smart {
   margin-bottom: 1.5rem;
   overflow-wrap: break-word;
 }
+/* Underoverskriftene inne i en seksjon — Logo, Farge, Typografi,
+   Illustrasjoner. Samme skrift som .sm-title, ett hakk mindre, med luft over
+   seg. Blokka rett under arver avstanden fra overskriften i stedet for å
+   legge sin egen på toppen. */
+.sm-subtitle { font-size: 1.6rem; margin-top: 4rem; }
+.sm-subtitle + .sm-logos,
+.sm-subtitle + .sm-swatch-group,
+.sm-subtitle + .sm-type-list { margin-top: 0; }
+
 .sm-body {
   font-size: 1rem;
   color: var(--dim);
@@ -494,7 +503,15 @@ body.case-smart {
   font-weight: 300;
 }
 
-.sm-swatches { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; }
+.sm-swatch-group { margin-top: 2.5rem; }
+.sm-swatch-group-title {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.sm-swatches { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
 .sm-swatch { width: 130px; }
 .sm-swatch-chip {
   height: 78px;

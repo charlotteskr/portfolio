@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import {
-  brandColors,
+  brandColorGroups,
   brandIllustrations,
   brandLogos,
   brandType,
@@ -316,6 +316,8 @@ export default function Smart() {
           mer ekspressive installasjoner.
         </p>
 
+        <h3 className="sm-title sm-subtitle reveal">Logo</h3>
+
         <div className="sm-logos">
           {brandLogos.map((logo, index) => (
             <figure className={`sm-logo ${revealClass(index, 2)}`} key={logo.name}>
@@ -336,15 +338,27 @@ export default function Smart() {
           ))}
         </div>
 
-        <div className="sm-swatches reveal">
-          {brandColors.map((color) => (
-            <div className="sm-swatch" key={color.hex}>
-              <div className="sm-swatch-chip" style={{ background: color.hex }} />
-              <div className="sm-swatch-name">{color.name}</div>
-              <div className="sm-swatch-hex">{color.hex}</div>
+        <h3 className="sm-title sm-subtitle reveal">Farge</h3>
+
+        {brandColorGroups.map((group) => (
+          <div className="sm-swatch-group reveal" key={group.title}>
+            <h3 className="sm-swatch-group-title">{group.title}</h3>
+            <div className="sm-swatches">
+              {group.colors.map((color) => (
+                <div className="sm-swatch" key={color.hex}>
+                  <div
+                    className="sm-swatch-chip"
+                    style={{ background: color.hex, borderColor: color.border }}
+                  />
+                  <div className="sm-swatch-name">{color.name}</div>
+                  <div className="sm-swatch-hex">{color.hex}</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+
+        <h3 className="sm-title sm-subtitle reveal">Typografi</h3>
 
         <ul className="sm-type-list reveal">
           {brandType.map((item) => (
@@ -358,9 +372,7 @@ export default function Smart() {
           ))}
         </ul>
 
-        <h3 className="sm-title reveal" style={{ fontSize: '1.6rem', marginTop: '4rem' }}>
-          Illustrasjoner
-        </h3>
+        <h3 className="sm-title sm-subtitle reveal">Illustrasjoner</h3>
         <p className="sm-body reveal">
           Fire illustrasjoner tegnet i Illustrator. De går igjen på sidene for hver
           kunststil, der tre av dem står som kjennetegnene ved stilen.
