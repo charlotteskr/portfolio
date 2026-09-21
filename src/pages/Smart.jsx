@@ -339,6 +339,11 @@ export default function Smart() {
         </div>
 
         <h3 className="sm-title sm-subtitle reveal">Farge</h3>
+        <p className="sm-body reveal">
+          Paletten tar utgangspunkt i varme, innbydende og nedtonede farger. Hover
+          state-fargene vises når musepekeren holdes over de ulike kunststilene på
+          hjemsiden, og de går igjen i plakaten.
+        </p>
 
         {brandColorGroups.map((group) => (
           <div className="sm-swatch-group reveal" key={group.title}>
