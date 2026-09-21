@@ -260,7 +260,7 @@ export const brandLogos = [
   {
     image: '/bilder/smart/sekundaerlogo.svg',
     name: 'Sekundærlogo',
-    desc: 'Én linje til trange flater, der undertittelen er byttet ut med «Gallery» og et glimt skiller de to ordene.',
+    desc: 'Logoen blir brukt for å skille galleriet, der de AI-genererte bildene blir delt og vist.',
     alt: 'Sekundærlogoen: ordmerket smArt på én linje, etterfulgt av et firestrålet glimt og ordet Gallery',
     width: 260,
     height: 65,
