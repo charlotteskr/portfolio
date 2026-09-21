@@ -32,7 +32,14 @@ export const processPhases = [
     title: 'Define',
     accent: 'var(--phase-define)',
     desc: 'Ramme inn problemet på nytt og definere brukerflyten for løsningen.',
-    methods: ['Hovedfunn', 'Problemstilling', 'Brukerflyt', 'Konkurrentanalyse'],
+    methods: [
+      'Hovedfunn',
+      'Problemstilling',
+      'Brukerflyt',
+      'Konkurrentanalyse',
+      'Brainstorming',
+      'Kunstbefaring',
+    ],
   },
   {
     tag: 'Fase 03',
