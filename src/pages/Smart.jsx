@@ -10,6 +10,7 @@ import {
   heroMeta,
   insights,
   moscow,
+  myContribution,
   physical,
   posters,
   processPhases,
@@ -113,12 +114,25 @@ export default function Smart() {
           smArt ble utviklet av seks studenter — tre fra interaksjonsdesign og tre fra
           programvareutvikling.
         </p>
+
+        <div className="sm-me reveal">
+          <div className="sm-me-head">
+            <span className="sm-me-name">Charlotte Skråmestø</span>
+            <span className="sm-me-role">UX-design</span>
+          </div>
+          {myContribution.map((paragraph) => (
+            <p className="sm-me-text" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <h3 className="sm-team-heading reveal">Resten av teamet</h3>
         <div className="sm-team-grid reveal">
           {team.map((member) => (
-            <div className={`sm-team-member${member.me ? ' me' : ''}`} key={member.name}>
+            <div className="sm-team-member" key={member.name}>
               <span className="sm-team-name">{member.name}</span>
               <span className="sm-team-role">{member.role}</span>
-              {member.me && <span className="sm-team-flag">Meg</span>}
             </div>
           ))}
         </div>

@@ -10,8 +10,15 @@ export const heroMeta = [
   { label: 'Leveranse', value: 'Interaktiv utstilling' },
 ];
 
+// Mitt eget bidrag står for seg selv over lista, så teamtabellen bare er de
+// fem andre.
+export const myContribution = [
+  'Arbeidet mitt besto av research og innsiktsarbeid, brainstorming, fasilitering av workshoper og strukturering av funnene.',
+  'Hovedvekten lå på det visuelle og grafiske i prosjektet og produktet. Jeg laget moodboards og la fram ulike fargekombinasjoner, typografi og sammensetninger av elementer som designteamet kunne ta stilling til.',
+  'I tillegg laserkuttet jeg en bilderamme og 3D-printet en mobilholder til utstillingen. Til selve utstillingen designet jeg to plakater, tegnet egne illustrasjoner og andre visuelle elementer som forklarer prosjektet, og utviklet prototypen for galleriveggen.',
+];
+
 export const team = [
-  { name: 'Charlotte Skråmestø', role: 'UX-design', me: true },
   { name: 'Jakob W. Putkowski', role: 'UX-design' },
   { name: 'Hedda S. Undseth', role: 'UX-design' },
   { name: 'Andreas Christiansen', role: 'Fullstack' },
