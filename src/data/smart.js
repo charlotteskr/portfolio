@@ -332,24 +332,28 @@ export const brandIllustrations = [
 
 // Fontene er lastet fra Google Fonts i index.html. `stack` brukes til å sette
 // navnet på hver font i fonten den beskriver, slik at lista blir en prøve.
+// Beskrivelsene er kortet ned fra fontenes egne tekster på Google Fonts.
 export const brandType = [
   {
     role: 'Overskrift 1',
     font: 'Albert Sans',
     weight: 'Regular',
     stack: "'Albert Sans', sans-serif",
+    desc: 'Geometrisk grotesk av Andreas Rasmussen, inspirert av skandinaviske arkitekter og formgivere fra tidlig 1900-tall. Ti vekter, fra Thin til Black.',
   },
   {
     role: 'Overskrift 2',
     font: 'Aboreto',
     weight: 'Regular',
     stack: "'Aboreto', serif",
+    desc: 'Display-font bygget på renessansens majuskler, etter bokstavene til den florentinske billedhuggeren Luca della Robbia. Finnes i én vekt.',
   },
   {
     role: 'Brødtekst',
     font: 'Akatab',
     weight: 'Regular / Bold',
     stack: "'Akatab', sans-serif",
+    desc: 'Laget av SIL for tifinagh-skrift, men dekker også det latinske alfabetet i seks vekter fra Regular til Black.',
   },
 ];
 

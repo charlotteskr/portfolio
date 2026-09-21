@@ -543,6 +543,17 @@ body.case-smart {
 }
 .sm-type-font { font-size: 1.35rem; font-weight: 400; }
 .sm-type-weight { font-size: 0.8rem; color: var(--dim); }
+/* Beskrivelsen legger seg på egen linje under rolle, navn og vekt — flex-raden
+   over brekker allerede, så full bredde er nok til å skyve den ned. */
+.sm-type-desc {
+  flex-basis: 100%;
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--dim);
+  max-width: 60ch;
+}
 
 /* ── ILLUSTRASJONER ──
    Filene er punktbilder pakket i SVG, så de tåler ikke oppskalering. En fast

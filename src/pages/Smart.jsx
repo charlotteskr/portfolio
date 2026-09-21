@@ -364,6 +364,9 @@ export default function Smart() {
         ))}
 
         <h3 className="sm-title sm-subtitle reveal">Typografi</h3>
+        <p className="sm-body reveal">
+          Alle tre fontene er tilgjengelige fra Google Fonts.
+        </p>
 
         <ul className="sm-type-list reveal">
           {brandType.map((item) => (
@@ -373,6 +376,7 @@ export default function Smart() {
                 {item.font}
               </span>
               <span className="sm-type-weight">{item.weight}</span>
+              <p className="sm-type-desc">{item.desc}</p>
             </li>
           ))}
         </ul>
