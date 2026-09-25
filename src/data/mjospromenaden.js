@@ -203,7 +203,7 @@ export const protoComponents = [
     height: 985,
     alt: 'Skiltstolpe langs Mjøspromenaden med retning og avstand til Skibladnerbrygga, Rambekkvika, Pulsodden og Gjøvikstranda',
     title: 'Skiltstolpe',
-    desc: 'Fysisk infoskilting plassert langs Mjøspromenaden viser avstand og retning til Skibladnerbrygga, Gjøvikstranda og Pulsodden — tilgjengelig informasjon uten avhengighet av internett eller strøm.',
+    desc: 'Fysisk infoskilt og veifinning plassert langs Mjøspromenaden viser avstand og retning til ulike deler på området. Tilgjengeliggjør og bekrefter navigering på Mjøspromenaden.',
     tags: ['Fysisk skilting', 'Wayfinding', 'Stedsidentitet'],
   },
   {
