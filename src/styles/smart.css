@@ -386,6 +386,14 @@ body.case-smart {
   border-radius: 14px;
   padding: 1.75rem;
   background: var(--card);
+  /* En 1fr-spalte er minmax(auto, 1fr), og auto-minimumet er innholdets
+     min-content — her de lengste ordene i fordel/ulempe-listene. Uten
+     min-width: 0 kan ikke spalta krympe under det, og fra 901px, der kortene
+     står tre i bredden med hver sin todelte liste inni, dyttet summen hele
+     siden 118px bredere enn viewporten. break-word arves ned til listene og
+     bryter ord som er bredere enn spalta de havner i. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .sm-competitor-kind {
   font-size: 0.68rem;
@@ -404,6 +412,10 @@ body.case-smart {
   border-bottom: 1px solid var(--line);
 }
 .sm-proscons { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+/* Samme grunn som på .sm-competitor: fra 769px deler fordeler og ulemper seg
+   i to spalter inne i kortet, og de må få lov til å bli smalere enn det
+   lengste ordet i lista. */
+.sm-proscons > div { min-width: 0; }
 .sm-proscons-title {
   font-size: 0.68rem;
   letter-spacing: 0.16em;

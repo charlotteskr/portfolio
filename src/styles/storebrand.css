@@ -315,6 +315,14 @@ body.case-storebrand {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--sb-tint);
+  /* Fra 769px står tiltakene tre i bredden, og spalta blir smalere enn
+     «Informasjonsarkitektur» satt i 1,3rem. En 1fr-spalte kan ikke krympe
+     under innholdets min-content av seg selv, så grid-en dyttet siden bredere
+     enn viewporten. min-width: 0 slipper spalta ned, og break-word — som
+     arves ned til tittel, ingress og brødtekst — bryter ordet som ellers
+     ville stukket ut av kortet. */
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 /* Tiltakene jeg jobbet med selv skiller seg ut med rød kant. */
 .sb-measure.mine {
