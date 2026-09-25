@@ -148,7 +148,9 @@ body.case-mjos {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  /* 0,45 mot marineblå ga bare 4,0:1; liten tekst trenger 4,5:1.
+     0,55 gir 5,3:1 og brukes på alle de dempede etikettene mot marineblått. */
+  color: rgba(255,255,255,0.55);
 }
 .meta-value {
   font-size: 0.9rem;
@@ -306,7 +308,10 @@ body.case-mjos {
 .process-step.active .process-node {
   background: var(--accent-color, var(--coral));
   border-color: var(--accent-color, var(--coral));
-  color: var(--white);
+  /* Hvitt tall på pastellflaten ga 2,0–2,3:1. Marineblått ligger på 6,0:1 mot
+     korall og 11,1:1 mot gult — alle fem fasefargene er lyse nok til at det
+     er den mørke teksten som hører hjemme her. */
+  color: var(--navy);
   transform: scale(1.15);
   box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-color, var(--coral)) 18%, transparent);
 }
@@ -355,7 +360,10 @@ body.case-mjos {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-color, var(--coral));
+  /* Pastellfargen brukt som tekst på hvitt ga 1,7–2,3:1. Blandet 40 % inn i
+     marineblått beholder den fasens kulør, men lander på 4,8–7,0:1 for alle
+     fem — den gule er den kritiske og gir 4,8:1. */
+  color: color-mix(in srgb, var(--accent-color, var(--coral)) 40%, var(--navy));
   margin-bottom: 0.6rem;
   font-weight: 500;
 }
@@ -382,7 +390,7 @@ body.case-mjos {
 .insights-section { background: var(--navy); color: var(--white); }
 .insights-section .section-title { color: var(--white); }
 .insights-section .section-body { color: rgba(255,255,255,0.6); }
-.insights-section .eyebrow-text { color: rgba(255,255,255,0.45); }
+.insights-section .eyebrow-text { color: rgba(255,255,255,0.55); }
 
 /* auto-fit + minmax er intrinsisk responsivt: én kolonne på telefon,
    flere så snart det er plass til 260px hver. Trenger ingen breakpoint. */
@@ -452,7 +460,8 @@ body.case-mjos {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--white);
+  /* Etiketten står på --sky, der hvitt bare ga 2,0:1. Marineblått gir 7,0:1. */
+  color: var(--navy);
   margin-bottom: 0.8rem;
   font-weight: 500;
   padding: 0.3rem 0.7rem;
@@ -585,7 +594,7 @@ body.case-mjos {
 }
 .solution-section .section-title { color: var(--white); }
 .solution-section .section-body { color: rgba(255,255,255,0.7); }
-.solution-section .eyebrow-text { color: rgba(255,255,255,0.45); }
+.solution-section .eyebrow-text { color: rgba(255,255,255,0.55); }
 
 .proto-intro {
   margin-top: 3rem;

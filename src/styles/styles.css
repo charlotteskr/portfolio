@@ -18,7 +18,12 @@
 :root {
   --white: #ffffff;
   --ink: #000000;
-  --muted: #888;
+  /* Signaturen i footeren er eneste bruk her. #888 ga bare 3,5:1 mot hvitt, og
+     liten tekst må ha 4,5:1. #757575 er den lyseste gråtonen som klarer
+     kravet (4,6:1), så den holder seg like tilbaketrukket som før.
+     Case-sidene har egne dempede farger, men de hører til sideinnholdet og
+     settes på sidewrapperen — ikke på body, der footeren ville arvet dem. */
+  --muted: #757575;
   --light: #d4d4d4;
   --side: clamp(1.5rem, 8vw, 7rem);
 }

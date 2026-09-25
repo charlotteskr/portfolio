@@ -116,7 +116,9 @@ body.case-ks {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(244,236,223,0.45);
+  /* 0,45 ga bare 3,7:1 mot heroens bakgrunn; liten tekst trenger 4,5:1.
+     Denne opasiteten er den laveste som klarer kravet (5,0:1). */
+  color: rgba(244,236,223,0.55);
 }
 .ks-meta-value { font-size: 0.9rem; color: rgba(244,236,223,0.92); font-weight: 400; }
 

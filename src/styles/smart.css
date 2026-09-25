@@ -187,7 +187,9 @@ body.case-smart {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(240,232,217,0.45);
+  /* 0,45 ga bare 2,5:1 mot heroens bakgrunn; liten tekst trenger 4,5:1.
+     Denne opasiteten er den laveste som klarer kravet (4,6:1). */
+  color: rgba(240,232,217,0.85);
 }
 .sm-meta-value { font-size: 0.9rem; color: rgba(240,232,217,0.92); font-weight: 400; }
 

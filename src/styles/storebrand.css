@@ -123,7 +123,9 @@ body.case-storebrand {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(244,238,232,0.45);
+  /* 0,45 ga bare 3,4:1 mot heroens bakgrunn; liten tekst trenger 4,5:1.
+     Denne opasiteten er den laveste som klarer kravet (4,9:1). */
+  color: rgba(244,238,232,0.58);
 }
 .sb-meta-value { font-size: 0.9rem; color: rgba(244,238,232,0.92); font-weight: 400; }
 
@@ -727,7 +729,9 @@ body.case-storebrand {
   border-radius: 999px;
   background: var(--dim);
 }
-.sb-domain.highlight .sb-domain-name { font-weight: 500; color: var(--sb-red); }
+/* --sb-red er flatefargen og gir bare 4,4:1 som tekst mot vasken. Dette er
+   liten tekst, så den skal ha --sb-red-ink som resten av småteksten — 6,6:1. */
+.sb-domain.highlight .sb-domain-name { font-weight: 500; color: var(--sb-red-ink); }
 .sb-domain.highlight .sb-domain-bar span { background: var(--sb-red); }
 .sb-domain-share { text-align: right; color: var(--dim); font-variant-numeric: tabular-nums; }
 .sb-domains-source {
