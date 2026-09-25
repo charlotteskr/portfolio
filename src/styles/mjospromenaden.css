@@ -20,8 +20,20 @@ body.case-mjos {
   --orange-deep: #A85200;
 
   --bg: #f7f5f1;
-  --muted: #6b7794;
   --sand: #e4e0da;
+}
+
+/* --muted står her og ikke på body, i motsetning til tokenene over. styles.css
+   definerer sin egen --muted til footersignaturen og slår fast at footeren
+   «skal se lik ut uansett hvilken palett siden over den bruker». Lå denne på
+   body, arvet footeren den — og signaturen ble blågrå på denne ene siden.
+   På .mjos-page stopper den ved sideinnholdet, der den hører hjemme.
+
+   #6b7794 ga dessuten bare 4,1:1 mot --bg, og tokenet bærer all sekundærtekst
+   på siden — stikktitler, brødtekst, prosessetiketter. #5A6580 er samme
+   blågrå tone mørknet til 5,4:1 mot --bg. */
+.mjos-page {
+  --muted: #5A6580;
 }
 
 /* ── HERO ── */
@@ -179,8 +191,11 @@ body.case-mjos {
   transform: translateY(3px);
 }
 
-/* ── SECTIONS ── */
-section {
+/* ── SECTIONS ──
+   Scopet til .mjos-page som de tre andre case-filene er til sine sider. Som
+   bar elementselektor gjaldt regelen hver <section> i hele bundlet, og de
+   andre sidene overstyrte den bare fordi selektorene deres er tyngre. */
+.mjos-page section {
   padding: clamp(4rem, 8vw, 8rem) var(--side);
 }
 
