@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   findings,
   heroMeta,
@@ -10,6 +10,7 @@ import {
 } from '../data/mjospromenaden';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useLightbox } from '../hooks/useLightbox';
 import { usePageClass } from '../hooks/usePageClass';
 import { useReveal } from '../hooks/useReveal';
 
@@ -32,27 +33,13 @@ export default function Mjospromenaden() {
   const phase = processPhases[activePhase];
   const proto = protoComponents[activeProto];
 
-  // Escape lukker forstørret bilde, og siden bak fryses så man ikke scroller
-  // bort fra bildet mens overlegget er åpent.
-  useEffect(() => {
-    if (!zoomed) return undefined;
-
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') setZoomed(false);
-    };
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener('keydown', onKeyDown);
-    };
-  }, [zoomed]);
+  // Escape, scrollås og fokushåndtering ligger i useLightbox — se hooken.
+  // Den deles med de tre andre case-sidene.
+  const closeLightbox = useCallback(() => setZoomed(false), []);
+  const lightboxRef = useLightbox(zoomed, closeLightbox);
 
   return (
-    <>
+    <main className="mjos-page">
       {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
@@ -338,17 +325,18 @@ export default function Mjospromenaden() {
             helst i overlegget — eller Escape — lukker det igjen. */}
         {zoomed && (
           <div
+            ref={lightboxRef}
             className="proto-lightbox"
             role="dialog"
             aria-modal="true"
             aria-label={proto.title}
-            onClick={() => setZoomed(false)}
+            onClick={closeLightbox}
           >
             <button
               type="button"
               className="proto-lightbox-close"
               aria-label="Lukk"
-              onClick={() => setZoomed(false)}
+              onClick={closeLightbox}
             >
               ×
             </button>
@@ -396,6 +384,6 @@ export default function Mjospromenaden() {
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }

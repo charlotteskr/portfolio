@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   citedDomains,
   contributions,
@@ -12,6 +12,7 @@ import {
 } from '../data/storebrand';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useLightbox } from '../hooks/useLightbox';
 import { usePageClass } from '../hooks/usePageClass';
 import { useReveal } from '../hooks/useReveal';
 
@@ -34,18 +35,13 @@ export default function Storebrand() {
   const proto = expertPrototypes[activeProto];
   const iaPrinciple = iaPrinciples[activeIa];
 
-  // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
-  useEffect(() => {
-    if (!zoomed) return undefined;
-    const onKey = (event) => {
-      if (event.key === 'Escape') setZoomed(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [zoomed]);
+  // Escape, scrollås og fokushåndtering ligger i useLightbox — se hooken.
+  // Klikk i overlegget håndteres på elementet selv.
+  const closeLightbox = useCallback(() => setZoomed(null), []);
+  const lightboxRef = useLightbox(Boolean(zoomed), closeLightbox);
 
   return (
-    <div className="sb-page">
+    <main className="sb-page">
       {/* HERO */}
       <section className="sb-hero">
         <div className="sb-hero-inner">
@@ -546,23 +542,24 @@ export default function Storebrand() {
       {/* Felles lightbox for alle skjermbildene som kan klikkes opp. */}
       {zoomed && (
         <div
+          ref={lightboxRef}
           className="sb-lightbox"
           role="dialog"
           aria-modal="true"
           aria-label={zoomed.alt}
-          onClick={() => setZoomed(null)}
+          onClick={closeLightbox}
         >
           <button
             type="button"
             className="sb-lightbox-close"
             aria-label="Lukk"
-            onClick={() => setZoomed(null)}
+            onClick={closeLightbox}
           >
             ×
           </button>
           <img className="sb-lightbox-img" src={zoomed.image} alt={zoomed.alt} />
         </div>
       )}
-    </div>
+    </main>
   );
 }

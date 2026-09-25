@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useCallback, useState } from 'react';
 import {
   brandColorGroups,
   brandIllustrations,
@@ -19,6 +19,7 @@ import {
 } from '../data/smart';
 import { Icon } from '../components/Icon';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useLightbox } from '../hooks/useLightbox';
 import { usePageClass } from '../hooks/usePageClass';
 import { useReveal } from '../hooks/useReveal';
 
@@ -39,18 +40,13 @@ export default function Smart() {
 
   const phase = processPhases[activePhase];
 
-  // Escape lukker lightboxen. Klikk i overlegget håndteres på elementet selv.
-  useEffect(() => {
-    if (!zoomed) return undefined;
-    const onKey = (event) => {
-      if (event.key === 'Escape') setZoomed(null);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [zoomed]);
+  // Escape, scrollås og fokushåndtering ligger i useLightbox — se hooken.
+  // Klikk i overlegget håndteres på elementet selv.
+  const closeLightbox = useCallback(() => setZoomed(null), []);
+  const lightboxRef = useLightbox(Boolean(zoomed), closeLightbox);
 
   return (
-    <div className="sm-page">
+    <main className="sm-page">
       {/* HERO */}
       <section className="sm-hero">
         <div className="sm-hero-inner">
@@ -573,23 +569,24 @@ export default function Smart() {
       {/* Felles lightbox for prototypeskjermene, flytdiagrammet og plakatene. */}
       {zoomed && (
         <div
+          ref={lightboxRef}
           className="sm-lightbox"
           role="dialog"
           aria-modal="true"
           aria-label={zoomed.alt}
-          onClick={() => setZoomed(null)}
+          onClick={closeLightbox}
         >
           <button
             type="button"
             className="sm-lightbox-close"
             aria-label="Lukk"
-            onClick={() => setZoomed(null)}
+            onClick={closeLightbox}
           >
             ×
           </button>
           <img className="sm-lightbox-img" src={zoomed.image} alt={zoomed.alt} />
         </div>
       )}
-    </div>
+    </main>
   );
 }
